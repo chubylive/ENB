@@ -2,8 +2,8 @@
  * GENERATED FILE - DO NOT EDIT
  * (C) Code Red Technologies Ltd, 2008-2013
  * Generated linker script file for LPC1769
- * Created from generic_c.ld (vLPCXpresso v5.1 (2 [Build 2065] [2013-02-20] ))
- * By LPCXpresso v5.1.2 [Build 2065] [2013-02-20]  on Thu Jun 20 16:25:19 EDT 2013
+ * Created from generic_c.ld (vLPCXpresso v5.2 (4 [Build 2122] [2013-04-29] ))
+ * By LPCXpresso v5.2.4 [Build 2122] [2013-04-29]  on Tue Jun 25 14:59:37 EDT 2013
  */
 
 
@@ -19,6 +19,7 @@ SECTIONS
     .text : ALIGN(4)
     {
         FILL(0xff)
+        __vectors_start__ = ABSOLUTE(.) ;
         KEEP(*(.isr_vector))
         
         /* Global Section Table */
@@ -52,7 +53,11 @@ SECTIONS
         ASSERT(!(__CRP_WORD_START__ == __CRP_WORD_END__), "Linker CRP Enabled, but no CRP_WORD provided within application");
         /* End of Code Read Protect */
         
-        *(.text*)
+    } >MFlash512
+    
+    .text : ALIGN(4)    
+    {
+         *(.text*)
         *(.rodata .rodata.*)
         . = ALIGN(4);
         
@@ -96,15 +101,17 @@ SECTIONS
         _end_uninit_RESERVED = .;
     } > RamLoc32
 
-    .data : ALIGN(4)
-    {
-        FILL(0xff)
-        _data = .;
-        *(vtable)
-        *(.data*)
-        . = ALIGN(4) ;
-        _edata = .;
-    } > RamLoc32 AT>MFlash512
+	
+	/* Main DATA section (RamLoc32) */
+	.data : ALIGN(4)
+	{
+	   FILL(0xff)
+	   _data = . ;
+	   *(vtable)
+	   *(.data*)
+	   . = ALIGN(4) ;
+	   _edata = . ;
+	} > RamLoc32 AT>MFlash512
 
     /* BSS section for RamAHB32 */
     .bss_RAM2 : ALIGN(4)

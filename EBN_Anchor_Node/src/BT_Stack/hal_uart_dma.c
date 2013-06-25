@@ -42,11 +42,11 @@ void hal_uart_dma_init(void){
 	UART_FIFOConfigStructInit(&FIFO_DEFAULT);
 	UART_FIFOConfig((LPC_UART_TypeDef *) LPC_UART1, &FIFO_DEFAULT);
 
-	//enable respective interrupts might just need blocking
-	/*UART_IntConfig((LPC_UART_TypeDef *)LPC_UART1, UART_INTCFG_RBR, ENABLE);
+
+	UART_IntConfig((LPC_UART_TypeDef *)LPC_UART1, UART_INTCFG_RBR, ENABLE);
 	UART_IntConfig((LPC_UART_TypeDef *)LPC_UART1, UART_INTCFG_THRE, ENABLE);
 	UART_IntConfig((LPC_UART_TypeDef *)LPC_UART1, UART_INTCFG_RLS, ENABLE);
-		*/
+		
 
 }
 

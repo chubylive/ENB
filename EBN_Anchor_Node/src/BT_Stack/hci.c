@@ -1115,7 +1115,7 @@ void hci_run(){
                             hci_stack.substate = 4; // more init commands
                             break;
                         }
-                        log_info("hci_run: init script done\n\r");
+                      //  log_info("hci_run: init script done\n\r");
                     }
                     // otherwise continue
 					hci_send_cmd(&hci_read_bd_addr);
@@ -1123,17 +1123,15 @@ void hci_run(){
 				case 4:
 					hci_send_cmd(&hci_read_buffer_size);
 					break;
-                case 5:
+                /*case 5:
                     // ca. 15 sec
-                    hci_send_cmd(&hci_write_page_timeout, 0x6000);
+                   //hci_send_cmd(&hci_write_page_timeout, 0x6000);
                     break;
 				case 6:
-					hci_send_cmd(&hci_write_scan_enable, (hci_stack.connectable << 1) | hci_stack.discoverable); // page scan
-					break;
-                case 7:
-                    hci_send_cmd(&hci_read_local_supported_features);
-                    break;                
-                case 8:
+					//hci_send_cmd(&hci_write_scan_enable, (hci_stack.connectable << 1) | hci_stack.discoverable); // page scan
+					break;*/
+                case 5:
+
 #ifndef EMBEDDED
                 {
                     char hostname[30];
@@ -1249,6 +1247,12 @@ void hci_run(){
         default:
             break;
     }
+}
+
+int hci_send_device_int(){
+	uint8_t tx_payload[] = {0x00,0xFE,0x26,0x04,0x05,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x01,0x00,0x00,0x00};
+	int size = 41;
+	return hci_stack.hci_transport->send_packet(HCI_COMMAND_DATA_PACKET, tx_payload, size);
 }
 
 int hci_send_cmd_packet(uint8_t *packet, int size){

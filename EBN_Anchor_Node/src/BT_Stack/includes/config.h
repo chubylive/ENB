@@ -4,8 +4,10 @@
 #define HAVE_BZERO
 #define HAVE_TICK
 
-#define HAVE_EHCILL
+//#define HAVE_EHCILL
 #define HAVE_BLE
+#define DUMP
+
 
 // #define ENABLE_LOG_INFO 
 #define ENABLE_LOG_ERROR

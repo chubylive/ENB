@@ -31,7 +31,7 @@ all: EBN_Anchor_Node.axf
 EBN_Anchor_Node.axf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -L"/home/chuby/Dropbox/WorkSpace/CMSISv2p00_LPC17xx/Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
