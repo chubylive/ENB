@@ -137,6 +137,18 @@ uint16_t hci_create_cmd_internal(uint8_t *hci_cmd_buffer, const hci_cmd_t *cmd, 
                 memcpy(&hci_cmd_buffer[pos], ptr, 16);
                 pos += 16;
                 break;
+
+            case 'I':// 16 byte IRK values
+                ptr = va_arg(argptr, uint8_t*);
+                memcpy(&hci_cmd_buffer[pos], ptr, 16);
+                pos += 16;
+                break;
+
+            case 'C'://16 byte CSRK values
+                ptr = va_arg(argptr, uint8_t*);
+                memcpy(&hci_cmd_buffer[pos], ptr, 16);
+                pos += 16;
+                break;
 #ifdef HAVE_BLE
             case 'A': // 31 bytes advertising data
                 ptr = va_arg(argptr, uint8_t *);
@@ -397,7 +409,7 @@ OPCODE(OGF_LE_CONTROLLER, 0x05), "B"
 // return: status
 };
 const hci_cmd_t hci_le_set_advertising_parameters = {
-OPCODE(OGF_LE_CONTROLLER, 0x06), "22111B11"
+OPCODE(OGF_LE_CONTROLLER, 0x06), "22111B11",
 // param: min advertising interval, [0x0020,0x4000], default: 0x0800, unit: 0.625 msec
 // param: max advertising interval, [0x0020,0x4000], default: 0x0800, unit: 0.625 msec
 // param: advertising type (enum from 0): ADV_IND, ADC_DIRECT_IND, ADV_SCAN_IND, ADV_NONCONN_IND
@@ -566,6 +578,44 @@ const hci_cmd_t hci_le_test_end = {
     // params: none
     // return: status, number of packets (8)
 };
+/*GAP General Access Profile Commands*/
+const gap_cmd_t gap_device_init = {
+    (GAP_DeviceInit),"111IC4"
+    //params: Data Length [0x26]
+    //params: GAP profile Roles. Select multiple Roles example (GAP_PROFILE_CENTRAL|GAP_PROFILE_BROADCASTER)
+    //params: Max Scan Response
+    //params: IRK (a 16 octet array of 00's)
+    //params: CSRK (a 16 octet array of 00's)
+    //params: SignCounter (32 bit value) [0x00000001]
+};
+const gap_cmd_t gap_get_param = {
+    (GAP_GetParam),"11"
+    //param: Data Length [0x01]
+    //param: the data that you want back (will specify later)
+};
+const gap_cmd_t gap_set_param = {
+    (GAP_SetParam), "112"
+    //params: Data Length [0x03]
+    //params: ParamID (will specify relevant one later)
+    //params: ParamValue 
+};
+const gap_cmd_t gap_UpdateAdvertisingData = {
+		(0xFE07),"1111"
+		//params: Data Length [0x03]
+		//params: AdType [0x00] scan response [0x01] adv data
+		//params: Adv Data length
+		//params: Adv Data
+};
+
+const gap_cmd_t gap_device_discovery_request = {
+		(GAP_DeviceDiscoveryRequest),"1111"
+		//params: Data length [0x03]
+		//params: Mode [0x00] (Non Discoverable),, [0x01] (General), [0x02] (Limited), [0x03](All)
+		//params: active scan [0x01], passsive scan [0x00]
+		//params: White List (0) disable (1) enable
+};
+
+
 #endif
 
 // BTstack commands

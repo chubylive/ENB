@@ -1,6 +1,26 @@
-16:25:31 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+16:50:25 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
 make all 
-make: Nothing to be done for `all'.
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34216	     68	   1216	  35500	   8aac	EBN_Anchor_Node.axf
+ 
 
-16:25:31 Build Finished (took 61ms)
+16:50:26 Build Finished (took 1s.167ms)
 

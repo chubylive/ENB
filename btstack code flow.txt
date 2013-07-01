@@ -1,0 +1,20 @@
+hci_power_control
+	this function does variours differnt routines based ofn the hci_stack.state
+	During the initilization of the HCI it(hci_stack.state == HCI_STATE_OFF)
+		in the case that it is of and there is a switch on if the application want to power on or power off. In our case we want to power on so the hci_power_control_on() function is 
+		called
+
+		hci_power_control_on(): this used the information in the hci_stack.control. In our implementation because we dont have the information for these field they are set to NULL
+		in the this function the hci_stack.hci_transport is setup. it returns an int err. ours return fine.
+
+	back in the power control function * 1 is add to hcistack.num_cmd_packets. the comments says
+	"assume that one cmd can be sent". 
+	 hci_stack.state is set to HCI_STATE_INITIALIZING
+	 hci_stack.state is set to 0
+	 the switch breaks and an internal event is created. this is done with a call to hci_emit_state()
+
+	 	hci_emit_state(): this function basically creates an event of size 4 bytes. it loads the first byte with BTSTACK_EVENT_STATE, the second with the size of the event and the third with the current state of the HCI. It send the packet to the HCI packet handler
+	 
+	back in the power control function the hci_run() is called
+
+		hci_run(): this fucntion call the 

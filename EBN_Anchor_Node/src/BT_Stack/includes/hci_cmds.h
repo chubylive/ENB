@@ -38,7 +38,7 @@
 #pragma once
 
 #include <stdint.h>
-
+#include "gap.h"
 #if defined __cplusplus
 extern "C" {
 #endif
@@ -269,6 +269,11 @@ typedef enum {
     const char *format;
 } hci_cmd_t;
 
+typedef struct {
+	uint16_t opcode;
+	const char *format;
+}gap_cmd_t;
+
 
 // HCI Commands - see hci_cmds.c for info on parameters
 extern const hci_cmd_t btstack_get_state;
@@ -355,6 +360,12 @@ extern const hci_cmd_t hci_le_set_scan_response_data;
 extern const hci_cmd_t hci_le_start_encryption;
 extern const hci_cmd_t hci_le_test_end;
 extern const hci_cmd_t hci_le_transmitter_test;
+
+extern const gap_cmd_t gap_device_init;
+extern const gap_cmd_t gap_get_param;
+extern const gap_cmd_t gap_UpdateAdvertisingData;
+extern const gap_cmd_t gap_device_discovery_request;
+
     
 extern const hci_cmd_t l2cap_accept_connection;
 extern const hci_cmd_t l2cap_create_channel;

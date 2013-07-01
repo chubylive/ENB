@@ -15,7 +15,10 @@ src/main.d: ../src/main.c \
  ../src/BT_Stack/includes/remote_device_db.h \
  ../src/BT_Stack/includes/hci_dump.h ../src/BT_Stack/includes/l2cap.h \
  ../src/BT_Stack/includes/l2cap_signaling.h \
- ../src/BT_Stack/includes/btstack.h ../src/BT_Stack/includes/att.h
+ ../src/BT_Stack/includes/btstack.h ../src/BT_Stack/includes/att.h \
+ ../src/BT_Stack/includes/hal_uart_dma.h \
+ ../src/BT_Stack/Drivers/includes/lpc17xx_uart.h \
+ ../src/BT_Stack/Drivers/includes/lpc_types.h
 
 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc/LPC17xx.h:
 
@@ -58,3 +61,9 @@ C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc/system_LPC17xx.h:
 ../src/BT_Stack/includes/btstack.h:
 
 ../src/BT_Stack/includes/att.h:
+
+../src/BT_Stack/includes/hal_uart_dma.h:
+
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:
+
+../src/BT_Stack/Drivers/includes/lpc_types.h:

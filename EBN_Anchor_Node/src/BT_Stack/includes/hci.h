@@ -325,6 +325,8 @@ void hci_run(void);
 // send complete CMD packet
 int hci_send_cmd_packet(uint8_t *packet, int size);
 
+//device init
+int hci_send_device_int(void);
 // send ACL packet
 int hci_send_acl_packet(uint8_t *packet, int size);
 

@@ -1,6 +1,1174 @@
-16:25:30 **** Incremental Build of configuration Debug for project CMSISv2p00_LPC17xx ****
+14:13:18 **** Incremental Build of configuration Debug for project CMSISv2p00_LPC17xx ****
 make all 
 make: Nothing to be done for `all'.
-16:25:31 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+14:13:19 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/BT_Stack/hci_cmds.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_cmds.d" -MT"src/BT_Stack/hci_cmds.d" -o "src/BT_Stack/hci_cmds.o" "../src/BT_Stack/hci_cmds.c"
+Finished building: ../src/BT_Stack/hci_cmds.c
+ 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  35192	     68	   1216	  36476	   8e7c	EBN_Anchor_Node.axf
+ 
+14:13:31 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
 make all 
 make: Nothing to be done for `all'.
+14:17:06 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/BT_Stack/btstack_memory.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/btstack_memory.d" -MT"src/BT_Stack/btstack_memory.d" -o "src/BT_Stack/btstack_memory.o" "../src/BT_Stack/btstack_memory.c"
+Finished building: ../src/BT_Stack/btstack_memory.c
+ 
+Building file: ../src/BT_Stack/hci.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci.d" -MT"src/BT_Stack/hci.d" -o "src/BT_Stack/hci.o" "../src/BT_Stack/hci.c"
+Finished building: ../src/BT_Stack/hci.c
+ 
+Building file: ../src/BT_Stack/hci_cmds.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_cmds.d" -MT"src/BT_Stack/hci_cmds.d" -o "src/BT_Stack/hci_cmds.o" "../src/BT_Stack/hci_cmds.c"
+Finished building: ../src/BT_Stack/hci_cmds.c
+ 
+Building file: ../src/BT_Stack/hci_dump.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_dump.d" -MT"src/BT_Stack/hci_dump.d" -o "src/BT_Stack/hci_dump.o" "../src/BT_Stack/hci_dump.c"
+Finished building: ../src/BT_Stack/hci_dump.c
+ 
+Building file: ../src/BT_Stack/hci_transport_h4_dma.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_transport_h4_dma.d" -MT"src/BT_Stack/hci_transport_h4_dma.d" -o "src/BT_Stack/hci_transport_h4_dma.o" "../src/BT_Stack/hci_transport_h4_dma.c"
+Finished building: ../src/BT_Stack/hci_transport_h4_dma.c
+ 
+Building file: ../src/BT_Stack/l2cap.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/l2cap.d" -MT"src/BT_Stack/l2cap.d" -o "src/BT_Stack/l2cap.o" "../src/BT_Stack/l2cap.c"
+Finished building: ../src/BT_Stack/l2cap.c
+ 
+Building file: ../src/BT_Stack/remote_device_db_memory.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/remote_device_db_memory.d" -MT"src/BT_Stack/remote_device_db_memory.d" -o "src/BT_Stack/remote_device_db_memory.o" "../src/BT_Stack/remote_device_db_memory.c"
+Finished building: ../src/BT_Stack/remote_device_db_memory.c
+ 
+Building file: ../src/BT_Stack/rfcomm.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/rfcomm.d" -MT"src/BT_Stack/rfcomm.d" -o "src/BT_Stack/rfcomm.o" "../src/BT_Stack/rfcomm.c"
+Finished building: ../src/BT_Stack/rfcomm.c
+ 
+Building file: ../src/BT_Stack/run_loop.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/run_loop.d" -MT"src/BT_Stack/run_loop.d" -o "src/BT_Stack/run_loop.o" "../src/BT_Stack/run_loop.c"
+Finished building: ../src/BT_Stack/run_loop.c
+ 
+Building file: ../src/BT_Stack/run_loop_embedded.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/run_loop_embedded.d" -MT"src/BT_Stack/run_loop_embedded.d" -o "src/BT_Stack/run_loop_embedded.o" "../src/BT_Stack/run_loop_embedded.c"
+Finished building: ../src/BT_Stack/run_loop_embedded.c
+ 
+Building file: ../src/BT_Stack/utils.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/utils.d" -MT"src/BT_Stack/utils.d" -o "src/BT_Stack/utils.o" "../src/BT_Stack/utils.c"
+Finished building: ../src/BT_Stack/utils.c
+ 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34168	     68	   1216	  35452	   8a7c	EBN_Anchor_Node.axf
+ 
+14:18:59 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34168	     68	   1216	  35452	   8a7c	EBN_Anchor_Node.axf
+ 
+14:23:52 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34168	     68	   1216	  35452	   8a7c	EBN_Anchor_Node.axf
+ 
+15:05:51 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34168	     68	   1216	  35452	   8a7c	EBN_Anchor_Node.axf
+ 
+15:07:35 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34168	     68	   1216	  35452	   8a7c	EBN_Anchor_Node.axf
+ 
+17:38:49 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34368	     68	   1216	  35652	   8b44	EBN_Anchor_Node.axf
+ 
+17:41:02 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/BT_Stack/btstack_memory.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/btstack_memory.d" -MT"src/BT_Stack/btstack_memory.d" -o "src/BT_Stack/btstack_memory.o" "../src/BT_Stack/btstack_memory.c"
+Finished building: ../src/BT_Stack/btstack_memory.c
+ 
+Building file: ../src/BT_Stack/hci.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci.d" -MT"src/BT_Stack/hci.d" -o "src/BT_Stack/hci.o" "../src/BT_Stack/hci.c"
+Finished building: ../src/BT_Stack/hci.c
+ 
+Building file: ../src/BT_Stack/hci_cmds.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_cmds.d" -MT"src/BT_Stack/hci_cmds.d" -o "src/BT_Stack/hci_cmds.o" "../src/BT_Stack/hci_cmds.c"
+Finished building: ../src/BT_Stack/hci_cmds.c
+ 
+Building file: ../src/BT_Stack/hci_dump.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_dump.d" -MT"src/BT_Stack/hci_dump.d" -o "src/BT_Stack/hci_dump.o" "../src/BT_Stack/hci_dump.c"
+Finished building: ../src/BT_Stack/hci_dump.c
+ 
+Building file: ../src/BT_Stack/hci_transport_h4_dma.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_transport_h4_dma.d" -MT"src/BT_Stack/hci_transport_h4_dma.d" -o "src/BT_Stack/hci_transport_h4_dma.o" "../src/BT_Stack/hci_transport_h4_dma.c"
+Finished building: ../src/BT_Stack/hci_transport_h4_dma.c
+ 
+Building file: ../src/BT_Stack/l2cap.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/l2cap.d" -MT"src/BT_Stack/l2cap.d" -o "src/BT_Stack/l2cap.o" "../src/BT_Stack/l2cap.c"
+Finished building: ../src/BT_Stack/l2cap.c
+ 
+Building file: ../src/BT_Stack/remote_device_db_memory.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/remote_device_db_memory.d" -MT"src/BT_Stack/remote_device_db_memory.d" -o "src/BT_Stack/remote_device_db_memory.o" "../src/BT_Stack/remote_device_db_memory.c"
+Finished building: ../src/BT_Stack/remote_device_db_memory.c
+ 
+Building file: ../src/BT_Stack/rfcomm.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/rfcomm.d" -MT"src/BT_Stack/rfcomm.d" -o "src/BT_Stack/rfcomm.o" "../src/BT_Stack/rfcomm.c"
+Finished building: ../src/BT_Stack/rfcomm.c
+ 
+Building file: ../src/BT_Stack/run_loop.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/run_loop.d" -MT"src/BT_Stack/run_loop.d" -o "src/BT_Stack/run_loop.o" "../src/BT_Stack/run_loop.c"
+Finished building: ../src/BT_Stack/run_loop.c
+ 
+Building file: ../src/BT_Stack/run_loop_embedded.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/run_loop_embedded.d" -MT"src/BT_Stack/run_loop_embedded.d" -o "src/BT_Stack/run_loop_embedded.o" "../src/BT_Stack/run_loop_embedded.c"
+Finished building: ../src/BT_Stack/run_loop_embedded.c
+ 
+Building file: ../src/BT_Stack/utils.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/utils.d" -MT"src/BT_Stack/utils.d" -o "src/BT_Stack/utils.o" "../src/BT_Stack/utils.c"
+Finished building: ../src/BT_Stack/utils.c
+ 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34560	     68	   1216	  35844	   8c04	EBN_Anchor_Node.axf
+ 
+17:43:12 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34568	     68	   1216	  35852	   8c0c	EBN_Anchor_Node.axf
+ 
+10:42:04 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/BT_Stack/hci.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci.d" -MT"src/BT_Stack/hci.d" -o "src/BT_Stack/hci.o" "../src/BT_Stack/hci.c"
+Finished building: ../src/BT_Stack/hci.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34568	     68	   1216	  35852	   8c0c	EBN_Anchor_Node.axf
+ 
+10:44:29 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/BT_Stack/hci.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci.d" -MT"src/BT_Stack/hci.d" -o "src/BT_Stack/hci.o" "../src/BT_Stack/hci.c"
+Finished building: ../src/BT_Stack/hci.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34568	     68	   1216	  35852	   8c0c	EBN_Anchor_Node.axf
+ 
+10:45:42 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/BT_Stack/hci.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci.d" -MT"src/BT_Stack/hci.d" -o "src/BT_Stack/hci.o" "../src/BT_Stack/hci.c"
+Finished building: ../src/BT_Stack/hci.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34568	     68	   1216	  35852	   8c0c	EBN_Anchor_Node.axf
+ 
+11:08:23 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/BT_Stack/btstack_memory.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/btstack_memory.d" -MT"src/BT_Stack/btstack_memory.d" -o "src/BT_Stack/btstack_memory.o" "../src/BT_Stack/btstack_memory.c"
+Finished building: ../src/BT_Stack/btstack_memory.c
+ 
+Building file: ../src/BT_Stack/hci.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci.d" -MT"src/BT_Stack/hci.d" -o "src/BT_Stack/hci.o" "../src/BT_Stack/hci.c"
+Finished building: ../src/BT_Stack/hci.c
+ 
+Building file: ../src/BT_Stack/hci_cmds.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_cmds.d" -MT"src/BT_Stack/hci_cmds.d" -o "src/BT_Stack/hci_cmds.o" "../src/BT_Stack/hci_cmds.c"
+Finished building: ../src/BT_Stack/hci_cmds.c
+ 
+Building file: ../src/BT_Stack/hci_dump.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_dump.d" -MT"src/BT_Stack/hci_dump.d" -o "src/BT_Stack/hci_dump.o" "../src/BT_Stack/hci_dump.c"
+Finished building: ../src/BT_Stack/hci_dump.c
+ 
+Building file: ../src/BT_Stack/hci_transport_h4_dma.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_transport_h4_dma.d" -MT"src/BT_Stack/hci_transport_h4_dma.d" -o "src/BT_Stack/hci_transport_h4_dma.o" "../src/BT_Stack/hci_transport_h4_dma.c"
+Finished building: ../src/BT_Stack/hci_transport_h4_dma.c
+ 
+Building file: ../src/BT_Stack/l2cap.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/l2cap.d" -MT"src/BT_Stack/l2cap.d" -o "src/BT_Stack/l2cap.o" "../src/BT_Stack/l2cap.c"
+Finished building: ../src/BT_Stack/l2cap.c
+ 
+Building file: ../src/BT_Stack/remote_device_db_memory.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/remote_device_db_memory.d" -MT"src/BT_Stack/remote_device_db_memory.d" -o "src/BT_Stack/remote_device_db_memory.o" "../src/BT_Stack/remote_device_db_memory.c"
+Finished building: ../src/BT_Stack/remote_device_db_memory.c
+ 
+Building file: ../src/BT_Stack/rfcomm.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/rfcomm.d" -MT"src/BT_Stack/rfcomm.d" -o "src/BT_Stack/rfcomm.o" "../src/BT_Stack/rfcomm.c"
+Finished building: ../src/BT_Stack/rfcomm.c
+ 
+Building file: ../src/BT_Stack/run_loop.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/run_loop.d" -MT"src/BT_Stack/run_loop.d" -o "src/BT_Stack/run_loop.o" "../src/BT_Stack/run_loop.c"
+Finished building: ../src/BT_Stack/run_loop.c
+ 
+Building file: ../src/BT_Stack/run_loop_embedded.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/run_loop_embedded.d" -MT"src/BT_Stack/run_loop_embedded.d" -o "src/BT_Stack/run_loop_embedded.o" "../src/BT_Stack/run_loop_embedded.c"
+Finished building: ../src/BT_Stack/run_loop_embedded.c
+ 
+Building file: ../src/BT_Stack/utils.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/utils.d" -MT"src/BT_Stack/utils.d" -o "src/BT_Stack/utils.o" "../src/BT_Stack/utils.c"
+Finished building: ../src/BT_Stack/utils.c
+ 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34376	     68	   1216	  35660	   8b4c	EBN_Anchor_Node.axf
+ 
+11:14:00 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  33872	     68	   1216	  35156	   8954	EBN_Anchor_Node.axf
+ 
+11:15:16 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+make: Nothing to be done for `all'.
+11:16:11 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+make: Nothing to be done for `all'.
+11:38:31 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  33872	     68	   1216	  35156	   8954	EBN_Anchor_Node.axf
+ 
+11:40:08 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+make: Nothing to be done for `all'.
+14:07:59 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: In function 'packet_handler':
+../src/main.c:137:19: error: 'hci_set_scan_response_data' undeclared (first use in this function)
+../src/main.c:137:19: note: each undeclared identifier is reported only once for each function it appears in
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+make: *** [src/main.o] Error 1
+14:09:15 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34008	     68	   1216	  35292	   89dc	EBN_Anchor_Node.axf
+ 
+14:11:18 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/BT_Stack/btstack_memory.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/btstack_memory.d" -MT"src/BT_Stack/btstack_memory.d" -o "src/BT_Stack/btstack_memory.o" "../src/BT_Stack/btstack_memory.c"
+Finished building: ../src/BT_Stack/btstack_memory.c
+ 
+Building file: ../src/BT_Stack/hci.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci.d" -MT"src/BT_Stack/hci.d" -o "src/BT_Stack/hci.o" "../src/BT_Stack/hci.c"
+Finished building: ../src/BT_Stack/hci.c
+ 
+Building file: ../src/BT_Stack/hci_cmds.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_cmds.d" -MT"src/BT_Stack/hci_cmds.d" -o "src/BT_Stack/hci_cmds.o" "../src/BT_Stack/hci_cmds.c"
+Finished building: ../src/BT_Stack/hci_cmds.c
+ 
+Building file: ../src/BT_Stack/hci_dump.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_dump.d" -MT"src/BT_Stack/hci_dump.d" -o "src/BT_Stack/hci_dump.o" "../src/BT_Stack/hci_dump.c"
+Finished building: ../src/BT_Stack/hci_dump.c
+ 
+Building file: ../src/BT_Stack/hci_transport_h4_dma.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_transport_h4_dma.d" -MT"src/BT_Stack/hci_transport_h4_dma.d" -o "src/BT_Stack/hci_transport_h4_dma.o" "../src/BT_Stack/hci_transport_h4_dma.c"
+Finished building: ../src/BT_Stack/hci_transport_h4_dma.c
+ 
+Building file: ../src/BT_Stack/l2cap.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/l2cap.d" -MT"src/BT_Stack/l2cap.d" -o "src/BT_Stack/l2cap.o" "../src/BT_Stack/l2cap.c"
+Finished building: ../src/BT_Stack/l2cap.c
+ 
+Building file: ../src/BT_Stack/remote_device_db_memory.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/remote_device_db_memory.d" -MT"src/BT_Stack/remote_device_db_memory.d" -o "src/BT_Stack/remote_device_db_memory.o" "../src/BT_Stack/remote_device_db_memory.c"
+Finished building: ../src/BT_Stack/remote_device_db_memory.c
+ 
+Building file: ../src/BT_Stack/rfcomm.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/rfcomm.d" -MT"src/BT_Stack/rfcomm.d" -o "src/BT_Stack/rfcomm.o" "../src/BT_Stack/rfcomm.c"
+Finished building: ../src/BT_Stack/rfcomm.c
+ 
+Building file: ../src/BT_Stack/run_loop.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/run_loop.d" -MT"src/BT_Stack/run_loop.d" -o "src/BT_Stack/run_loop.o" "../src/BT_Stack/run_loop.c"
+Finished building: ../src/BT_Stack/run_loop.c
+ 
+Building file: ../src/BT_Stack/run_loop_embedded.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/run_loop_embedded.d" -MT"src/BT_Stack/run_loop_embedded.d" -o "src/BT_Stack/run_loop_embedded.o" "../src/BT_Stack/run_loop_embedded.c"
+Finished building: ../src/BT_Stack/run_loop_embedded.c
+ 
+Building file: ../src/BT_Stack/utils.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/utils.d" -MT"src/BT_Stack/utils.d" -o "src/BT_Stack/utils.o" "../src/BT_Stack/utils.c"
+Finished building: ../src/BT_Stack/utils.c
+ 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34192	     68	   1216	  35476	   8a94	EBN_Anchor_Node.axf
+ 
+14:17:22 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: In function 'packet_handler':
+../src/main.c:102:4: warning: implicit declaration of function 'READ_BT' [-Wimplicit-function-declaration]
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+./src/main.o: In function `packet_handler':
+C:\Users\chuby\Dropbox\WorkSpace\EBN_Anchor_Node\Debug/../src/main.c:102: undefined reference to `READ_BT'
+collect2: ld returned 1 exit status
+make: *** [EBN_Anchor_Node.axf] Error 1
+14:17:42 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: In function 'packet_handler':
+../src/main.c:102:4: warning: implicit declaration of function 'READ_BT16' [-Wimplicit-function-declaration]
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+./src/main.o: In function `packet_handler':
+C:\Users\chuby\Dropbox\WorkSpace\EBN_Anchor_Node\Debug/../src/main.c:102: undefined reference to `READ_BT16'
+collect2: ld returned 1 exit status
+make: *** [EBN_Anchor_Node.axf] Error 1
+14:17:57 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34192	     68	   1216	  35476	   8a94	EBN_Anchor_Node.axf
+ 
+14:23:53 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34200	     68	   1216	  35484	   8a9c	EBN_Anchor_Node.axf
+ 
+14:35:57 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/BT_Stack/hci.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci.d" -MT"src/BT_Stack/hci.d" -o "src/BT_Stack/hci.o" "../src/BT_Stack/hci.c"
+Finished building: ../src/BT_Stack/hci.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34200	     68	   1216	  35484	   8a9c	EBN_Anchor_Node.axf
+ 
+15:03:57 **** Clean-only build of configuration Debug for project EBN_Anchor_Node ****
+make clean 
+rm -rf  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.d ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.d ./src/BT_Stack/Drivers/lpc17xx_pinsel.d ./src/BT_Stack/Drivers/lpc17xx_timer.d ./src/BT_Stack/Drivers/lpc17xx_uart.d  ./src/BT_Stack/att.d ./src/BT_Stack/btstack_memory.d ./src/BT_Stack/hal_cpu.d ./src/BT_Stack/hal_tick.d ./src/BT_Stack/hal_uart_dma.d ./src/BT_Stack/hci.d ./src/BT_Stack/hci_cmds.d ./src/BT_Stack/hci_dump.d ./src/BT_Stack/hci_transport_h4_dma.d ./src/BT_Stack/l2cap.d ./src/BT_Stack/l2cap_signaling.d ./src/BT_Stack/linked_list.d ./src/BT_Stack/memory_pool.d ./src/BT_Stack/remote_device_db_memory.d ./src/BT_Stack/rfcomm.d ./src/BT_Stack/run_loop.d ./src/BT_Stack/run_loop_embedded.d ./src/BT_Stack/sdp_util.d ./src/BT_Stack/utils.d  ./src/cr_startup_lpc176x.d ./src/main.d  EBN_Anchor_Node.axf
+ 
+15:04:06 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/BT_Stack/Drivers/lpc17xx_clkpwr.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/Drivers/lpc17xx_clkpwr.d" -MT"src/BT_Stack/Drivers/lpc17xx_clkpwr.d" -o "src/BT_Stack/Drivers/lpc17xx_clkpwr.o" "../src/BT_Stack/Drivers/lpc17xx_clkpwr.c"
+Finished building: ../src/BT_Stack/Drivers/lpc17xx_clkpwr.c
+ 
+Building file: ../src/BT_Stack/Drivers/lpc17xx_libcfg_default.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/Drivers/lpc17xx_libcfg_default.d" -MT"src/BT_Stack/Drivers/lpc17xx_libcfg_default.d" -o "src/BT_Stack/Drivers/lpc17xx_libcfg_default.o" "../src/BT_Stack/Drivers/lpc17xx_libcfg_default.c"
+Finished building: ../src/BT_Stack/Drivers/lpc17xx_libcfg_default.c
+ 
+Building file: ../src/BT_Stack/Drivers/lpc17xx_pinsel.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/Drivers/lpc17xx_pinsel.d" -MT"src/BT_Stack/Drivers/lpc17xx_pinsel.d" -o "src/BT_Stack/Drivers/lpc17xx_pinsel.o" "../src/BT_Stack/Drivers/lpc17xx_pinsel.c"
+Finished building: ../src/BT_Stack/Drivers/lpc17xx_pinsel.c
+ 
+Building file: ../src/BT_Stack/Drivers/lpc17xx_timer.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/Drivers/lpc17xx_timer.d" -MT"src/BT_Stack/Drivers/lpc17xx_timer.d" -o "src/BT_Stack/Drivers/lpc17xx_timer.o" "../src/BT_Stack/Drivers/lpc17xx_timer.c"
+Finished building: ../src/BT_Stack/Drivers/lpc17xx_timer.c
+ 
+Building file: ../src/BT_Stack/Drivers/lpc17xx_uart.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/Drivers/lpc17xx_uart.d" -MT"src/BT_Stack/Drivers/lpc17xx_uart.d" -o "src/BT_Stack/Drivers/lpc17xx_uart.o" "../src/BT_Stack/Drivers/lpc17xx_uart.c"
+Finished building: ../src/BT_Stack/Drivers/lpc17xx_uart.c
+ 
+Building file: ../src/BT_Stack/att.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/att.d" -MT"src/BT_Stack/att.d" -o "src/BT_Stack/att.o" "../src/BT_Stack/att.c"
+Finished building: ../src/BT_Stack/att.c
+ 
+Building file: ../src/BT_Stack/btstack_memory.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/btstack_memory.d" -MT"src/BT_Stack/btstack_memory.d" -o "src/BT_Stack/btstack_memory.o" "../src/BT_Stack/btstack_memory.c"
+Finished building: ../src/BT_Stack/btstack_memory.c
+ 
+Building file: ../src/BT_Stack/hal_cpu.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hal_cpu.d" -MT"src/BT_Stack/hal_cpu.d" -o "src/BT_Stack/hal_cpu.o" "../src/BT_Stack/hal_cpu.c"
+Finished building: ../src/BT_Stack/hal_cpu.c
+ 
+Building file: ../src/BT_Stack/hal_tick.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hal_tick.d" -MT"src/BT_Stack/hal_tick.d" -o "src/BT_Stack/hal_tick.o" "../src/BT_Stack/hal_tick.c"
+Finished building: ../src/BT_Stack/hal_tick.c
+ 
+Building file: ../src/BT_Stack/hal_uart_dma.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hal_uart_dma.d" -MT"src/BT_Stack/hal_uart_dma.d" -o "src/BT_Stack/hal_uart_dma.o" "../src/BT_Stack/hal_uart_dma.c"
+../src/BT_Stack/hal_uart_dma.c: In function 'hal_uart_dma_enable_rx':
+../src/BT_Stack/hal_uart_dma.c:27:2: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/BT_Stack/hal_uart_dma.c: In function 'hal_uart_dma_disable_rx':
+../src/BT_Stack/hal_uart_dma.c:31:2: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/BT_Stack/hal_uart_dma.c: In function 'hal_uart_dma_send_block':
+../src/BT_Stack/hal_uart_dma.c:77:2: warning: passing argument 1 of 'UART_Send' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:590:10: note: expected 'struct LPC_UART_TypeDef *' but argument is of type 'struct LPC_UART0_TypeDef *'
+Finished building: ../src/BT_Stack/hal_uart_dma.c
+ 
+Building file: ../src/BT_Stack/hci.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci.d" -MT"src/BT_Stack/hci.d" -o "src/BT_Stack/hci.o" "../src/BT_Stack/hci.c"
+Finished building: ../src/BT_Stack/hci.c
+ 
+Building file: ../src/BT_Stack/hci_cmds.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_cmds.d" -MT"src/BT_Stack/hci_cmds.d" -o "src/BT_Stack/hci_cmds.o" "../src/BT_Stack/hci_cmds.c"
+Finished building: ../src/BT_Stack/hci_cmds.c
+ 
+Building file: ../src/BT_Stack/hci_dump.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_dump.d" -MT"src/BT_Stack/hci_dump.d" -o "src/BT_Stack/hci_dump.o" "../src/BT_Stack/hci_dump.c"
+Finished building: ../src/BT_Stack/hci_dump.c
+ 
+Building file: ../src/BT_Stack/hci_transport_h4_dma.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_transport_h4_dma.d" -MT"src/BT_Stack/hci_transport_h4_dma.d" -o "src/BT_Stack/hci_transport_h4_dma.o" "../src/BT_Stack/hci_transport_h4_dma.c"
+Finished building: ../src/BT_Stack/hci_transport_h4_dma.c
+ 
+Building file: ../src/BT_Stack/l2cap.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/l2cap.d" -MT"src/BT_Stack/l2cap.d" -o "src/BT_Stack/l2cap.o" "../src/BT_Stack/l2cap.c"
+Finished building: ../src/BT_Stack/l2cap.c
+ 
+Building file: ../src/BT_Stack/l2cap_signaling.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/l2cap_signaling.d" -MT"src/BT_Stack/l2cap_signaling.d" -o "src/BT_Stack/l2cap_signaling.o" "../src/BT_Stack/l2cap_signaling.c"
+Finished building: ../src/BT_Stack/l2cap_signaling.c
+ 
+Building file: ../src/BT_Stack/linked_list.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/linked_list.d" -MT"src/BT_Stack/linked_list.d" -o "src/BT_Stack/linked_list.o" "../src/BT_Stack/linked_list.c"
+Finished building: ../src/BT_Stack/linked_list.c
+ 
+Building file: ../src/BT_Stack/memory_pool.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/memory_pool.d" -MT"src/BT_Stack/memory_pool.d" -o "src/BT_Stack/memory_pool.o" "../src/BT_Stack/memory_pool.c"
+Finished building: ../src/BT_Stack/memory_pool.c
+ 
+Building file: ../src/BT_Stack/remote_device_db_memory.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/remote_device_db_memory.d" -MT"src/BT_Stack/remote_device_db_memory.d" -o "src/BT_Stack/remote_device_db_memory.o" "../src/BT_Stack/remote_device_db_memory.c"
+Finished building: ../src/BT_Stack/remote_device_db_memory.c
+ 
+Building file: ../src/BT_Stack/rfcomm.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/rfcomm.d" -MT"src/BT_Stack/rfcomm.d" -o "src/BT_Stack/rfcomm.o" "../src/BT_Stack/rfcomm.c"
+Finished building: ../src/BT_Stack/rfcomm.c
+ 
+Building file: ../src/BT_Stack/run_loop.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/run_loop.d" -MT"src/BT_Stack/run_loop.d" -o "src/BT_Stack/run_loop.o" "../src/BT_Stack/run_loop.c"
+Finished building: ../src/BT_Stack/run_loop.c
+ 
+Building file: ../src/BT_Stack/run_loop_embedded.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/run_loop_embedded.d" -MT"src/BT_Stack/run_loop_embedded.d" -o "src/BT_Stack/run_loop_embedded.o" "../src/BT_Stack/run_loop_embedded.c"
+Finished building: ../src/BT_Stack/run_loop_embedded.c
+ 
+Building file: ../src/BT_Stack/sdp_util.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/sdp_util.d" -MT"src/BT_Stack/sdp_util.d" -o "src/BT_Stack/sdp_util.o" "../src/BT_Stack/sdp_util.c"
+Finished building: ../src/BT_Stack/sdp_util.c
+ 
+Building file: ../src/BT_Stack/utils.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/utils.d" -MT"src/BT_Stack/utils.d" -o "src/BT_Stack/utils.o" "../src/BT_Stack/utils.c"
+Finished building: ../src/BT_Stack/utils.c
+ 
+Building file: ../src/cr_startup_lpc176x.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -Os -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/cr_startup_lpc176x.d" -MT"src/cr_startup_lpc176x.d" -o "src/cr_startup_lpc176x.o" "../src/cr_startup_lpc176x.c"
+Finished building: ../src/cr_startup_lpc176x.c
+ 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34200	     68	   1216	  35484	   8a9c	EBN_Anchor_Node.axf
+ 
+15:04:40 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+make: Nothing to be done for `all'.
+15:05:08 **** Incremental Build of configuration Debug for project CMSISv2p00_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+15:05:09 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+make: Nothing to be done for `all'.
+15:05:56 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+make: Nothing to be done for `all'.
+15:06:32 **** Incremental Build of configuration Debug for project CMSISv2p00_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+15:06:32 **** Build of configuration Debug for project LibTest ****
+make all 
+Building target: LibTest.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="LibTest.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "LibTest_Debug.ld" -o "LibTest.axf"  ./src/Drivers/lpc17xx_clkpwr.o ./src/Drivers/lpc17xx_libcfg_default.o ./src/Drivers/lpc17xx_uart.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: LibTest.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "LibTest.axf"; # arm-none-eabi-objcopy -O binary "LibTest.axf" "LibTest.bin" ; checksum -p LPC1769 -d "LibTest.bin";
+   text	   data	    bss	    dec	    hex	filename
+   5204	      4	     84	   5292	   14ac	LibTest.axf
+ 
+15:06:42 **** Incremental Build of configuration Debug for project CMSISv2p00_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+15:06:43 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+make: Nothing to be done for `all'.
+15:06:46 **** Incremental Build of configuration Debug for project CMSISv2p00_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+15:06:47 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+make: Nothing to be done for `all'.
+15:07:15 **** Incremental Build of configuration Debug for project CMSISv2p00_LPC17xx ****
+make all 
+make: Nothing to be done for `all'.
+15:07:16 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+make: Nothing to be done for `all'.
+15:17:33 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/BT_Stack/btstack_memory.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/btstack_memory.d" -MT"src/BT_Stack/btstack_memory.d" -o "src/BT_Stack/btstack_memory.o" "../src/BT_Stack/btstack_memory.c"
+Finished building: ../src/BT_Stack/btstack_memory.c
+ 
+Building file: ../src/BT_Stack/hci.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci.d" -MT"src/BT_Stack/hci.d" -o "src/BT_Stack/hci.o" "../src/BT_Stack/hci.c"
+Finished building: ../src/BT_Stack/hci.c
+ 
+Building file: ../src/BT_Stack/hci_cmds.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_cmds.d" -MT"src/BT_Stack/hci_cmds.d" -o "src/BT_Stack/hci_cmds.o" "../src/BT_Stack/hci_cmds.c"
+Finished building: ../src/BT_Stack/hci_cmds.c
+ 
+Building file: ../src/BT_Stack/hci_dump.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_dump.d" -MT"src/BT_Stack/hci_dump.d" -o "src/BT_Stack/hci_dump.o" "../src/BT_Stack/hci_dump.c"
+Finished building: ../src/BT_Stack/hci_dump.c
+ 
+Building file: ../src/BT_Stack/hci_transport_h4_dma.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_transport_h4_dma.d" -MT"src/BT_Stack/hci_transport_h4_dma.d" -o "src/BT_Stack/hci_transport_h4_dma.o" "../src/BT_Stack/hci_transport_h4_dma.c"
+Finished building: ../src/BT_Stack/hci_transport_h4_dma.c
+ 
+Building file: ../src/BT_Stack/l2cap.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/l2cap.d" -MT"src/BT_Stack/l2cap.d" -o "src/BT_Stack/l2cap.o" "../src/BT_Stack/l2cap.c"
+Finished building: ../src/BT_Stack/l2cap.c
+ 
+Building file: ../src/BT_Stack/remote_device_db_memory.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/remote_device_db_memory.d" -MT"src/BT_Stack/remote_device_db_memory.d" -o "src/BT_Stack/remote_device_db_memory.o" "../src/BT_Stack/remote_device_db_memory.c"
+Finished building: ../src/BT_Stack/remote_device_db_memory.c
+ 
+Building file: ../src/BT_Stack/rfcomm.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/rfcomm.d" -MT"src/BT_Stack/rfcomm.d" -o "src/BT_Stack/rfcomm.o" "../src/BT_Stack/rfcomm.c"
+Finished building: ../src/BT_Stack/rfcomm.c
+ 
+Building file: ../src/BT_Stack/run_loop.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/run_loop.d" -MT"src/BT_Stack/run_loop.d" -o "src/BT_Stack/run_loop.o" "../src/BT_Stack/run_loop.c"
+Finished building: ../src/BT_Stack/run_loop.c
+ 
+Building file: ../src/BT_Stack/run_loop_embedded.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/run_loop_embedded.d" -MT"src/BT_Stack/run_loop_embedded.d" -o "src/BT_Stack/run_loop_embedded.o" "../src/BT_Stack/run_loop_embedded.c"
+Finished building: ../src/BT_Stack/run_loop_embedded.c
+ 
+Building file: ../src/BT_Stack/utils.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/utils.d" -MT"src/BT_Stack/utils.d" -o "src/BT_Stack/utils.o" "../src/BT_Stack/utils.c"
+Finished building: ../src/BT_Stack/utils.c
+ 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34008	     68	   1216	  35292	   89dc	EBN_Anchor_Node.axf
+ 
+15:18:21 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+make: Nothing to be done for `all'.
+15:18:58 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/BT_Stack/btstack_memory.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/btstack_memory.d" -MT"src/BT_Stack/btstack_memory.d" -o "src/BT_Stack/btstack_memory.o" "../src/BT_Stack/btstack_memory.c"
+Finished building: ../src/BT_Stack/btstack_memory.c
+ 
+Building file: ../src/BT_Stack/hci.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci.d" -MT"src/BT_Stack/hci.d" -o "src/BT_Stack/hci.o" "../src/BT_Stack/hci.c"
+Finished building: ../src/BT_Stack/hci.c
+ 
+Building file: ../src/BT_Stack/hci_cmds.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_cmds.d" -MT"src/BT_Stack/hci_cmds.d" -o "src/BT_Stack/hci_cmds.o" "../src/BT_Stack/hci_cmds.c"
+Finished building: ../src/BT_Stack/hci_cmds.c
+ 
+Building file: ../src/BT_Stack/hci_dump.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_dump.d" -MT"src/BT_Stack/hci_dump.d" -o "src/BT_Stack/hci_dump.o" "../src/BT_Stack/hci_dump.c"
+Finished building: ../src/BT_Stack/hci_dump.c
+ 
+Building file: ../src/BT_Stack/hci_transport_h4_dma.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/hci_transport_h4_dma.d" -MT"src/BT_Stack/hci_transport_h4_dma.d" -o "src/BT_Stack/hci_transport_h4_dma.o" "../src/BT_Stack/hci_transport_h4_dma.c"
+Finished building: ../src/BT_Stack/hci_transport_h4_dma.c
+ 
+Building file: ../src/BT_Stack/l2cap.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/l2cap.d" -MT"src/BT_Stack/l2cap.d" -o "src/BT_Stack/l2cap.o" "../src/BT_Stack/l2cap.c"
+Finished building: ../src/BT_Stack/l2cap.c
+ 
+Building file: ../src/BT_Stack/remote_device_db_memory.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/remote_device_db_memory.d" -MT"src/BT_Stack/remote_device_db_memory.d" -o "src/BT_Stack/remote_device_db_memory.o" "../src/BT_Stack/remote_device_db_memory.c"
+Finished building: ../src/BT_Stack/remote_device_db_memory.c
+ 
+Building file: ../src/BT_Stack/rfcomm.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/rfcomm.d" -MT"src/BT_Stack/rfcomm.d" -o "src/BT_Stack/rfcomm.o" "../src/BT_Stack/rfcomm.c"
+Finished building: ../src/BT_Stack/rfcomm.c
+ 
+Building file: ../src/BT_Stack/run_loop.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/run_loop.d" -MT"src/BT_Stack/run_loop.d" -o "src/BT_Stack/run_loop.o" "../src/BT_Stack/run_loop.c"
+Finished building: ../src/BT_Stack/run_loop.c
+ 
+Building file: ../src/BT_Stack/run_loop_embedded.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/run_loop_embedded.d" -MT"src/BT_Stack/run_loop_embedded.d" -o "src/BT_Stack/run_loop_embedded.o" "../src/BT_Stack/run_loop_embedded.c"
+Finished building: ../src/BT_Stack/run_loop_embedded.c
+ 
+Building file: ../src/BT_Stack/utils.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/BT_Stack/utils.d" -MT"src/BT_Stack/utils.d" -o "src/BT_Stack/utils.o" "../src/BT_Stack/utils.c"
+Finished building: ../src/BT_Stack/utils.c
+ 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34200	     68	   1216	  35484	   8a9c	EBN_Anchor_Node.axf
+ 
+15:26:13 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+make: Nothing to be done for `all'.
+16:44:58 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34200	     68	   1216	  35484	   8a9c	EBN_Anchor_Node.axf
+ 
+16:49:05 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34216	     68	   1216	  35500	   8aac	EBN_Anchor_Node.axf
+ 
+16:50:25 **** Incremental Build of configuration Debug for project EBN_Anchor_Node ****
+make all 
+Building file: ../src/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -D__USE_CMSIS=CMSISv2p00_LPC17xx -I"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\inc" -O0 -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -MMD -MP -MF"src/main.d" -MT"src/main.d" -o "src/main.o" "../src/main.c"
+../src/main.c: In function 'device_init':
+../src/main.c:54:4: warning: passing argument 1 of 'UART_FullModemForcePinState' from incompatible pointer type [enabled by default]
+../src/BT_Stack/Drivers/includes/lpc17xx_uart.h:616:6: note: expected 'struct LPC_UART1_TypeDef *' but argument is of type 'struct LPC_UART_TypeDef *'
+../src/main.c: At top level:
+../src/main.c:45:13: warning: 'device_init' defined but not used [-Wunused-function]
+Finished building: ../src/main.c
+ 
+Building target: EBN_Anchor_Node.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -L"C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug" -Xlinker -Map="EBN_Anchor_Node.map" -Xlinker --gc-sections -mcpu=cortex-m3 -mthumb -T "EBN_Anchor_Node_Debug.ld" -o "EBN_Anchor_Node.axf"  ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o ./src/BT_Stack/Drivers/lpc17xx_pinsel.o ./src/BT_Stack/Drivers/lpc17xx_timer.o ./src/BT_Stack/Drivers/lpc17xx_uart.o  ./src/BT_Stack/att.o ./src/BT_Stack/btstack_memory.o ./src/BT_Stack/hal_cpu.o ./src/BT_Stack/hal_tick.o ./src/BT_Stack/hal_uart_dma.o ./src/BT_Stack/hci.o ./src/BT_Stack/hci_cmds.o ./src/BT_Stack/hci_dump.o ./src/BT_Stack/hci_transport_h4_dma.o ./src/BT_Stack/l2cap.o ./src/BT_Stack/l2cap_signaling.o ./src/BT_Stack/linked_list.o ./src/BT_Stack/memory_pool.o ./src/BT_Stack/remote_device_db_memory.o ./src/BT_Stack/rfcomm.o ./src/BT_Stack/run_loop.o ./src/BT_Stack/run_loop_embedded.o ./src/BT_Stack/sdp_util.o ./src/BT_Stack/utils.o  ./src/cr_startup_lpc176x.o ./src/main.o   -lCMSISv2p00_LPC17xx
+Finished building target: EBN_Anchor_Node.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "EBN_Anchor_Node.axf"; # arm-none-eabi-objcopy -O binary "EBN_Anchor_Node.axf" "EBN_Anchor_Node.bin" ; checksum -p LPC1769 -d "EBN_Anchor_Node.bin";
+   text	   data	    bss	    dec	    hex	filename
+  34216	     68	   1216	  35500	   8aac	EBN_Anchor_Node.axf
+ 
