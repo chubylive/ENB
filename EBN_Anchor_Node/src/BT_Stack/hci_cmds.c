@@ -580,8 +580,8 @@ const hci_cmd_t hci_le_test_end = {
 };
 /*GAP General Access Profile Commands*/
 const gap_cmd_t gap_device_init = {
-    (GAP_DeviceInit),"111IC4"
-    //params: Data Length [0x26]
+    (GAP_DeviceInit),"11IC4"
+
     //params: GAP profile Roles. Select multiple Roles example (GAP_PROFILE_CENTRAL|GAP_PROFILE_BROADCASTER)
     //params: Max Scan Response
     //params: IRK (a 16 octet array of 00's)
@@ -589,27 +589,25 @@ const gap_cmd_t gap_device_init = {
     //params: SignCounter (32 bit value) [0x00000001]
 };
 const gap_cmd_t gap_get_param = {
-    (GAP_GetParam),"11"
-    //param: Data Length [0x01]
+    (GAP_GetParam),"1"
+
     //param: the data that you want back (will specify later)
 };
 const gap_cmd_t gap_set_param = {
-    (GAP_SetParam), "112"
-    //params: Data Length [0x03]
+    (GAP_SetParam), "12"
+
     //params: ParamID (will specify relevant one later)
     //params: ParamValue 
 };
 const gap_cmd_t gap_UpdateAdvertisingData = {
-		(0xFE07),"1111"
-		//params: Data Length [0x03]
+		(0xFE07),"111"
 		//params: AdType [0x00] scan response [0x01] adv data
 		//params: Adv Data length
 		//params: Adv Data
 };
 
 const gap_cmd_t gap_device_discovery_request = {
-		(GAP_DeviceDiscoveryRequest),"1111"
-		//params: Data length [0x03]
+		(GAP_DeviceDiscoveryRequest),"111"
 		//params: Mode [0x00] (Non Discoverable),, [0x01] (General), [0x02] (Limited), [0x03](All)
 		//params: active scan [0x01], passsive scan [0x00]
 		//params: White List (0) disable (1) enable

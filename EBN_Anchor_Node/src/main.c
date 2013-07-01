@@ -86,7 +86,8 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 			// write macros for event codes that i will encounter
 
 			if (READ_BT_16(packet, 2) == GAP_DeviceInitDone) {
-				hci_send_cmd(&hci_read_local_supported_features);
+				hci_send_cmd(&hci_le_set_advertising_parameters, 0x0400, 0x0800,
+						0x03, 0, 0, &addr, 0x07, 0);
 				break;
 			}
 			if ((READ_BT_16(packet,2 ) == 0x0602) && COUNT == 0) { //find macro for this
@@ -101,22 +102,21 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 
 			}
 
-
-
 			/* scanning initiation*/
 
 			if ((READ_BT_16(packet, 2) == 0x0602) && COUNT == 2) { // and this
 				puts("hci_le_set_scan_response_data ran");
-				gap_send_cmd(&gap_device_discovery_request, 0x03,0x03, 0x01,0);
+				gap_send_cmd(&gap_device_discovery_request, 0x03, 0x01,0x00);
 				break;
 			}
 
-			if(READ_BT_16(packet, 2) == GAP_DeviceDiscoveryDone){
+			if (READ_BT_16(packet, 2) == GAP_DeviceDiscoveryDone) {
 				uint8_t num_of_DD = packet[5];
 				printf("Number of devices found: %d\n", num_of_DD);
+				hci_send_cmd(&hci_le_set_scan_enable, 1,1);
 			}
 
-			if(READ_BT_16(packet,2) == GAP_DeviceInformation){
+			if (READ_BT_16(packet,2) == GAP_DeviceInformation) {
 				bd_addr_t dev_addr;
 				bt_flip_addr(dev_addr, &packet[7]);
 				printf("found Device BD ADDR: %s\n", bd_addr_to_str(dev_addr));
@@ -129,33 +129,35 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 				printf("BD ADDR: %s\n", bd_addr_to_str(addr));
 
 			}
-			if (COMMAND_COMPLETE_EVENT(packet, hci_read_local_supported_features)) {
-				printf("Local supported features: %04X%04X\n",
-						READ_BT_32(packet, 10), READ_BT_32(packet, 6));
-				hci_send_cmd(&hci_le_set_advertising_parameters, 0x0400, 0x0800,
-						0x03, 0, 0, &addr, 0x07, 0);
-				break;
+			/*if (COMMAND_COMPLETE_EVENT(packet, hci_read_local_supported_features)) {
+			 printf("Local supported features: %04X%04X\n",
+			 READ_BT_32(packet, 10), READ_BT_32(packet, 6));
+			 hci_send_cmd(&hci_le_set_advertising_parameters, 0x0400, 0x0800,
+			 0x03, 0, 0, &addr, 0x07, 0);
+			 break;
 
-			}
+			 }*/
 			if (COMMAND_COMPLETE_EVENT(packet, hci_le_set_advertising_parameters)) {
 				if (packet[5] == 0) {
 					puts("hci_le_set_advertising_parameters success");
 				}
 
-				gap_send_cmd(&gap_UpdateAdvertisingData, 0x03, 0x00, 0x01, 0x00);
+				gap_send_cmd(&gap_UpdateAdvertisingData, 0x03, 0x00, 0x01,
+						0x00);
 
 				break;
 			}
-			if (COMMAND_COMPLETE_EVENT(packet, hci_le_set_advertise_enable)) {
+			/*if (COMMAND_COMPLETE_EVENT(packet, hci_le_set_advertise_enable)) {
 
 				puts("hci_le_set_advertising_data success");
 
-				hci_send_cmd(&hci_le_set_scan_parameters, 1, 0x0020, 0x0020, 0,	0);
+				hci_send_cmd(&hci_le_set_scan_parameters, 1, 0x0010, 0x0010, 0,
+						0);
 				break;
-			}
+			}*/
 
-			if (COMMAND_COMPLETE_EVENT(packet,hci_le_set_scan_parameters)) {
-
+			if (COMMAND_COMPLETE_EVENT(packet,hci_le_set_advertise_enable)) {
+				puts("hci_le_set_scan_parameters success");
 				hci_send_cmd(&hci_le_set_scan_response_data, 31, adv_data);
 
 				break;
@@ -167,11 +169,11 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 			 break;
 			 }*/
 
-		/*	if (COMMAND_COMPLETE_EVENT(packet,hci_le_set_scan_enable )) {
-				//hci_discoverable_control(1);
-				puts("done!");
-				break;
-			}*/
+			if (COMMAND_COMPLETE_EVENT(packet,hci_le_set_scan_enable )) {
+			 //hci_discoverable_control(1);
+			 puts("done!");
+			 break;
+			 }
 
 		}
 	}
