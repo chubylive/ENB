@@ -363,6 +363,7 @@ extern const hci_cmd_t hci_le_transmitter_test;
 
 extern const gap_cmd_t gap_device_init;
 extern const gap_cmd_t gap_get_param;
+extern const gap_cmd_t gap_set_param;
 extern const gap_cmd_t gap_UpdateAdvertisingData;
 extern const gap_cmd_t gap_device_discovery_request;
 

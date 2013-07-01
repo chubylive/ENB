@@ -6,7 +6,10 @@
 
 //#define HAVE_EHCILL
 #define HAVE_BLE
-#define DUMP
+//#define DUMP
+
+
+#define SCAN_INTV 50000
 
 
 // #define ENABLE_LOG_INFO 

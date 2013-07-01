@@ -41,6 +41,8 @@ __CRP const unsigned int CRP_WORD = CRP_NO_CRP;
 
 static uint8_t HCI_WORKING = 0;
 static uint8_t COUNT = 0;
+static uint8_t SCAN_COUNT = 0;
+static uint8_t SCANNING_NOW = 0;
 
 static void device_init(void) {
 	hal_uart_dma_init();
@@ -73,9 +75,7 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 			// bt stack activated, get started - set local name
 			if (packet[2] == HCI_STATE_WORKING) {
 				printf("Working!\n");
-				//send gap_device init through
 				hci_send_device_int();
-				//hci_send_cmd(&hci_read_local_supported_features);
 				HCI_WORKING = 1;
 			}
 			break;
@@ -106,14 +106,16 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 
 			if ((READ_BT_16(packet, 2) == 0x0602) && COUNT == 2) { // and this
 				puts("hci_le_set_scan_response_data ran");
-				gap_send_cmd(&gap_device_discovery_request, 0x03, 0x01,0x00);
+				gap_send_cmd(&gap_device_discovery_request, 0x03, 0x00, 0x00);
 				break;
 			}
 
 			if (READ_BT_16(packet, 2) == GAP_DeviceDiscoveryDone) {
 				uint8_t num_of_DD = packet[5];
 				printf("Number of devices found: %d\n", num_of_DD);
-				hci_send_cmd(&hci_le_set_scan_enable, 1,1);
+				SCAN_COUNT++;
+				SCANNING_NOW = 0;
+				break;
 			}
 
 			if (READ_BT_16(packet,2) == GAP_DeviceInformation) {
@@ -127,16 +129,8 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 			if (COMMAND_COMPLETE_EVENT(packet, hci_read_bd_addr)) {
 				bt_flip_addr(addr, &packet[6]);
 				printf("BD ADDR: %s\n", bd_addr_to_str(addr));
-
+				break;
 			}
-			/*if (COMMAND_COMPLETE_EVENT(packet, hci_read_local_supported_features)) {
-			 printf("Local supported features: %04X%04X\n",
-			 READ_BT_32(packet, 10), READ_BT_32(packet, 6));
-			 hci_send_cmd(&hci_le_set_advertising_parameters, 0x0400, 0x0800,
-			 0x03, 0, 0, &addr, 0x07, 0);
-			 break;
-
-			 }*/
 			if (COMMAND_COMPLETE_EVENT(packet, hci_le_set_advertising_parameters)) {
 				if (packet[5] == 0) {
 					puts("hci_le_set_advertising_parameters success");
@@ -147,36 +141,37 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 
 				break;
 			}
-			/*if (COMMAND_COMPLETE_EVENT(packet, hci_le_set_advertise_enable)) {
-
-				puts("hci_le_set_advertising_data success");
-
-				hci_send_cmd(&hci_le_set_scan_parameters, 1, 0x0010, 0x0010, 0,
-						0);
-				break;
-			}*/
-
 			if (COMMAND_COMPLETE_EVENT(packet,hci_le_set_advertise_enable)) {
 				puts("hci_le_set_scan_parameters success");
 				hci_send_cmd(&hci_le_set_scan_response_data, 31, adv_data);
 
 				break;
 			}
-
-			/*if (COMMAND_COMPLETE_EVENT(packet,hci_le_set_scan_response_data)){
-			 puts("hci_le_set_scan_response_data ran");
-			 hci_send_cmd(&hci_le_set_scan_enable, 1);
-			 break;
-			 }*/
-
-			if (COMMAND_COMPLETE_EVENT(packet,hci_le_set_scan_enable )) {
-			 //hci_discoverable_control(1);
-			 puts("done!");
-			 break;
-			 }
+			if (COMMAND_COMPLETE_EVENT(packet, hci_le_set_scan_response_data)) {
+				hci_send_cmd(&hci_le_set_scan_parameters, 1, 0x0010, 0x0010, 0,
+						0);
+				break;
+			}
+			if (COMMAND_COMPLETE_EVENT(packet, hci_le_set_scan_parameters)) {
+				if (packet[5] == 0) {
+					puts("hci_le_set_advertising_parameters success");
+					gap_send_cmd(&gap_set_param, 2, 0xFFFA);
+				}
+			}
 
 		}
 	}
+}
+
+static void scan_handler(struct timer *ts) {
+	if (hci_can_send_packet_now(HCI_COMMAND_DATA_PACKET) && (SCAN_COUNT >= 1)
+			&& (SCANNING_NOW == 0)) {
+		gap_send_cmd(&gap_device_discovery_request, 0x03, 0x00, 0x00);
+		SCANNING_NOW = 1;
+	}
+	run_loop_set_timer(ts, SCAN_INTV);
+	run_loop_add_timer(ts);
+
 }
 
 int main(void) {
@@ -194,9 +189,11 @@ int main(void) {
 			(remote_device_db_t *) &remote_device_db_memory;
 	hci_init(transport, NULL, NULL, remote_db);
 
-	// set up l2cap_le
-
-	/*     __enable_interrupt(); */
+	//setting up timer
+	timer_source_t scan;
+	scan.process = &scan_handler;
+	run_loop_set_timer(&scan, SCAN_INTV);
+	run_loop_add_timer(&scan);
 
 	printf("Run...\n\n");
 
@@ -205,9 +202,7 @@ int main(void) {
 
 	hci_register_packet_handler(packet_handler);
 	// go!
-
 	run_loop_execute();
-
 	//hci_register_packet_handler(packet_handler);
 	return 0;
 }
