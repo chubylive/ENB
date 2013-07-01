@@ -372,6 +372,7 @@ void hci_discoverable_control(uint8_t enable);
 // a list of parameters. Will return error if outgoing data buffer 
 // is occupied. 
 int hci_send_cmd(const hci_cmd_t *cmd, ...);
+int gap_send_cmd(const gap_cmd_t *cmd, ...);
 
 // Deletes link key for remote device with baseband address.
 void hci_drop_link_key_for_bd_addr(bd_addr_t *addr);

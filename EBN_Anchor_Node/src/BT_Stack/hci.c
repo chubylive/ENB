@@ -1319,6 +1319,15 @@ int hci_send_cmd(const hci_cmd_t *cmd, ...){
     return hci_send_cmd_packet(hci_stack.hci_packet_buffer, size);
 }
 
+int gap_send_cmd(const gap_cmd_t *cmd, ...){
+	va_list argptr;
+	va_start(argptr, cmd);
+	uint16_t size = hci_create_cmd_internal(hci_stack.hci_packet_buffer, cmd, argptr);
+	va_end(argptr);
+	return hci_send_cmd_packet(hci_stack.hci_packet_buffer, size);
+
+}
+
 // Create various non-HCI events. 
 // TODO: generalize, use table similar to hci_create_command
 

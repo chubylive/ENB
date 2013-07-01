@@ -6,7 +6,7 @@
 
 //#define HAVE_EHCILL
 #define HAVE_BLE
-#define DUMP
+//#define DUMP
 
 
 // #define ENABLE_LOG_INFO 
