@@ -44,26 +44,10 @@ static uint8_t COUNT = 0;
 static uint8_t SCAN_COUNT = 0;
 static uint8_t SCANNING_NOW = 0;
 
-static void device_init(void) {
-	hal_uart_dma_init();
-	uint8_t rx_payload[47];
-	uint8_t tx_payload[] = { 0x01, 0x00, 0xFE, 0x26, 0x04, 0x04, 0x00, 0x00,
-			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00,
-			0x00 };
-	UART_FullModemForcePinState((LPC_UART_TypeDef *) LPC_UART1,
-			UART1_MODEM_PIN_RTS, INACTIVE);
-	hal_uart_dma_send_block(tx_payload, 42);
-	hal_uart_dma_receive_block(rx_payload, 9);
-	hal_uart_dma_receive_block(rx_payload, 47);
-	UART_DeInit((LPC_UART_TypeDef*) LPC_UART1 );
-
-}
-
 // enable LE, setup ADV data
 static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) {
 	bd_addr_t addr;
+	//uint8_t IRK_CSRK[16];
 	uint8_t adv_data[31] = "\x03\x02\x02" "\x05\x09mbed" "\x03\x02\xf0\xff";
 
 	switch (packet_type) {
@@ -76,6 +60,7 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 			if (packet[2] == HCI_STATE_WORKING) {
 				printf("Working!\n");
 				hci_send_device_int();
+				//gap_send_cmd(&gap_device_init, (GAP_PROFILE_CENTRAL|GAP_PROFILE_BROADCASTER), 5,IRK_CSRK,IRK_CSRK,0x00000001 );
 				HCI_WORKING = 1;
 			}
 			break;

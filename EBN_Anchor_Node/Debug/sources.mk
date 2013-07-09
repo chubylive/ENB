@@ -15,6 +15,7 @@ EXECUTABLES :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 src \
+src/EBN_Core \
 src/BT_Stack \
 src/BT_Stack/Drivers \
 

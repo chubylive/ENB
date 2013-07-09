@@ -5,7 +5,7 @@
 #include "LPC17xx.h"
 #include "../inc/core_cm3.h"
 #include "includes/sd.h"
-#include "Drivers/includes/lpc17xx_ssp.h"
+#include "includes/lpc17xx_ssp.h"
 
 static int sd_version;
 static SSP_DATA_SETUP_Type Data_CFG;
@@ -62,9 +62,9 @@ void sd_command(uint8_t index, uint8_t a1, uint8_t a2, uint8_t a3, uint8_t a4,
 	 * this also gives the SD card at least 8 clock pulses to give
 	 * it a chance to prepare for the next CMD */
 	rx = 0;
+	Data_Struct_Config(NULL, &rx, 1, &Data_CFG);
 	while (rx == 0)
-		Data_Struct_Config(NULL, &rx, 1, &Data_CFG);
-	SSP_ReadWrite((LPC_SSP_TypeDef*) LPC_SSP0, &Data_CFG, SSP_TRANSFER_POLLING);
+		SSP_ReadWrite((LPC_SSP_TypeDef*) LPC_SSP0, &Data_CFG, SSP_TRANSFER_POLLING);
 
 } //}}}
 
