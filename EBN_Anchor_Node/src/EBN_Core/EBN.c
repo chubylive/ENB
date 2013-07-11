@@ -16,13 +16,13 @@
                           
 #define EPOCH_LENGTH (N_SYMBOLS - N_OVERLAP) // Number of adverts in an epoch
 
-#include "random.h"
-#include "mem.h"
-#include "ecc.h"
-#include "EBN.h"
-#include "reed_sol.h"
-#include "jerasure.h"
-#include "bget.h"
+#include "includes/random.h"
+#include "includes/mem.h"
+#include "includes/ecc.h"
+#include "includes/EBN.h"
+#include "includes/reed_sol.h"
+#include "includes/jerasure.h"
+#include "includes/bget.h"
 
 // TODO : Define Log and Debug
 
@@ -165,6 +165,7 @@ void EBN_Init(){
     Random_Init();
     Init_RS();
     Epoch_Change();
+   Epoch_Change();
     messageNum = 0;
 }
 

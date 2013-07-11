@@ -10,7 +10,7 @@
 #include <cr_section_macros.h>
 #include <NXP/crp.h>
 #include "stdint.h"
-#include "random.h"
+#include "includes/random.h"
 #include "stdio.h"
 
 static volatile uint8_t collector_byte;

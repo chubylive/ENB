@@ -9,8 +9,8 @@
 //#define DUMP
 
 
-#define SCAN_INTV 50000
-
+#define SCAN_INTV 5000
+#define EPOCH_INTV 1000
 
 // #define ENABLE_LOG_INFO 
 //#define ENABLE_LOG_ERROR

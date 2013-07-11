@@ -55,5 +55,8 @@ struct EBN_Advert{
 
 void EBN_Init();
 void Epoch_Change();
+int EBN_Increment_Time();
+void * EBN_Get_Advert();
+void * EBN_Get_Mac_Address();
 
 #endif

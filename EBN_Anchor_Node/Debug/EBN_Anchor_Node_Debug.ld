@@ -3,7 +3,7 @@
  * (C) Code Red Technologies Ltd, 2008-2013
  * Generated linker script file for LPC1769
  * Created from generic_c.ld (vLPCXpresso v5.2 (4 [Build 2122] [2013-04-29] ))
- * By LPCXpresso v5.2.4 [Build 2122] [2013-04-29]  on Tue Jul 09 09:23:58 EDT 2013
+ * By LPCXpresso v5.2.4 [Build 2122] [2013-04-29]  on Tue Jul 09 16:12:37 EDT 2013
  */
 
 

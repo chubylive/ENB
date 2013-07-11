@@ -46,13 +46,13 @@ POSSIBILITY OF SUCH DAMAGE.
 
  */
 
-#include "bget.h"
-#include "mem.h"
+#include "includes/bget.h"
+#include "includes/mem.h"
 //#include <stdio.h>
 //#include <stdlib.h>
 //#include <string.h>
 
-#include "galois.h"
+#include "includes/galois.h"
 
 #define NONE (10)
 #define TABLE (11)

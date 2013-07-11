@@ -46,14 +46,14 @@ POSSIBILITY OF SUCH DAMAGE.
 
  */
 
-#include "bget.h"
-#include "mem.h"
+#include "includes/bget.h"
+#include "includes/mem.h"
 //#include <stdio.h>
 //#include <stdlib.h>
 //#include <string.h>
 
-#include "galois.h"
-#include "jerasure.h"
+#include "includes/galois.h"
+#include "includes/jerasure.h"
 
 #define talloc(type, num) (type *) malloc(sizeof(type)*(num))
 

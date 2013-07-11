@@ -453,7 +453,7 @@ extern char *sprintf();               /* Sun includes don't define sprintf */
 
 //#include <assert.h>
 //#include <string.h>
-#include "mem.h"
+#include "includes/mem.h"
 
 #ifdef BufDump			      /* BufDump implies DumpData */
 #ifndef DumpData
@@ -468,7 +468,7 @@ extern char *sprintf();               /* Sun includes don't define sprintf */
 /*  Declare the interface, including the requested buffer size type,
     bufsize.  */
 
-#include "bget.h"
+#include "includes/bget.h"
 
 #define MemSize     int 	      /* Type for size arguments to memxxx()
 					 functions such as memcmp(). */

@@ -115,7 +115,7 @@ extern "C" {
 #define HCI_SUBEVENT_LE_CONNECTION_UPDATE_COMPLETE         0x03
 #define HCI_SUBEVENT_LE_READ_REMOTE_USED_FEATURES_COMPLETE 0x04
 #define HCI_SUBEVENT_LE_LONG_TERM_KEY_REQUEST              0x05
-    
+  
 // last used HCI_EVENT in 2.1 is 0x3d
 
 // events 0x50-0x5f are used internally
@@ -366,6 +366,9 @@ extern const gap_cmd_t gap_get_param;
 extern const gap_cmd_t gap_set_param;
 extern const gap_cmd_t gap_UpdateAdvertisingData;
 extern const gap_cmd_t gap_device_discovery_request;
+extern const gap_cmd_t gap_config_device_addr;
+extern const gap_cmd_t gap_make_discoverable;
+extern const gap_cmd_t gap_end_discoverable;
 
     
 extern const hci_cmd_t l2cap_accept_connection;

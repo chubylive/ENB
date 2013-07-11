@@ -415,7 +415,7 @@ OPCODE(OGF_LE_CONTROLLER, 0x06), "22111B11",
 // param: advertising type (enum from 0): ADV_IND, ADC_DIRECT_IND, ADV_SCAN_IND, ADV_NONCONN_IND
 // param: own address type (enum from 0): public device address, random device address
 // param: direct address type (enum from 0): public device address, random device address
-// param: direct address - public or random address of device to be connecteed
+// param: direct address - public or random address of device to be connected
 // param: advertising channel map (flags): chan_37(1), chan_38(2), chan_39(4)
 // param: advertising filter policy (enum from 0): scan any conn any, scan whitelist, con any, scan any conn whitelist, scan whitelist, con whitelist
 // return: status
@@ -600,19 +600,38 @@ const gap_cmd_t gap_set_param = {
     //params: ParamValue 
 };
 const gap_cmd_t gap_UpdateAdvertisingData = {
-		(0xFE07),"111"
-		//params: AdType [0x00] scan response [0x01] adv data
-		//params: Adv Data length
-		//params: Adv Data
+	(GAP_UpdateAdvertisingData),"111"
+	//params: AdType [0x00] scan response [0x01] adv data
+	//params: Adv Data length
+	//params: Adv Data
 };
 
 const gap_cmd_t gap_device_discovery_request = {
-		(GAP_DeviceDiscoveryRequest),"111"
-		//params: Mode [0x00] (Non Discoverable),, [0x01] (General), [0x02] (Limited), [0x03](All)
-		//params: active scan [0x01], passsive scan [0x00]
-		//params: White List (0) disable (1) enable
+	(GAP_DeviceDiscoveryRequest),"111"
+	//params: Mode [0x00] (Non Discoverable),, [0x01] (General), [0x02] (Limited), [0x03](All)
+	//params: active scan [0x01], passsive scan [0x00]
+	//params: White List (0) disable (1) enable
 };
 
+const gap_cmd_t gap_config_device_addr = {
+    (GAP_ConfigDeviceAddr), "1B"
+    //params: Address type enum: public (0), static(1), privateNonResolve(2), privateResolve(3)
+    //params: Address
+};
+
+const gap_cmd_t gap_make_discoverable = {
+    (GAP_MakeDiscoverable), "11B11"
+    //params: EventType enum: CONN_UNDIRECT_AD(0), CONN_DIRECT_AD(1), SCANNABLE_UNDIRECT_AD(2), NON_CONN_UNDIRECT_AD(3), SCAN_RESPONSE(4)
+    //params: IntiAddrType enum: public (0), static(1), privateNonResolve(2), privateResolve(3)
+    //params: Inti Address 
+    //params: Channel Map chan_37(1), chan_38(2), chan_39(4) ** 0x07 for all channels
+    //params: Filter Policy  allow all (0), white list (1)
+};
+
+const gap_cmd_t gap_end_discoverable = {
+    (GAP_EndDiscoverable), ""
+    //params: None
+};
 
 #endif
 
