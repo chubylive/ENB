@@ -15,9 +15,9 @@ static TIM_TIMERCFG_Type TTC0;
 static TIM_MATCHCFG_Type MATC0;
 
 
-#define TIMER_COUNTDOWN 3125000
+#define TIMER_COUNTDOWN 2937500
 //assume clock rate of 100mhz
-//after timer0 division(by 8) clock rate is 12.5mhz
+//after timer0 division(by 4) clock rate is 25mhz
 /*
  * from what i understand the msp430 has a capture and compare scheme for dealing with time
  * the implementation on the HAL_TICK seems to be something like counting up to 8192 (timer_countdwn) and
@@ -26,7 +26,7 @@ static TIM_MATCHCFG_Type MATC0;
  * send the msp430 to sleep at the end of each interrupt.
  */
 
- /* the tick period is close to 250ms. this is an approximation i am yet to test. I will get better clocking later
+ /* the tick period is close to 500ms. this is an approximation i am yet to test. I will get better clocking later
  */
 
 void hal_tick_init(void){
@@ -70,7 +70,7 @@ void hal_tick_set_handler(void (*handler)(void)){
 
 int  hal_tick_get_tick_period_in_ms(void){
 	//250ms
-    return 250;
+    return 125;
 }
 
 void TIMER0_IRQHandler(void){

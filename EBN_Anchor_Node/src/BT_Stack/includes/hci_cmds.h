@@ -109,6 +109,7 @@ extern "C" {
 #define HCI_EVENT_EXTENDED_INQUIRY_RESPONSE                0x2F
 #define HCI_EVENT_LE_META                                  0x3E
 #define HCI_EVENT_VENDOR_SPECIFIC				           0xFF
+#define HCI_LE_ExtEvent 								   0xFF
 
 #define HCI_SUBEVENT_LE_CONNECTION_COMPLETE                0x01
 #define HCI_SUBEVENT_LE_ADVERTISING_REPORT                 0x02
@@ -369,6 +370,8 @@ extern const gap_cmd_t gap_device_discovery_request;
 extern const gap_cmd_t gap_config_device_addr;
 extern const gap_cmd_t gap_make_discoverable;
 extern const gap_cmd_t gap_end_discoverable;
+
+extern const gap_cmd_t util_reset;
 
     
 extern const hci_cmd_t l2cap_accept_connection;

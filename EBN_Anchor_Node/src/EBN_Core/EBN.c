@@ -165,8 +165,8 @@ void EBN_Init(){
     Random_Init();
     Init_RS();
     Epoch_Change();
-   Epoch_Change();
-    messageNum = 0;
+    Epoch_Change();
+       messageNum = 0;
 }
 
 int EBN_Increment_Time(){

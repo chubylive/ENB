@@ -8,8 +8,9 @@
 #define GAP_UpdateAdvertisingData 			0xFE07
 #define GAP_MakeDiscoverable 				0xFE06
 
-//GAP Event Code
-#define HCI_LE_ExtEvent 					0xFF
+//UTIL opcode
+#define UTIL_Reset							0xFE80 
+
 
 
 //GAP Event

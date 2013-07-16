@@ -4,7 +4,6 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../src/BT_Stack/Drivers/SimpleCache.c \
 ../src/BT_Stack/Drivers/lpc17xx_adc.c \
 ../src/BT_Stack/Drivers/lpc17xx_clkpwr.c \
 ../src/BT_Stack/Drivers/lpc17xx_libcfg_default.c \
@@ -15,7 +14,6 @@ C_SRCS += \
 ../src/BT_Stack/Drivers/sd.c 
 
 OBJS += \
-./src/BT_Stack/Drivers/SimpleCache.o \
 ./src/BT_Stack/Drivers/lpc17xx_adc.o \
 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o \
 ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o \
@@ -26,7 +24,6 @@ OBJS += \
 ./src/BT_Stack/Drivers/sd.o 
 
 C_DEPS += \
-./src/BT_Stack/Drivers/SimpleCache.d \
 ./src/BT_Stack/Drivers/lpc17xx_adc.d \
 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.d \
 ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.d \

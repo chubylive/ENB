@@ -96,7 +96,6 @@ curr_code_ptr       0x4               ./src/EBN_Core/EBN.o
 old_data_ptr        0x4               ./src/EBN_Core/EBN.o
 rs_coding_matrix    0x4               ./src/EBN_Core/EBN.o
 old_sym_ptrs        0x124             ./src/EBN_Core/EBN.o
-cache               0x200             ./src/BT_Stack/Drivers/SimpleCache.o
 curr_data_ptr       0x4               ./src/EBN_Core/EBN.o
 __heaps             0x4               c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__init_alloc.o)
 __end_of_heap       0x4               c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__init_alloc.o)
@@ -242,18 +241,11 @@ Discarded input sections
                 0x00000000      0x164 ./src/EBN_Core/reed_sol.o
  .text.reed_sol_r6_encode
                 0x00000000      0x118 ./src/EBN_Core/reed_sol.o
- .text          0x00000000        0x0 ./src/BT_Stack/Drivers/SimpleCache.o
- .data          0x00000000        0x0 ./src/BT_Stack/Drivers/SimpleCache.o
- .bss           0x00000000        0x0 ./src/BT_Stack/Drivers/SimpleCache.o
- .bss.cache_pos
-                0x00000000        0x1 ./src/BT_Stack/Drivers/SimpleCache.o
- .text.add_to_cache
-                0x00000000       0x84 ./src/BT_Stack/Drivers/SimpleCache.o
- .text.flush    0x00000000       0x34 ./src/BT_Stack/Drivers/SimpleCache.o
- COMMON         0x00000000      0x200 ./src/BT_Stack/Drivers/SimpleCache.o
  .text          0x00000000        0x0 ./src/BT_Stack/Drivers/lpc17xx_adc.o
  .data          0x00000000        0x0 ./src/BT_Stack/Drivers/lpc17xx_adc.o
  .bss           0x00000000        0x0 ./src/BT_Stack/Drivers/lpc17xx_adc.o
+ .text.ADC_Init
+                0x00000000       0xa4 ./src/BT_Stack/Drivers/lpc17xx_adc.o
  .text.ADC_DeInit
                 0x00000000       0x48 ./src/BT_Stack/Drivers/lpc17xx_adc.o
  .text.ADC_GetData
@@ -264,6 +256,10 @@ Discarded input sections
                 0x00000000       0x50 ./src/BT_Stack/Drivers/lpc17xx_adc.o
  .text.ADC_EdgeStartConfig
                 0x00000000       0x6c ./src/BT_Stack/Drivers/lpc17xx_adc.o
+ .text.ADC_IntConfig
+                0x00000000       0xb4 ./src/BT_Stack/Drivers/lpc17xx_adc.o
+ .text.ADC_ChannelCmd
+                0x00000000       0x70 ./src/BT_Stack/Drivers/lpc17xx_adc.o
  .text.ADC_ChannelGetStatus
                 0x00000000       0x8c ./src/BT_Stack/Drivers/lpc17xx_adc.o
  .text.ADC_GlobalGetData
@@ -273,6 +269,8 @@ Discarded input sections
  .text          0x00000000        0x0 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
  .data          0x00000000        0x0 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
  .bss           0x00000000        0x0 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
+ .text.CLKPWR_Sleep
+                0x00000000       0x1c ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
  .text.CLKPWR_DeepSleep
                 0x00000000       0x2c ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
  .text.CLKPWR_PowerDown
@@ -534,8 +532,12 @@ Discarded input sections
  .text          0x00000000        0x0 ./src/BT_Stack/hal_cpu.o
  .data          0x00000000        0x0 ./src/BT_Stack/hal_cpu.o
  .bss           0x00000000        0x0 ./src/BT_Stack/hal_cpu.o
+ .bss.UART1IRQ_ON
+                0x00000000        0x1 ./src/BT_Stack/hal_cpu.o
  .text.hal_cpu_set_uart_needed_during_sleep
-                0x00000000       0x40 ./src/BT_Stack/hal_cpu.o
+                0x00000000       0x14 ./src/BT_Stack/hal_cpu.o
+ .text.clock_init
+                0x00000000        0xc ./src/BT_Stack/hal_cpu.o
  .text          0x00000000        0x0 ./src/BT_Stack/hal_tick.o
  .data          0x00000000        0x0 ./src/BT_Stack/hal_tick.o
  .bss           0x00000000        0x0 ./src/BT_Stack/hal_tick.o
@@ -642,6 +644,8 @@ Discarded input sections
                 0x00000000        0x8 ./src/BT_Stack/hci_cmds.o
  .rodata.hci_le_read_supported_features
                 0x00000000        0x8 ./src/BT_Stack/hci_cmds.o
+ .rodata.hci_le_set_random_address
+                0x00000000        0x8 ./src/BT_Stack/hci_cmds.o
  .rodata.hci_le_set_advertising_parameters
                 0x00000000        0x8 ./src/BT_Stack/hci_cmds.o
  .rodata.hci_le_read_advertising_channel_tx_power
@@ -649,6 +653,8 @@ Discarded input sections
  .rodata.hci_le_set_advertising_data
                 0x00000000        0x8 ./src/BT_Stack/hci_cmds.o
  .rodata.hci_le_set_scan_response_data
+                0x00000000        0x8 ./src/BT_Stack/hci_cmds.o
+ .rodata.hci_le_set_advertise_enable
                 0x00000000        0x8 ./src/BT_Stack/hci_cmds.o
  .rodata.hci_le_set_scan_parameters
                 0x00000000        0x8 ./src/BT_Stack/hci_cmds.o
@@ -696,9 +702,7 @@ Discarded input sections
                 0x00000000        0x8 ./src/BT_Stack/hci_cmds.o
  .rodata.gap_get_param
                 0x00000000        0x8 ./src/BT_Stack/hci_cmds.o
- .rodata.gap_set_param
-                0x00000000        0x8 ./src/BT_Stack/hci_cmds.o
- .rodata.gap_device_discovery_request
+ .rodata.util_reset
                 0x00000000        0x8 ./src/BT_Stack/hci_cmds.o
  .rodata.btstack_get_state
                 0x00000000        0x8 ./src/BT_Stack/hci_cmds.o
@@ -1182,13 +1186,6 @@ Discarded input sections
  .text          0x00000000        0x0 ./src/main.o
  .data          0x00000000        0x0 ./src/main.o
  .bss           0x00000000        0x0 ./src/main.o
- .bss.COUNT     0x00000000        0x1 ./src/main.o
- .bss.SCAN_COUNT
-                0x00000000        0x1 ./src/main.o
- .bss.SCANNING_NOW
-                0x00000000        0x1 ./src/main.o
- .text.scan_handler
-                0x00000000       0x70 ./src/main.o
  .text          0x00000000        0x0 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
  .data          0x00000000        0x0 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
  .bss           0x00000000        0x0 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
@@ -1433,7 +1430,6 @@ LOAD ./src/EBN_Core/jerasure.o
 LOAD ./src/EBN_Core/mem.o
 LOAD ./src/EBN_Core/random.o
 LOAD ./src/EBN_Core/reed_sol.o
-LOAD ./src/BT_Stack/Drivers/SimpleCache.o
 LOAD ./src/BT_Stack/Drivers/lpc17xx_adc.o
 LOAD ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
 LOAD ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
@@ -1473,7 +1469,7 @@ END GROUP
                 0x10008000                __top_RamLoc32 = 0x10008000
                 0x20084000                __top_RamAHB32 = 0x20084000
 
-.text           0x00000000     0xc118
+.text           0x00000000     0xc278
  FILL mask 0xff
                 0x00000000                __vectors_start__ = ABSOLUTE (.)
  *(.isr_vector)
@@ -1482,10 +1478,10 @@ END GROUP
                 0x000000cc                . = ALIGN (0x4)
                 0x000000cc                __section_table_start = .
                 0x000000cc                __data_section_table = .
-                0x000000cc        0x4 LONG 0xc118 LOADADDR (.data)
+                0x000000cc        0x4 LONG 0xc278 LOADADDR (.data)
                 0x000000d0        0x4 LONG 0x10000000 ADDR (.data)
                 0x000000d4        0x4 LONG 0x1bc SIZEOF (.data)
-                0x000000d8        0x4 LONG 0xc118 LOADADDR (.data_RAM2)
+                0x000000d8        0x4 LONG 0xc278 LOADADDR (.data_RAM2)
                 0x000000dc        0x4 LONG 0x2007c000 ADDR (.data_RAM2)
                 0x000000e0        0x4 LONG 0x0 SIZEOF (.data_RAM2)
                 0x000000e4                __data_section_table_end = .
@@ -1703,693 +1699,683 @@ END GROUP
                 0x00003524                memcpy
  .text.memset   0x00003574       0x48 ./src/EBN_Core/mem.o
                 0x00003574                memset
- .text.NVIC_EnableIRQ
-                0x000035bc       0x38 ./src/EBN_Core/random.o
  .text.ADC_IRQHandler
-                0x000035f4       0xcc ./src/EBN_Core/random.o
-                0x000035f4                ADC_IRQHandler
+                0x000035bc       0xcc ./src/EBN_Core/random.o
+                0x000035bc                ADC_IRQHandler
+ .text.Get_Random_Byte1
+                0x00003688      0x108 ./src/EBN_Core/random.o
+                0x00003688                Get_Random_Byte1
  .text.Random_Init
-                0x000036c0       0x78 ./src/EBN_Core/random.o
-                0x000036c0                Random_Init
- .text.Get_Random_Byte
-                0x00003738       0x64 ./src/EBN_Core/random.o
-                0x00003738                Get_Random_Byte
+                0x00003790       0x9c ./src/EBN_Core/random.o
+                0x00003790                Random_Init
  .text.Fill_Random_Bytes
-                0x0000379c       0x40 ./src/EBN_Core/random.o
-                0x0000379c                Fill_Random_Bytes
+                0x0000382c       0x44 ./src/EBN_Core/random.o
+                0x0000382c                Fill_Random_Bytes
  .text.reed_sol_vandermonde_coding_matrix
-                0x000037dc       0xb0 ./src/EBN_Core/reed_sol.o
-                0x000037dc                reed_sol_vandermonde_coding_matrix
+                0x00003870       0xb0 ./src/EBN_Core/reed_sol.o
+                0x00003870                reed_sol_vandermonde_coding_matrix
  .text.reed_sol_extended_vandermonde_matrix
-                0x0000388c      0x168 ./src/EBN_Core/reed_sol.o
-                0x0000388c                reed_sol_extended_vandermonde_matrix
+                0x00003920      0x168 ./src/EBN_Core/reed_sol.o
+                0x00003920                reed_sol_extended_vandermonde_matrix
  .text.reed_sol_big_vandermonde_distribution_matrix
-                0x000039f4      0x358 ./src/EBN_Core/reed_sol.o
-                0x000039f4                reed_sol_big_vandermonde_distribution_matrix
- .text.ADC_Init
-                0x00003d4c       0xa4 ./src/BT_Stack/Drivers/lpc17xx_adc.o
-                0x00003d4c                ADC_Init
+                0x00003a88      0x358 ./src/EBN_Core/reed_sol.o
+                0x00003a88                reed_sol_big_vandermonde_distribution_matrix
  .text.ADC_StartCmd
-                0x00003df0       0x90 ./src/BT_Stack/Drivers/lpc17xx_adc.o
-                0x00003df0                ADC_StartCmd
- .text.ADC_IntConfig
-                0x00003e80       0xb4 ./src/BT_Stack/Drivers/lpc17xx_adc.o
-                0x00003e80                ADC_IntConfig
- .text.ADC_ChannelCmd
-                0x00003f34       0x70 ./src/BT_Stack/Drivers/lpc17xx_adc.o
-                0x00003f34                ADC_ChannelCmd
+                0x00003de0       0x90 ./src/BT_Stack/Drivers/lpc17xx_adc.o
+                0x00003de0                ADC_StartCmd
  .text.ADC_ChannelGetData
-                0x00003fa4       0x58 ./src/BT_Stack/Drivers/lpc17xx_adc.o
-                0x00003fa4                ADC_ChannelGetData
+                0x00003e70       0x58 ./src/BT_Stack/Drivers/lpc17xx_adc.o
+                0x00003e70                ADC_ChannelGetData
  .text.CLKPWR_SetPCLKDiv
-                0x00003ffc       0xcc ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
-                0x00003ffc                CLKPWR_SetPCLKDiv
+                0x00003ec8       0xcc ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
+                0x00003ec8                CLKPWR_SetPCLKDiv
  .text.CLKPWR_GetPCLKSEL
-                0x000040c8       0x54 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
-                0x000040c8                CLKPWR_GetPCLKSEL
+                0x00003f94       0x54 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
+                0x00003f94                CLKPWR_GetPCLKSEL
  .text.CLKPWR_GetPCLK
-                0x0000411c       0x74 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
-                0x0000411c                CLKPWR_GetPCLK
+                0x00003fe8       0x74 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
+                0x00003fe8                CLKPWR_GetPCLK
  .text.CLKPWR_ConfigPPWR
-                0x00004190       0x78 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
-                0x00004190                CLKPWR_ConfigPPWR
- .text.CLKPWR_Sleep
-                0x00004208       0x1c ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
-                0x00004208                CLKPWR_Sleep
+                0x0000405c       0x78 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
+                0x0000405c                CLKPWR_ConfigPPWR
  .text.check_failed
-                0x00004224        0xc ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
-                0x00004224                check_failed
+                0x000040d4        0xc ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
+                0x000040d4                check_failed
  .text.set_PinFunc
-                0x00004230       0x9c ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
-                0x00004230                set_PinFunc
+                0x000040e0       0x9c ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
+                0x000040e0                set_PinFunc
  .text.getPClock
-                0x000042cc       0x68 ./src/BT_Stack/Drivers/lpc17xx_timer.o
+                0x0000417c       0x68 ./src/BT_Stack/Drivers/lpc17xx_timer.o
  .text.converUSecToVal
-                0x00004334       0x64 ./src/BT_Stack/Drivers/lpc17xx_timer.o
+                0x000041e4       0x64 ./src/BT_Stack/Drivers/lpc17xx_timer.o
  .text.converPtrToTimeNum
-                0x00004398       0x6c ./src/BT_Stack/Drivers/lpc17xx_timer.o
+                0x00004248       0x6c ./src/BT_Stack/Drivers/lpc17xx_timer.o
  .text.TIM_ClearIntPending
-                0x00004404       0xa0 ./src/BT_Stack/Drivers/lpc17xx_timer.o
-                0x00004404                TIM_ClearIntPending
+                0x000042b4       0xa0 ./src/BT_Stack/Drivers/lpc17xx_timer.o
+                0x000042b4                TIM_ClearIntPending
  .text.TIM_Init
-                0x000044a4      0x1cc ./src/BT_Stack/Drivers/lpc17xx_timer.o
-                0x000044a4                TIM_Init
- .text.TIM_Cmd  0x00004670       0x78 ./src/BT_Stack/Drivers/lpc17xx_timer.o
-                0x00004670                TIM_Cmd
+                0x00004354      0x1cc ./src/BT_Stack/Drivers/lpc17xx_timer.o
+                0x00004354                TIM_Init
+ .text.TIM_Cmd  0x00004520       0x78 ./src/BT_Stack/Drivers/lpc17xx_timer.o
+                0x00004520                TIM_Cmd
  .text.TIM_ResetCounter
-                0x000046e8       0x6c ./src/BT_Stack/Drivers/lpc17xx_timer.o
-                0x000046e8                TIM_ResetCounter
+                0x00004598       0x6c ./src/BT_Stack/Drivers/lpc17xx_timer.o
+                0x00004598                TIM_ResetCounter
  .text.TIM_ConfigMatch
-                0x00004754      0x1cc ./src/BT_Stack/Drivers/lpc17xx_timer.o
-                0x00004754                TIM_ConfigMatch
+                0x00004604      0x1cc ./src/BT_Stack/Drivers/lpc17xx_timer.o
+                0x00004604                TIM_ConfigMatch
  .text.uart_set_divisors
-                0x00004920      0x26c ./src/BT_Stack/Drivers/lpc17xx_uart.o
+                0x000047d0      0x26c ./src/BT_Stack/Drivers/lpc17xx_uart.o
  .text.UART_Init
-                0x00004b8c      0x3a8 ./src/BT_Stack/Drivers/lpc17xx_uart.o
-                0x00004b8c                UART_Init
+                0x00004a3c      0x3a8 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+                0x00004a3c                UART_Init
  .text.UART_ConfigStructInit
-                0x00004f34       0x34 ./src/BT_Stack/Drivers/lpc17xx_uart.o
-                0x00004f34                UART_ConfigStructInit
+                0x00004de4       0x34 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+                0x00004de4                UART_ConfigStructInit
  .text.UART_SendByte
-                0x00004f68       0x78 ./src/BT_Stack/Drivers/lpc17xx_uart.o
-                0x00004f68                UART_SendByte
+                0x00004e18       0x78 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+                0x00004e18                UART_SendByte
  .text.UART_ReceiveByte
-                0x00004fe0       0x78 ./src/BT_Stack/Drivers/lpc17xx_uart.o
-                0x00004fe0                UART_ReceiveByte
+                0x00004e90       0x78 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+                0x00004e90                UART_ReceiveByte
  .text.UART_Send
-                0x00005058      0x10c ./src/BT_Stack/Drivers/lpc17xx_uart.o
-                0x00005058                UART_Send
+                0x00004f08      0x10c ./src/BT_Stack/Drivers/lpc17xx_uart.o
+                0x00004f08                UART_Send
  .text.UART_IntConfig
-                0x00005164      0x1d0 ./src/BT_Stack/Drivers/lpc17xx_uart.o
-                0x00005164                UART_IntConfig
+                0x00005014      0x1d0 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+                0x00005014                UART_IntConfig
  .text.UART_FIFOConfig
-                0x00005334      0x184 ./src/BT_Stack/Drivers/lpc17xx_uart.o
-                0x00005334                UART_FIFOConfig
+                0x000051e4      0x184 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+                0x000051e4                UART_FIFOConfig
  .text.UART_FIFOConfigStructInit
-                0x000054b8       0x34 ./src/BT_Stack/Drivers/lpc17xx_uart.o
-                0x000054b8                UART_FIFOConfigStructInit
+                0x00005368       0x34 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+                0x00005368                UART_FIFOConfigStructInit
  .text.UART_TxCmd
-                0x000054ec       0xe8 ./src/BT_Stack/Drivers/lpc17xx_uart.o
-                0x000054ec                UART_TxCmd
+                0x0000539c       0xe8 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+                0x0000539c                UART_TxCmd
  .text.UART_FullModemForcePinState
-                0x000055d4       0xcc ./src/BT_Stack/Drivers/lpc17xx_uart.o
-                0x000055d4                UART_FullModemForcePinState
+                0x00005484       0xcc ./src/BT_Stack/Drivers/lpc17xx_uart.o
+                0x00005484                UART_FullModemForcePinState
  .text.btstack_memory_hci_connection_get
-                0x000056a0       0x18 ./src/BT_Stack/btstack_memory.o
-                0x000056a0                btstack_memory_hci_connection_get
+                0x00005550       0x18 ./src/BT_Stack/btstack_memory.o
+                0x00005550                btstack_memory_hci_connection_get
  .text.btstack_memory_hci_connection_free
-                0x000056b8       0x20 ./src/BT_Stack/btstack_memory.o
-                0x000056b8                btstack_memory_hci_connection_free
+                0x00005568       0x20 ./src/BT_Stack/btstack_memory.o
+                0x00005568                btstack_memory_hci_connection_free
  .text.btstack_memory_db_mem_device_name_get
-                0x000056d8       0x10 ./src/BT_Stack/btstack_memory.o
-                0x000056d8                btstack_memory_db_mem_device_name_get
+                0x00005588       0x10 ./src/BT_Stack/btstack_memory.o
+                0x00005588                btstack_memory_db_mem_device_name_get
  .text.btstack_memory_db_mem_device_name_free
-                0x000056e8       0x14 ./src/BT_Stack/btstack_memory.o
-                0x000056e8                btstack_memory_db_mem_device_name_free
+                0x00005598       0x14 ./src/BT_Stack/btstack_memory.o
+                0x00005598                btstack_memory_db_mem_device_name_free
  .text.btstack_memory_db_mem_device_link_key_get
-                0x000056fc       0x18 ./src/BT_Stack/btstack_memory.o
-                0x000056fc                btstack_memory_db_mem_device_link_key_get
+                0x000055ac       0x18 ./src/BT_Stack/btstack_memory.o
+                0x000055ac                btstack_memory_db_mem_device_link_key_get
  .text.btstack_memory_db_mem_device_link_key_free
-                0x00005714       0x20 ./src/BT_Stack/btstack_memory.o
-                0x00005714                btstack_memory_db_mem_device_link_key_free
+                0x000055c4       0x20 ./src/BT_Stack/btstack_memory.o
+                0x000055c4                btstack_memory_db_mem_device_link_key_free
  .text.btstack_memory_db_mem_service_get
-                0x00005734       0x10 ./src/BT_Stack/btstack_memory.o
-                0x00005734                btstack_memory_db_mem_service_get
+                0x000055e4       0x10 ./src/BT_Stack/btstack_memory.o
+                0x000055e4                btstack_memory_db_mem_service_get
  .text.btstack_memory_init
-                0x00005744       0x40 ./src/BT_Stack/btstack_memory.o
-                0x00005744                btstack_memory_init
+                0x000055f4       0x40 ./src/BT_Stack/btstack_memory.o
+                0x000055f4                btstack_memory_init
  .text.NVIC_EnableIRQ
-                0x00005784       0x38 ./src/BT_Stack/hal_cpu.o
+                0x00005634       0x38 ./src/BT_Stack/hal_cpu.o
  .text.hal_cpu_enable_irqs
-                0x000057bc       0x20 ./src/BT_Stack/hal_cpu.o
-                0x000057bc                hal_cpu_enable_irqs
+                0x0000566c       0x18 ./src/BT_Stack/hal_cpu.o
+                0x0000566c                hal_cpu_enable_irqs
  .text.hal_cpu_disable_irqs
-                0x000057dc        0xc ./src/BT_Stack/hal_cpu.o
-                0x000057dc                hal_cpu_disable_irqs
+                0x00005684        0xc ./src/BT_Stack/hal_cpu.o
+                0x00005684                hal_cpu_disable_irqs
  .text.hal_cpu_enable_irqs_and_sleep
-                0x000057e8       0x30 ./src/BT_Stack/hal_cpu.o
-                0x000057e8                hal_cpu_enable_irqs_and_sleep
+                0x00005690        0xc ./src/BT_Stack/hal_cpu.o
+                0x00005690                hal_cpu_enable_irqs_and_sleep
  .text.NVIC_EnableIRQ
-                0x00005818       0x38 ./src/BT_Stack/hal_tick.o
+                0x0000569c       0x38 ./src/BT_Stack/hal_tick.o
  .text.dummy_handler
-                0x00005850        0xc ./src/BT_Stack/hal_tick.o
+                0x000056d4        0xc ./src/BT_Stack/hal_tick.o
  .text.hal_tick_init
-                0x0000585c       0xbc ./src/BT_Stack/hal_tick.o
-                0x0000585c                hal_tick_init
+                0x000056e0       0xbc ./src/BT_Stack/hal_tick.o
+                0x000056e0                hal_tick_init
  .text.hal_tick_set_handler
-                0x00005918       0x38 ./src/BT_Stack/hal_tick.o
-                0x00005918                hal_tick_set_handler
+                0x0000579c       0x38 ./src/BT_Stack/hal_tick.o
+                0x0000579c                hal_tick_set_handler
  .text.hal_tick_get_tick_period_in_ms
-                0x00005950       0x10 ./src/BT_Stack/hal_tick.o
-                0x00005950                hal_tick_get_tick_period_in_ms
+                0x000057d4       0x10 ./src/BT_Stack/hal_tick.o
+                0x000057d4                hal_tick_get_tick_period_in_ms
  .text.TIMER0_IRQHandler
-                0x00005960       0x20 ./src/BT_Stack/hal_tick.o
-                0x00005960                TIMER0_IRQHandler
+                0x000057e4       0x20 ./src/BT_Stack/hal_tick.o
+                0x000057e4                TIMER0_IRQHandler
  .text.dummy_handler
-                0x00005980        0xc ./src/BT_Stack/hal_uart_dma.o
-                0x00005980                dummy_handler
+                0x00005804        0xc ./src/BT_Stack/hal_uart_dma.o
+                0x00005804                dummy_handler
  .text.hal_uart_dma_enable_rx
-                0x0000598c       0x1c ./src/BT_Stack/hal_uart_dma.o
+                0x00005810       0x1c ./src/BT_Stack/hal_uart_dma.o
  .text.hal_uart_dma_disable_rx
-                0x000059a8       0x1c ./src/BT_Stack/hal_uart_dma.o
+                0x0000582c       0x1c ./src/BT_Stack/hal_uart_dma.o
  .text.hal_uart_dma_init
-                0x000059c4       0x4c ./src/BT_Stack/hal_uart_dma.o
-                0x000059c4                hal_uart_dma_init
+                0x00005848       0x4c ./src/BT_Stack/hal_uart_dma.o
+                0x00005848                hal_uart_dma_init
  .text.hal_uart_dma_set_baud
-                0x00005a10       0x18 ./src/BT_Stack/hal_uart_dma.o
-                0x00005a10                hal_uart_dma_set_baud
+                0x00005894       0x18 ./src/BT_Stack/hal_uart_dma.o
+                0x00005894                hal_uart_dma_set_baud
  .text.hal_uart_dma_set_block_received
-                0x00005a28       0x20 ./src/BT_Stack/hal_uart_dma.o
-                0x00005a28                hal_uart_dma_set_block_received
+                0x000058ac       0x20 ./src/BT_Stack/hal_uart_dma.o
+                0x000058ac                hal_uart_dma_set_block_received
  .text.hal_uart_dma_set_block_sent
-                0x00005a48       0x20 ./src/BT_Stack/hal_uart_dma.o
-                0x00005a48                hal_uart_dma_set_block_sent
+                0x000058cc       0x20 ./src/BT_Stack/hal_uart_dma.o
+                0x000058cc                hal_uart_dma_set_block_sent
  .text.hal_uart_dma_send_block
-                0x00005a68       0x5c ./src/BT_Stack/hal_uart_dma.o
-                0x00005a68                hal_uart_dma_send_block
+                0x000058ec       0x5c ./src/BT_Stack/hal_uart_dma.o
+                0x000058ec                hal_uart_dma_send_block
  .text.hal_uart_dma_receive_block
-                0x00005ac4       0x58 ./src/BT_Stack/hal_uart_dma.o
-                0x00005ac4                hal_uart_dma_receive_block
+                0x00005948       0x58 ./src/BT_Stack/hal_uart_dma.o
+                0x00005948                hal_uart_dma_receive_block
  .text.UART1_IRQHandler
-                0x00005b1c      0x1c8 ./src/BT_Stack/hal_uart_dma.o
-                0x00005b1c                UART1_IRQHandler
+                0x000059a0      0x1c8 ./src/BT_Stack/hal_uart_dma.o
+                0x000059a0                UART1_IRQHandler
  .text.connection_for_handle
-                0x00005ce4       0x44 ./src/BT_Stack/hci.o
-                0x00005ce4                connection_for_handle
+                0x00005b68       0x44 ./src/BT_Stack/hci.o
+                0x00005b68                connection_for_handle
  .text.hci_connection_timeout_handler
-                0x00005d28       0x4c ./src/BT_Stack/hci.o
+                0x00005bac       0x4c ./src/BT_Stack/hci.o
  .text.hci_connection_timestamp
-                0x00005d74       0x1c ./src/BT_Stack/hci.o
+                0x00005bf8       0x1c ./src/BT_Stack/hci.o
  .text.create_connection_for_addr
-                0x00005d90       0x98 ./src/BT_Stack/hci.o
+                0x00005c14       0x98 ./src/BT_Stack/hci.o
  .text.connection_for_address
-                0x00005e28       0x4c ./src/BT_Stack/hci.o
+                0x00005cac       0x4c ./src/BT_Stack/hci.o
  .text.connectionSetAuthenticationFlags
-                0x00005e74       0x24 ./src/BT_Stack/hci.o
+                0x00005cf8       0x24 ./src/BT_Stack/hci.o
  .text.connectionClearAuthenticationFlags
-                0x00005e98       0x30 ./src/BT_Stack/hci.o
+                0x00005d1c       0x30 ./src/BT_Stack/hci.o
  .text.hci_add_connection_flags_for_flipped_bd_addr
-                0x00005ec8       0x44 ./src/BT_Stack/hci.o
+                0x00005d4c       0x44 ./src/BT_Stack/hci.o
  .text.hci_drop_link_key_for_bd_addr
-                0x00005f0c       0x34 ./src/BT_Stack/hci.o
-                0x00005f0c                hci_drop_link_key_for_bd_addr
+                0x00005d90       0x34 ./src/BT_Stack/hci.o
+                0x00005d90                hci_drop_link_key_for_bd_addr
  .text.nr_hci_connections
-                0x00005f40       0x3c ./src/BT_Stack/hci.o
+                0x00005dc4       0x3c ./src/BT_Stack/hci.o
  .text.dummy_handler
-                0x00005f7c       0x1c ./src/BT_Stack/hci.o
+                0x00005e00       0x1c ./src/BT_Stack/hci.o
  .text.hci_number_free_acl_slots
-                0x00005f98       0x60 ./src/BT_Stack/hci.o
-                0x00005f98                hci_number_free_acl_slots
+                0x00005e1c       0x60 ./src/BT_Stack/hci.o
+                0x00005e1c                hci_number_free_acl_slots
  .text.hci_can_send_packet_now
-                0x00005ff8       0x68 ./src/BT_Stack/hci.o
-                0x00005ff8                hci_can_send_packet_now
+                0x00005e7c       0x68 ./src/BT_Stack/hci.o
+                0x00005e7c                hci_can_send_packet_now
  .text.acl_handler
-                0x00006060      0x1c8 ./src/BT_Stack/hci.o
+                0x00005ee4      0x1c8 ./src/BT_Stack/hci.o
  .text.hci_shutdown_connection
-                0x00006228       0x40 ./src/BT_Stack/hci.o
+                0x000060ac       0x40 ./src/BT_Stack/hci.o
  .text.hci_acl_packet_types_for_buffer_size
-                0x00006268       0x80 ./src/BT_Stack/hci.o
+                0x000060ec       0x80 ./src/BT_Stack/hci.o
  .text.event_handler
-                0x000062e8      0x7bc ./src/BT_Stack/hci.o
+                0x0000616c      0x7bc ./src/BT_Stack/hci.o
  .text.packet_handler
-                0x00006aa4       0x3c ./src/BT_Stack/hci.o
+                0x00006928       0x3c ./src/BT_Stack/hci.o
  .text.hci_register_packet_handler
-                0x00006ae0       0x20 ./src/BT_Stack/hci.o
-                0x00006ae0                hci_register_packet_handler
+                0x00006964       0x20 ./src/BT_Stack/hci.o
+                0x00006964                hci_register_packet_handler
  .text.hci_init
-                0x00006b00       0xf8 ./src/BT_Stack/hci.o
-                0x00006b00                hci_init
+                0x00006984       0xf8 ./src/BT_Stack/hci.o
+                0x00006984                hci_init
  .text.hci_power_control_on
-                0x00006bf8       0xc8 ./src/BT_Stack/hci.o
+                0x00006a7c       0xc8 ./src/BT_Stack/hci.o
  .text.hci_power_control_off
-                0x00006cc0       0x68 ./src/BT_Stack/hci.o
+                0x00006b44       0x68 ./src/BT_Stack/hci.o
  .text.hci_power_control_sleep
-                0x00006d28       0x50 ./src/BT_Stack/hci.o
+                0x00006bac       0x50 ./src/BT_Stack/hci.o
  .text.hci_power_control_wake
-                0x00006d78       0x44 ./src/BT_Stack/hci.o
+                0x00006bfc       0x44 ./src/BT_Stack/hci.o
  .text.hci_power_control
-                0x00006dbc      0x228 ./src/BT_Stack/hci.o
-                0x00006dbc                hci_power_control
- .text.hci_run  0x00006fe4      0x4c0 ./src/BT_Stack/hci.o
-                0x00006fe4                hci_run
+                0x00006c40      0x228 ./src/BT_Stack/hci.o
+                0x00006c40                hci_power_control
+ .text.hci_run  0x00006e68      0x4c0 ./src/BT_Stack/hci.o
+                0x00006e68                hci_run
  .text.hci_send_device_int
-                0x000074a4       0xc0 ./src/BT_Stack/hci.o
-                0x000074a4                hci_send_device_int
+                0x00007328       0xc0 ./src/BT_Stack/hci.o
+                0x00007328                hci_send_device_int
  .text.hci_send_cmd_packet
-                0x00007564      0x1f8 ./src/BT_Stack/hci.o
-                0x00007564                hci_send_cmd_packet
+                0x000073e8      0x1f8 ./src/BT_Stack/hci.o
+                0x000073e8                hci_send_cmd_packet
  .text.hci_send_cmd
-                0x0000775c       0x3c ./src/BT_Stack/hci.o
-                0x0000775c                hci_send_cmd
+                0x000075e0       0x3c ./src/BT_Stack/hci.o
+                0x000075e0                hci_send_cmd
  .text.gap_send_cmd
-                0x00007798       0x3c ./src/BT_Stack/hci.o
-                0x00007798                gap_send_cmd
+                0x0000761c       0x3c ./src/BT_Stack/hci.o
+                0x0000761c                gap_send_cmd
  .text.hci_emit_state
-                0x000077d4       0x5c ./src/BT_Stack/hci.o
-                0x000077d4                hci_emit_state
+                0x00007658       0x5c ./src/BT_Stack/hci.o
+                0x00007658                hci_emit_state
  .text.hci_emit_connection_complete
-                0x00007830       0x8c ./src/BT_Stack/hci.o
-                0x00007830                hci_emit_connection_complete
+                0x000076b4       0x8c ./src/BT_Stack/hci.o
+                0x000076b4                hci_emit_connection_complete
  .text.hci_emit_disconnection_complete
-                0x000078bc       0x70 ./src/BT_Stack/hci.o
-                0x000078bc                hci_emit_disconnection_complete
+                0x00007740       0x70 ./src/BT_Stack/hci.o
+                0x00007740                hci_emit_disconnection_complete
  .text.hci_emit_l2cap_check_timeout
-                0x0000792c       0x64 ./src/BT_Stack/hci.o
-                0x0000792c                hci_emit_l2cap_check_timeout
+                0x000077b0       0x64 ./src/BT_Stack/hci.o
+                0x000077b0                hci_emit_l2cap_check_timeout
  .text.hci_emit_nr_connections_changed
-                0x00007990       0x58 ./src/BT_Stack/hci.o
-                0x00007990                hci_emit_nr_connections_changed
+                0x00007814       0x58 ./src/BT_Stack/hci.o
+                0x00007814                hci_emit_nr_connections_changed
  .text.hci_emit_hci_open_failed
-                0x000079e8       0x4c ./src/BT_Stack/hci.o
-                0x000079e8                hci_emit_hci_open_failed
+                0x0000786c       0x4c ./src/BT_Stack/hci.o
+                0x0000786c                hci_emit_hci_open_failed
  .text.hci_emit_discoverable_enabled
-                0x00007a34       0x54 ./src/BT_Stack/hci.o
-                0x00007a34                hci_emit_discoverable_enabled
+                0x000078b8       0x54 ./src/BT_Stack/hci.o
+                0x000078b8                hci_emit_discoverable_enabled
  .text.hci_create_cmd_internal
-                0x00007a88      0x3cc ./src/BT_Stack/hci_cmds.o
-                0x00007a88                hci_create_cmd_internal
+                0x0000790c      0x3cc ./src/BT_Stack/hci_cmds.o
+                0x0000790c                hci_create_cmd_internal
  .text.hci_dump_packet
-                0x00007e54       0x1c ./src/BT_Stack/hci_dump.o
-                0x00007e54                hci_dump_packet
+                0x00007cd8       0x1c ./src/BT_Stack/hci_dump.o
+                0x00007cd8                hci_dump_packet
  .text.h4_init_sm
-                0x00007e70       0x4c ./src/BT_Stack/hci_transport_h4_dma.o
- .text.h4_open  0x00007ebc       0x50 ./src/BT_Stack/hci_transport_h4_dma.o
+                0x00007cf4       0x4c ./src/BT_Stack/hci_transport_h4_dma.o
+ .text.h4_open  0x00007d40       0x50 ./src/BT_Stack/hci_transport_h4_dma.o
  .text.h4_close
-                0x00007f0c       0x18 ./src/BT_Stack/hci_transport_h4_dma.o
+                0x00007d90       0x18 ./src/BT_Stack/hci_transport_h4_dma.o
  .text.h4_block_received
-                0x00007f24      0x1d4 ./src/BT_Stack/hci_transport_h4_dma.o
+                0x00007da8      0x1d4 ./src/BT_Stack/hci_transport_h4_dma.o
  .text.h4_block_sent
-                0x000080f8       0x5c ./src/BT_Stack/hci_transport_h4_dma.o
+                0x00007f7c       0x5c ./src/BT_Stack/hci_transport_h4_dma.o
  .text.h4_register_packet_handler
-                0x00008154       0x20 ./src/BT_Stack/hci_transport_h4_dma.o
+                0x00007fd8       0x20 ./src/BT_Stack/hci_transport_h4_dma.o
+ .text.dump     0x00007ff8       0x54 ./src/BT_Stack/hci_transport_h4_dma.o
  .text.h4_process
-                0x00008174       0x9c ./src/BT_Stack/hci_transport_h4_dma.o
+                0x0000804c       0xc4 ./src/BT_Stack/hci_transport_h4_dma.o
  .text.h4_send_packet
-                0x00008210       0x74 ./src/BT_Stack/hci_transport_h4_dma.o
+                0x00008110       0x94 ./src/BT_Stack/hci_transport_h4_dma.o
  .text.h4_set_baudrate
-                0x00008284       0x2c ./src/BT_Stack/hci_transport_h4_dma.o
+                0x000081a4       0x2c ./src/BT_Stack/hci_transport_h4_dma.o
  .text.h4_can_send_packet_now
-                0x000082b0       0x28 ./src/BT_Stack/hci_transport_h4_dma.o
+                0x000081d0       0x28 ./src/BT_Stack/hci_transport_h4_dma.o
  .text.h4_get_transport_name
-                0x000082d8       0x14 ./src/BT_Stack/hci_transport_h4_dma.o
+                0x000081f8       0x14 ./src/BT_Stack/hci_transport_h4_dma.o
  .text.dummy_handler
-                0x000082ec       0x1c ./src/BT_Stack/hci_transport_h4_dma.o
+                0x0000820c       0x1c ./src/BT_Stack/hci_transport_h4_dma.o
  .text.hci_transport_h4_dma_instance
-                0x00008308       0x14 ./src/BT_Stack/hci_transport_h4_dma.o
-                0x00008308                hci_transport_h4_dma_instance
+                0x00008228       0x14 ./src/BT_Stack/hci_transport_h4_dma.o
+                0x00008228                hci_transport_h4_dma_instance
  .text.linked_list_get_last_item
-                0x0000831c       0x3c ./src/BT_Stack/linked_list.o
-                0x0000831c                linked_list_get_last_item
+                0x0000823c       0x3c ./src/BT_Stack/linked_list.o
+                0x0000823c                linked_list_get_last_item
  .text.linked_list_add
-                0x00008358       0x44 ./src/BT_Stack/linked_list.o
-                0x00008358                linked_list_add
+                0x00008278       0x44 ./src/BT_Stack/linked_list.o
+                0x00008278                linked_list_add
  .text.linked_list_remove
-                0x0000839c       0x44 ./src/BT_Stack/linked_list.o
-                0x0000839c                linked_list_remove
+                0x000082bc       0x44 ./src/BT_Stack/linked_list.o
+                0x000082bc                linked_list_remove
  .text.linked_item_set_user
-                0x000083e0       0x24 ./src/BT_Stack/linked_list.o
-                0x000083e0                linked_item_set_user
+                0x00008300       0x24 ./src/BT_Stack/linked_list.o
+                0x00008300                linked_item_set_user
  .text.linked_item_get_user
-                0x00008404       0x18 ./src/BT_Stack/linked_list.o
-                0x00008404                linked_item_get_user
+                0x00008324       0x18 ./src/BT_Stack/linked_list.o
+                0x00008324                linked_item_get_user
  .text.memory_pool_create
-                0x0000841c       0x50 ./src/BT_Stack/memory_pool.o
-                0x0000841c                memory_pool_create
+                0x0000833c       0x50 ./src/BT_Stack/memory_pool.o
+                0x0000833c                memory_pool_create
  .text.memory_pool_get
-                0x0000846c       0x38 ./src/BT_Stack/memory_pool.o
-                0x0000846c                memory_pool_get
+                0x0000838c       0x38 ./src/BT_Stack/memory_pool.o
+                0x0000838c                memory_pool_get
  .text.memory_pool_free
-                0x000084a4       0x2c ./src/BT_Stack/memory_pool.o
-                0x000084a4                memory_pool_free
- .text.db_open  0x000084d0        0xc ./src/BT_Stack/remote_device_db_memory.o
+                0x000083c4       0x2c ./src/BT_Stack/memory_pool.o
+                0x000083c4                memory_pool_free
+ .text.db_open  0x000083f0        0xc ./src/BT_Stack/remote_device_db_memory.o
  .text.db_close
-                0x000084dc        0xc ./src/BT_Stack/remote_device_db_memory.o
+                0x000083fc        0xc ./src/BT_Stack/remote_device_db_memory.o
  .text.get_item
-                0x000084e8       0x4c ./src/BT_Stack/remote_device_db_memory.o
+                0x00008408       0x4c ./src/BT_Stack/remote_device_db_memory.o
  .text.get_name
-                0x00008534       0x68 ./src/BT_Stack/remote_device_db_memory.o
+                0x00008454       0x68 ./src/BT_Stack/remote_device_db_memory.o
  .text.get_link_key
-                0x0000859c       0x6c ./src/BT_Stack/remote_device_db_memory.o
+                0x000084bc       0x6c ./src/BT_Stack/remote_device_db_memory.o
  .text.delete_link_key
-                0x00008608       0x44 ./src/BT_Stack/remote_device_db_memory.o
+                0x00008528       0x44 ./src/BT_Stack/remote_device_db_memory.o
  .text.put_link_key
-                0x0000864c       0xa8 ./src/BT_Stack/remote_device_db_memory.o
+                0x0000856c       0xa8 ./src/BT_Stack/remote_device_db_memory.o
  .text.delete_name
-                0x000086f4       0x44 ./src/BT_Stack/remote_device_db_memory.o
+                0x00008614       0x44 ./src/BT_Stack/remote_device_db_memory.o
  .text.put_name
-                0x00008738       0xa0 ./src/BT_Stack/remote_device_db_memory.o
+                0x00008658       0xa0 ./src/BT_Stack/remote_device_db_memory.o
  .text.persistent_rfcomm_channel
-                0x000087d8       0xb0 ./src/BT_Stack/remote_device_db_memory.o
+                0x000086f8       0xb0 ./src/BT_Stack/remote_device_db_memory.o
  .text.run_loop_assert
-                0x00008888        0xc ./src/BT_Stack/run_loop.o
-                0x00008888                run_loop_assert
+                0x000087a8        0xc ./src/BT_Stack/run_loop.o
+                0x000087a8                run_loop_assert
  .text.run_loop_add_data_source
-                0x00008894       0x24 ./src/BT_Stack/run_loop.o
-                0x00008894                run_loop_add_data_source
+                0x000087b4       0x24 ./src/BT_Stack/run_loop.o
+                0x000087b4                run_loop_add_data_source
  .text.run_loop_remove_data_source
-                0x000088b8       0x28 ./src/BT_Stack/run_loop.o
-                0x000088b8                run_loop_remove_data_source
+                0x000087d8       0x28 ./src/BT_Stack/run_loop.o
+                0x000087d8                run_loop_remove_data_source
  .text.run_loop_add_timer
-                0x000088e0       0x24 ./src/BT_Stack/run_loop.o
-                0x000088e0                run_loop_add_timer
+                0x00008800       0x24 ./src/BT_Stack/run_loop.o
+                0x00008800                run_loop_add_timer
  .text.run_loop_remove_timer
-                0x00008904       0x28 ./src/BT_Stack/run_loop.o
-                0x00008904                run_loop_remove_timer
+                0x00008824       0x28 ./src/BT_Stack/run_loop.o
+                0x00008824                run_loop_remove_timer
  .text.run_loop_execute
-                0x0000892c       0x18 ./src/BT_Stack/run_loop.o
-                0x0000892c                run_loop_execute
+                0x0000884c       0x18 ./src/BT_Stack/run_loop.o
+                0x0000884c                run_loop_execute
  .text.run_loop_init
-                0x00008944       0x3c ./src/BT_Stack/run_loop.o
-                0x00008944                run_loop_init
+                0x00008864       0x3c ./src/BT_Stack/run_loop.o
+                0x00008864                run_loop_init
  .text.embedded_trigger
-                0x00008980       0x18 ./src/BT_Stack/run_loop_embedded.o
-                0x00008980                embedded_trigger
+                0x000088a0       0x18 ./src/BT_Stack/run_loop_embedded.o
+                0x000088a0                embedded_trigger
  .text.embedded_add_data_source
-                0x00008998       0x20 ./src/BT_Stack/run_loop_embedded.o
-                0x00008998                embedded_add_data_source
+                0x000088b8       0x20 ./src/BT_Stack/run_loop_embedded.o
+                0x000088b8                embedded_add_data_source
  .text.embedded_remove_data_source
-                0x000089b8       0x24 ./src/BT_Stack/run_loop_embedded.o
-                0x000089b8                embedded_remove_data_source
+                0x000088d8       0x24 ./src/BT_Stack/run_loop_embedded.o
+                0x000088d8                embedded_remove_data_source
  .text.embedded_add_timer
-                0x000089dc       0x4c ./src/BT_Stack/run_loop_embedded.o
-                0x000089dc                embedded_add_timer
+                0x000088fc       0x4c ./src/BT_Stack/run_loop_embedded.o
+                0x000088fc                embedded_add_timer
  .text.embedded_remove_timer
-                0x00008a28       0x24 ./src/BT_Stack/run_loop_embedded.o
-                0x00008a28                embedded_remove_timer
+                0x00008948       0x24 ./src/BT_Stack/run_loop_embedded.o
+                0x00008948                embedded_remove_timer
  .text.embedded_dump_timer
-                0x00008a4c        0xc ./src/BT_Stack/run_loop_embedded.o
-                0x00008a4c                embedded_dump_timer
+                0x0000896c        0xc ./src/BT_Stack/run_loop_embedded.o
+                0x0000896c                embedded_dump_timer
  .text.embedded_execute
-                0x00008a58       0x9c ./src/BT_Stack/run_loop_embedded.o
-                0x00008a58                embedded_execute
+                0x00008978       0x9c ./src/BT_Stack/run_loop_embedded.o
+                0x00008978                embedded_execute
  .text.embedded_tick_handler
-                0x00008af4       0x30 ./src/BT_Stack/run_loop_embedded.o
+                0x00008a14       0x30 ./src/BT_Stack/run_loop_embedded.o
  .text.embedded_get_ticks
-                0x00008b24       0x18 ./src/BT_Stack/run_loop_embedded.o
-                0x00008b24                embedded_get_ticks
+                0x00008a44       0x18 ./src/BT_Stack/run_loop_embedded.o
+                0x00008a44                embedded_get_ticks
  .text.embedded_ticks_for_ms
-                0x00008b3c       0x20 ./src/BT_Stack/run_loop_embedded.o
-                0x00008b3c                embedded_ticks_for_ms
+                0x00008a5c       0x20 ./src/BT_Stack/run_loop_embedded.o
+                0x00008a5c                embedded_ticks_for_ms
  .text.run_loop_set_timer
-                0x00008b5c       0x3c ./src/BT_Stack/run_loop_embedded.o
-                0x00008b5c                run_loop_set_timer
+                0x00008a7c       0x3c ./src/BT_Stack/run_loop_embedded.o
+                0x00008a7c                run_loop_set_timer
  .text.embedded_init
-                0x00008b98       0x40 ./src/BT_Stack/run_loop_embedded.o
-                0x00008b98                embedded_init
+                0x00008ab8       0x40 ./src/BT_Stack/run_loop_embedded.o
+                0x00008ab8                embedded_init
  .text.bt_store_16
-                0x00008bd8       0x48 ./src/BT_Stack/utils.o
-                0x00008bd8                bt_store_16
+                0x00008af8       0x48 ./src/BT_Stack/utils.o
+                0x00008af8                bt_store_16
  .text.bt_flip_addr
-                0x00008c20       0x58 ./src/BT_Stack/utils.o
-                0x00008c20                bt_flip_addr
+                0x00008b40       0x58 ./src/BT_Stack/utils.o
+                0x00008b40                bt_flip_addr
  .text.bd_addr_to_str
-                0x00008c78       0x70 ./src/BT_Stack/utils.o
-                0x00008c78                bd_addr_to_str
+                0x00008b98       0x70 ./src/BT_Stack/utils.o
+                0x00008b98                bd_addr_to_str
+ .text.scan_handler
+                0x00008c08       0x70 ./src/main.o
  .text.epoch_change_handler
-                0x00008ce8       0x8c ./src/main.o
+                0x00008c78       0x8c ./src/main.o
  .text.packet_handler
-                0x00008d74      0x2b0 ./src/main.o
- .text.main     0x00009024       0xb0 ./src/main.o
-                0x00009024                main
+                0x00008d04      0x434 ./src/main.o
+ .text.main     0x00009138       0xd0 ./src/main.o
+                0x00009138                main
  .text.SystemInit
-                0x000090d4       0xe4 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
-                0x000090d4                SystemInit
- .text.__main   0x000091b8       0x14 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr__main.o)
-                0x000091b8                __CR_SEMIHOST
-                0x000091b8                __main
+                0x00009208       0xe4 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x00009208                SystemInit
+ .text.__main   0x000092ec       0x14 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr__main.o)
+                0x000092ec                __CR_SEMIHOST
+                0x000092ec                __main
  .text.lose_trailing_zeros
-                0x000091cc       0x1e c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
+                0x00009300       0x1e c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
  .text.fp_round
-                0x000091ea       0x54 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
+                0x0000931e       0x54 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
  .text.pr_dec.constprop.1
-                0x0000923e       0x22 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
- .text.sprintf  0x00009260       0x70 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
-                0x00009260                sprintf
+                0x00009372       0x22 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
+ .text.sprintf  0x00009394       0x70 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
+                0x00009394                sprintf
+ *fill*         0x00009404        0x4 00
  .text.fp_display
-                0x000092d0      0x908 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
+                0x00009408      0x908 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
  .text.vsnprintf
-                0x00009bd8       0x5c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
-                0x00009bd8                vsnprintf
- .text.printf   0x00009c34       0x54 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
-                0x00009c34                printf
- .text._initio  0x00009c88       0x9c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(initio.o)
-                0x00009c88                _initio
+                0x00009d10       0x5c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
+                0x00009d10                vsnprintf
+ .text.printf   0x00009d6c       0x54 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
+                0x00009d6c                printf
+ .text._initio  0x00009dc0       0x9c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(initio.o)
+                0x00009dc0                _initio
  .text.__vfprintf
-                0x00009d24      0xd54 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(printf.o)
-                0x00009d24                __vfprintf
- .text.setvbuf  0x0000aa78       0x48 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(setvbuf.o)
-                0x0000aa78                setvbuf
- .text.strlen   0x0000aac0       0x4c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(strlen.o)
-                0x0000aac0                strlen
- .text.strncmp  0x0000ab0c       0x4e c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(strncmp.o)
-                0x0000ab0c                strncmp
- .text.strncpy  0x0000ab5a       0x54 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(strncpy.o)
-                0x0000ab5a                strncpy
+                0x00009e5c      0xd54 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(printf.o)
+                0x00009e5c                __vfprintf
+ .text.setvbuf  0x0000abb0       0x48 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(setvbuf.o)
+                0x0000abb0                setvbuf
+ .text.strlen   0x0000abf8       0x4c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(strlen.o)
+                0x0000abf8                strlen
+ .text.strncmp  0x0000ac44       0x4e c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(strncmp.o)
+                0x0000ac44                strncmp
+ .text.strncpy  0x0000ac92       0x54 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(strncpy.o)
+                0x0000ac92                strncpy
  .text._deferredlazyseek
-                0x0000abae       0x44 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_deferredlazyseek.o)
-                0x0000abae                _deferredlazyseek
+                0x0000ace6       0x44 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_deferredlazyseek.o)
+                0x0000ace6                _deferredlazyseek
  .text.__flsbuf
-                0x0000abf2      0x14e c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_deferredlazyseek.o)
-                0x0000abf2                __flsbuf
- .text._fdopen  0x0000ad40       0x6c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_fdopen.o)
-                0x0000ad40                _fdopen
- .text._fflush  0x0000adac       0x58 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_fflush.o)
-                0x0000adac                _fflush
- .text._frexpl  0x0000ae04       0x60 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_frexpl.o)
-                0x0000ae04                _frexpl
- .text._ldexpl  0x0000ae64       0x50 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_ldexpl.o)
-                0x0000ae64                _ldexpl
+                0x0000ad2a      0x14e c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_deferredlazyseek.o)
+                0x0000ad2a                __flsbuf
+ .text._fdopen  0x0000ae78       0x6c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_fdopen.o)
+                0x0000ae78                _fdopen
+ .text._fflush  0x0000aee4       0x58 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_fflush.o)
+                0x0000aee4                _fflush
+ .text._frexpl  0x0000af3c       0x60 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_frexpl.o)
+                0x0000af3c                _frexpl
+ .text._ldexpl  0x0000af9c       0x50 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_ldexpl.o)
+                0x0000af9c                _ldexpl
  .text._Cwritebuf
-                0x0000aeb4       0x84 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_writebuf.o)
-                0x0000aeb4                _Cwritebuf
- .text.malloc   0x0000af38       0xbc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(alloc.o)
-                0x0000af38                malloc
- .text.free     0x0000aff4        0xa c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(alloc.o)
-                0x0000aff4                free
- *fill*         0x0000affe        0x2 00
+                0x0000afec       0x84 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_writebuf.o)
+                0x0000afec                _Cwritebuf
+ .text.malloc   0x0000b070       0xbc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(alloc.o)
+                0x0000b070                malloc
+ .text.free     0x0000b12c        0xa c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(alloc.o)
+                0x0000b12c                free
+ *fill*         0x0000b136        0x2 00
  .text._Csys_alloc
-                0x0000b000       0x20 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(alloc.o)
-                0x0000b000                _Csys_alloc
- .text.fclose   0x0000b020       0x6c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fclose.o)
-                0x0000b020                fclose
- .text.fflush   0x0000b08c       0x34 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fflush.o)
-                0x0000b08c                fflush
- .text.fseek    0x0000b0c0      0x104 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fseek.o)
-                0x0000b0c0                fseek
- .text.ftell    0x0000b1c4       0x4c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(ftell.o)
-                0x0000b1c4                ftell
- .text.remove   0x0000b210       0x14 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(remove.o)
-                0x0000b210                remove
+                0x0000b138       0x20 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(alloc.o)
+                0x0000b138                _Csys_alloc
+ .text.fclose   0x0000b158       0x6c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fclose.o)
+                0x0000b158                fclose
+ .text.fflush   0x0000b1c4       0x34 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fflush.o)
+                0x0000b1c4                fflush
+ .text.fseek    0x0000b1f8      0x104 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fseek.o)
+                0x0000b1f8                fseek
+ .text.ftell    0x0000b2fc       0x4c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(ftell.o)
+                0x0000b2fc                ftell
+ .text.remove   0x0000b348       0x14 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(remove.o)
+                0x0000b348                remove
  .text._do_fflush
-                0x0000b224       0x42 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_do_fflush.o)
-                0x0000b224                _do_fflush
+                0x0000b35c       0x42 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_do_fflush.o)
+                0x0000b35c                _do_fflush
  .text.__aeabi_division_uldivmod
-                0x0000b266      0x174 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(division.o)
-                0x0000b266                __aeabi_uldivmod
-                0x0000b26a                __bhs_ldivmod1
+                0x0000b39e      0x174 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(division.o)
+                0x0000b39e                __aeabi_uldivmod
+                0x0000b3a2                __bhs_ldivmod1
  .text.__aeabi_division_idiv0
-                0x0000b3da        0x2 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(division.o)
-                0x0000b3da                __aeabi_idiv0
+                0x0000b512        0x2 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(division.o)
+                0x0000b512                __aeabi_idiv0
  .text.__aeabi_dmul
-                0x0000b3dc      0x138 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
-                0x0000b3dc                __aeabi_dmul
+                0x0000b514      0x138 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
+                0x0000b514                __aeabi_dmul
  .text.__aeabi_ddiv
-                0x0000b514      0x168 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
-                0x0000b514                __aeabi_ddiv
+                0x0000b64c      0x168 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
+                0x0000b64c                __aeabi_ddiv
  .text.__aeabi_dsub
-                0x0000b67c      0x1f4 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
-                0x0000b67c                __aeabi_dsub
+                0x0000b7b4      0x1f4 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
+                0x0000b7b4                __aeabi_dsub
  .text.__aeabi_dadd
-                0x0000b870      0x154 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
-                0x0000b870                __aeabi_dadd
+                0x0000b9a8      0x154 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
+                0x0000b9a8                __aeabi_dadd
  .text.__aeabi_d2iz
-                0x0000b9c4       0x40 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
-                0x0000b9c4                __aeabi_d2iz
+                0x0000bafc       0x40 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
+                0x0000bafc                __aeabi_d2iz
  .text.__bhs_ui2d
-                0x0000ba04       0x5c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
-                0x0000ba04                __bhs_ui2d
+                0x0000bb3c       0x5c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
+                0x0000bb3c                __bhs_ui2d
  .text.__aeabi_i2d
-                0x0000ba60       0x10 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
-                0x0000ba60                __aeabi_i2d
+                0x0000bb98       0x10 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
+                0x0000bb98                __aeabi_i2d
  .text.__aeabi_dcmpeq
-                0x0000ba70       0x3c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
-                0x0000ba70                __aeabi_dcmpeq
+                0x0000bba8       0x3c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
+                0x0000bba8                __aeabi_dcmpeq
  .text.__aeabi_dcmplt
-                0x0000baac       0x5c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
-                0x0000baac                __aeabi_dcmplt
+                0x0000bbe4       0x5c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
+                0x0000bbe4                __aeabi_dcmplt
  .text.__aeabi_dcmple
-                0x0000bb08       0x58 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
-                0x0000bb08                __aeabi_dcmple
+                0x0000bc40       0x58 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
+                0x0000bc40                __aeabi_dcmple
  .text.__aeabi_dcmpge
-                0x0000bb60       0x5c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
-                0x0000bb60                __aeabi_dcmpge
+                0x0000bc98       0x5c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
+                0x0000bc98                __aeabi_dcmpge
  .text.__sys_appexit
-                0x0000bbbc        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_appexit.o)
-                0x0000bbbc                __sys_appexit
-                0x0000bbbc                __exit
+                0x0000bcf4        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_appexit.o)
+                0x0000bcf4                __sys_appexit
+                0x0000bcf4                __exit
  .text.__sys_close
-                0x0000bbc8        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_close.o)
-                0x0000bbc8                __sys_close
+                0x0000bd00        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_close.o)
+                0x0000bd00                __sys_close
  .text.__sys_flen
-                0x0000bbd4        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_flen.o)
-                0x0000bbd4                __sys_flen
+                0x0000bd0c        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_flen.o)
+                0x0000bd0c                __sys_flen
  .text.__sys_istty
-                0x0000bbe0        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_istty.o)
-                0x0000bbe0                __sys_istty
+                0x0000bd18        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_istty.o)
+                0x0000bd18                __sys_istty
  .text.__sys_remove
-                0x0000bbec        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_remove.o)
-                0x0000bbec                __sys_remove
+                0x0000bd24        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_remove.o)
+                0x0000bd24                __sys_remove
  .text.__sys_seek
-                0x0000bbf8        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_seek.o)
-                0x0000bbf8                __sys_seek
+                0x0000bd30        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_seek.o)
+                0x0000bd30                __sys_seek
  .text.__sys_tmpnam
-                0x0000bc04        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_tmpnam.o)
-                0x0000bc04                __sys_tmpnam
+                0x0000bd3c        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_tmpnam.o)
+                0x0000bd3c                __sys_tmpnam
  .text.__sys_write
-                0x0000bc10        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_write.o)
-                0x0000bc10                __sys_write
-                0x0000bc10                __write
- .text._sbrk    0x0000bc1c       0x40 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr_sbrk.o)
-                0x0000bc1c                _sbrk
+                0x0000bd48        0xc c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_write.o)
+                0x0000bd48                __sys_write
+                0x0000bd48                __write
+ .text._sbrk    0x0000bd54       0x40 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr_sbrk.o)
+                0x0000bd54                _sbrk
  .text.__check_heap_overflow
-                0x0000bc5c       0x2c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr_check_heap.o)
-                0x0000bc5c                __check_heap_overflow
+                0x0000bd94       0x2c c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr_check_heap.o)
+                0x0000bd94                __check_heap_overflow
  *(.rodata .rodata.*)
- .rodata.nw     0x0000bc88       0x84 ./src/EBN_Core/galois.o
- .rodata.nwm1   0x0000bd0c       0x84 ./src/EBN_Core/galois.o
- .rodata        0x0000bd90       0x28 ./src/BT_Stack/Drivers/lpc17xx_adc.o
- .rodata        0x0000bdb8       0x28 ./src/BT_Stack/Drivers/lpc17xx_timer.o
- .rodata        0x0000bde0       0x28 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+ .rodata.nw     0x0000bdc0       0x84 ./src/EBN_Core/galois.o
+ .rodata.nwm1   0x0000be44       0x84 ./src/EBN_Core/galois.o
+ .rodata        0x0000bec8       0x28 ./src/BT_Stack/Drivers/lpc17xx_adc.o
+ .rodata        0x0000bef0       0x28 ./src/BT_Stack/Drivers/lpc17xx_timer.o
+ .rodata        0x0000bf18       0x28 ./src/BT_Stack/Drivers/lpc17xx_uart.o
  .rodata.packet_type_sizes
-                0x0000be08       0x20 ./src/BT_Stack/hci.o
- .rodata        0x0000be28       0xf0 ./src/BT_Stack/hci_cmds.o
+                0x0000bf40       0x20 ./src/BT_Stack/hci.o
+ .rodata        0x0000bf60       0xf4 ./src/BT_Stack/hci_cmds.o
  .rodata.hci_create_connection
-                0x0000bf18        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf18                hci_create_connection
+                0x0000c054        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c054                hci_create_connection
  .rodata.hci_disconnect
-                0x0000bf20        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf20                hci_disconnect
+                0x0000c05c        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c05c                hci_disconnect
  .rodata.hci_accept_connection_request
-                0x0000bf28        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf28                hci_accept_connection_request
+                0x0000c064        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c064                hci_accept_connection_request
  .rodata.hci_reject_connection_request
-                0x0000bf30        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf30                hci_reject_connection_request
+                0x0000c06c        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c06c                hci_reject_connection_request
  .rodata.hci_link_key_request_reply
-                0x0000bf38        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf38                hci_link_key_request_reply
+                0x0000c074        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c074                hci_link_key_request_reply
  .rodata.hci_link_key_request_negative_reply
-                0x0000bf40        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf40                hci_link_key_request_negative_reply
+                0x0000c07c        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c07c                hci_link_key_request_negative_reply
  .rodata.hci_pin_code_request_reply
-                0x0000bf48        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf48                hci_pin_code_request_reply
+                0x0000c084        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c084                hci_pin_code_request_reply
  .rodata.hci_pin_code_request_negative_reply
-                0x0000bf50        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf50                hci_pin_code_request_negative_reply
+                0x0000c08c        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c08c                hci_pin_code_request_negative_reply
  .rodata.hci_reset
-                0x0000bf58        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf58                hci_reset
+                0x0000c094        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c094                hci_reset
  .rodata.hci_delete_stored_link_key
-                0x0000bf60        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf60                hci_delete_stored_link_key
+                0x0000c09c        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c09c                hci_delete_stored_link_key
  .rodata.hci_write_scan_enable
-                0x0000bf68        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf68                hci_write_scan_enable
+                0x0000c0a4        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c0a4                hci_write_scan_enable
  .rodata.hci_read_local_supported_features
-                0x0000bf70        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf70                hci_read_local_supported_features
+                0x0000c0ac        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c0ac                hci_read_local_supported_features
  .rodata.hci_read_buffer_size
-                0x0000bf78        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf78                hci_read_buffer_size
+                0x0000c0b4        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c0b4                hci_read_buffer_size
  .rodata.hci_read_bd_addr
-                0x0000bf80        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf80                hci_read_bd_addr
- .rodata.hci_le_set_random_address
-                0x0000bf88        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf88                hci_le_set_random_address
- .rodata.hci_le_set_advertise_enable
-                0x0000bf90        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf90                hci_le_set_advertise_enable
+                0x0000c0bc        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c0bc                hci_read_bd_addr
+ .rodata.gap_set_param
+                0x0000c0c4        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c0c4                gap_set_param
  .rodata.gap_UpdateAdvertisingData
-                0x0000bf98        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bf98                gap_UpdateAdvertisingData
+                0x0000c0cc        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c0cc                gap_UpdateAdvertisingData
+ .rodata.gap_device_discovery_request
+                0x0000c0d4        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c0d4                gap_device_discovery_request
  .rodata.gap_config_device_addr
-                0x0000bfa0        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bfa0                gap_config_device_addr
+                0x0000c0dc        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c0dc                gap_config_device_addr
  .rodata.gap_make_discoverable
-                0x0000bfa8        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bfa8                gap_make_discoverable
+                0x0000c0e4        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c0e4                gap_make_discoverable
  .rodata.gap_end_discoverable
-                0x0000bfb0        0x8 ./src/BT_Stack/hci_cmds.o
-                0x0000bfb0                gap_end_discoverable
- .rodata        0x0000bfb8       0x2c ./src/BT_Stack/hci_transport_h4_dma.o
+                0x0000c0ec        0x8 ./src/BT_Stack/hci_cmds.o
+                0x0000c0ec                gap_end_discoverable
+ .rodata        0x0000c0f4       0x4c ./src/BT_Stack/hci_transport_h4_dma.o
  .rodata.remote_device_db_memory
-                0x0000bfe4       0x24 ./src/BT_Stack/remote_device_db_memory.o
-                0x0000bfe4                remote_device_db_memory
+                0x0000c140       0x24 ./src/BT_Stack/remote_device_db_memory.o
+                0x0000c140                remote_device_db_memory
  .rodata.run_loop_embedded
-                0x0000c008       0x1c ./src/BT_Stack/run_loop_embedded.o
-                0x0000c008                run_loop_embedded
- .rodata        0x0000c024       0x2c ./src/BT_Stack/utils.o
- .rodata        0x0000c050       0x3c ./src/main.o
+                0x0000c164       0x1c ./src/BT_Stack/run_loop_embedded.o
+                0x0000c164                run_loop_embedded
+ .rodata        0x0000c180       0x2c ./src/BT_Stack/utils.o
+ .rodata        0x0000c1ac       0x3c ./src/main.o
  .rodata.str1.1
-                0x0000c08c       0x34 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
+                0x0000c1e8       0x34 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
                                  0x35 (size before relaxing)
  .rodata.str1.1
-                0x0000c0c0        0x4 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(initio.o)
+                0x0000c21c        0x4 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(initio.o)
  .rodata.str1.1
-                0x0000c0c4       0x31 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(printf.o)
+                0x0000c220       0x31 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(printf.o)
                                  0x38 (size before relaxing)
  .rodata.str1.1
-                0x0000c0f5       0x18 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(alloc.o)
- *fill*         0x0000c10d        0x3 00
+                0x0000c251       0x18 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(alloc.o)
+ *fill*         0x0000c269        0x7 00
  .rodata.__huge_vall
-                0x0000c110        0x8 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_hugeval.o)
-                0x0000c110                __huge_vall
-                0x0000c118                . = ALIGN (0x4)
+                0x0000c270        0x8 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_hugeval.o)
+                0x0000c270                __huge_vall
+                0x0000c278                . = ALIGN (0x4)
 
-.glue_7         0x0000c118        0x0
+.glue_7         0x0000c278        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x0000c118        0x0
+.glue_7t        0x0000c278        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x0000c118        0x0
+.vfp11_veneer   0x0000c278        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x0000c118        0x0
+.v4_bx          0x0000c278        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000c118                __exidx_start = .
+                0x0000c278                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000c118                __exidx_end = .
-                0x0000c118                _etext = .
+                0x0000c278                __exidx_end = .
+                0x0000c278                _etext = .
 
-.data_RAM2      0x2007c000        0x0 load address 0x0000c118
+.data_RAM2      0x2007c000        0x0 load address 0x0000c278
  FILL mask 0xff
  *(.data.$RAM2*)
  *(.data.$RamAHB32*)
@@ -2401,7 +2387,7 @@ END GROUP
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _end_uninit_RESERVED = .
 
-.data           0x10000000      0x1bc load address 0x0000c118
+.data           0x10000000      0x1bc load address 0x0000c278
  FILL mask 0xff
                 0x10000000                _data = .
  *(vtable)
@@ -2495,60 +2481,64 @@ END GROUP
                 0x10000f94       0x40 ./src/BT_Stack/btstack_memory.o
  .bss.db_mem_device_link_key_pool
                 0x10000fd4        0x4 ./src/BT_Stack/btstack_memory.o
- .bss.UART1IRQ_ON
-                0x10000fd8        0x1 ./src/BT_Stack/hal_cpu.o
-                0x10000fd8                UART1IRQ_ON
- *fill*         0x10000fd9        0x3 00
- .bss.TTC0      0x10000fdc        0x8 ./src/BT_Stack/hal_tick.o
- .bss.MATC0     0x10000fe4        0xc ./src/BT_Stack/hal_tick.o
+ .bss.TTC0      0x10000fd8        0x8 ./src/BT_Stack/hal_tick.o
+ .bss.MATC0     0x10000fe0        0xc ./src/BT_Stack/hal_tick.o
  .bss.UART_CFG_1152
-                0x10000ff0        0x8 ./src/BT_Stack/hal_uart_dma.o
+                0x10000fec        0x8 ./src/BT_Stack/hal_uart_dma.o
  .bss.FIFO_DEFAULT
-                0x10000ff8        0x4 ./src/BT_Stack/hal_uart_dma.o
+                0x10000ff4        0x4 ./src/BT_Stack/hal_uart_dma.o
  .bss.bytes_to_read
-                0x10000ffc        0x2 ./src/BT_Stack/hal_uart_dma.o
- *fill*         0x10000ffe        0x2 00
+                0x10000ff8        0x2 ./src/BT_Stack/hal_uart_dma.o
+ *fill*         0x10000ffa        0x2 00
  .bss.rx_buffer_ptr
-                0x10001000        0x4 ./src/BT_Stack/hal_uart_dma.o
+                0x10000ffc        0x4 ./src/BT_Stack/hal_uart_dma.o
  .bss.tx_buffer_ptr
-                0x10001004        0x4 ./src/BT_Stack/hal_uart_dma.o
+                0x10001000        0x4 ./src/BT_Stack/hal_uart_dma.o
  .bss.hci_stack
-                0x10001008      0x138 ./src/BT_Stack/hci.o
- .bss.h4_state  0x10001140        0x1 ./src/BT_Stack/hci_transport_h4_dma.o
- *fill*         0x10001141        0x3 00
- .bss.read_pos  0x10001144        0x4 ./src/BT_Stack/hci_transport_h4_dma.o
+                0x10001004      0x138 ./src/BT_Stack/hci.o
+ .bss.h4_state  0x1000113c        0x1 ./src/BT_Stack/hci_transport_h4_dma.o
+ *fill*         0x1000113d        0x3 00
+ .bss.read_pos  0x10001140        0x4 ./src/BT_Stack/hci_transport_h4_dma.o
  .bss.bytes_to_read
-                0x10001148        0x4 ./src/BT_Stack/hci_transport_h4_dma.o
+                0x10001144        0x4 ./src/BT_Stack/hci_transport_h4_dma.o
  .bss.hci_packet
-                0x1000114c      0x104 ./src/BT_Stack/hci_transport_h4_dma.o
- .bss.tx_state  0x10001250        0x1 ./src/BT_Stack/hci_transport_h4_dma.o
+                0x10001148      0x104 ./src/BT_Stack/hci_transport_h4_dma.o
+ .bss.tx_state  0x1000124c        0x1 ./src/BT_Stack/hci_transport_h4_dma.o
  .bss.tx_packet_type
-                0x10001251        0x1 ./src/BT_Stack/hci_transport_h4_dma.o
- *fill*         0x10001252        0x2 00
- .bss.tx_data   0x10001254        0x4 ./src/BT_Stack/hci_transport_h4_dma.o
- .bss.tx_len    0x10001258        0x2 ./src/BT_Stack/hci_transport_h4_dma.o
- *fill*         0x1000125a        0x2 00
+                0x1000124d        0x1 ./src/BT_Stack/hci_transport_h4_dma.o
+ *fill*         0x1000124e        0x2 00
+ .bss.tx_data   0x10001250        0x4 ./src/BT_Stack/hci_transport_h4_dma.o
+ .bss.tx_len    0x10001254        0x2 ./src/BT_Stack/hci_transport_h4_dma.o
+ *fill*         0x10001256        0x2 00
  .bss.db_mem_link_keys
-                0x1000125c        0x4 ./src/BT_Stack/remote_device_db_memory.o
-                0x1000125c                db_mem_link_keys
+                0x10001258        0x4 ./src/BT_Stack/remote_device_db_memory.o
+                0x10001258                db_mem_link_keys
  .bss.db_mem_names
-                0x10001260        0x4 ./src/BT_Stack/remote_device_db_memory.o
-                0x10001260                db_mem_names
+                0x1000125c        0x4 ./src/BT_Stack/remote_device_db_memory.o
+                0x1000125c                db_mem_names
  .bss.db_mem_services
-                0x10001264        0x4 ./src/BT_Stack/remote_device_db_memory.o
+                0x10001260        0x4 ./src/BT_Stack/remote_device_db_memory.o
  .bss.the_run_loop
-                0x10001268        0x4 ./src/BT_Stack/run_loop.o
+                0x10001264        0x4 ./src/BT_Stack/run_loop.o
  .bss.data_sources
-                0x1000126c        0x4 ./src/BT_Stack/run_loop_embedded.o
- .bss.timers    0x10001270        0x4 ./src/BT_Stack/run_loop_embedded.o
+                0x10001268        0x4 ./src/BT_Stack/run_loop_embedded.o
+ .bss.timers    0x1000126c        0x4 ./src/BT_Stack/run_loop_embedded.o
  .bss.system_ticks
-                0x10001274        0x4 ./src/BT_Stack/run_loop_embedded.o
+                0x10001270        0x4 ./src/BT_Stack/run_loop_embedded.o
  .bss.trigger_event_received
-                0x10001278        0x4 ./src/BT_Stack/run_loop_embedded.o
+                0x10001274        0x4 ./src/BT_Stack/run_loop_embedded.o
  .bss.bd_addr_to_str_buffer
-                0x1000127c       0x14 ./src/BT_Stack/utils.o
- .bss.STATE     0x10001290        0x1 ./src/main.o
+                0x10001278       0x14 ./src/BT_Stack/utils.o
+ .bss.SCAN_COUNT
+                0x1000128c        0x1 ./src/main.o
+ .bss.SCANNING_NOW
+                0x1000128d        0x1 ./src/main.o
+ .bss.STATE     0x1000128e        0x1 ./src/main.o
  .bss.CHANGING_ADDR
+                0x1000128f        0x1 ./src/main.o
+ .bss.PARAM_STATE.6044
+                0x10001290        0x1 ./src/main.o
+ .bss.BROADCASTING.6043
                 0x10001291        0x1 ./src/main.o
  *fill*         0x10001292        0x2 00
  .bss.errno     0x10001294        0x4 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(errno.o)
@@ -2589,130 +2579,127 @@ END GROUP
                 0x10008000                PROVIDE (_vStackTop, (__top_RamLoc32 - 0x0))
 OUTPUT(EBN_Anchor_Node.axf elf32-littlearm)
 
-.debug_info     0x00000000    0x1501b
+.debug_info     0x00000000    0x14ee4
  .debug_info    0x00000000      0x62e ./src/EBN_Core/EBN.o
  .debug_info    0x0000062e      0x430 ./src/EBN_Core/bget.o
  .debug_info    0x00000a5e      0xf9b ./src/EBN_Core/ecc.o
  .debug_info    0x000019f9      0xc8f ./src/EBN_Core/galois.o
  .debug_info    0x00002688     0x15aa ./src/EBN_Core/jerasure.o
  .debug_info    0x00003c32      0x196 ./src/EBN_Core/mem.o
- .debug_info    0x00003dc8      0x7e5 ./src/EBN_Core/random.o
- .debug_info    0x000045ad      0x444 ./src/EBN_Core/reed_sol.o
- .debug_info    0x000049f1      0x174 ./src/BT_Stack/Drivers/SimpleCache.o
- .debug_info    0x00004b65      0x617 ./src/BT_Stack/Drivers/lpc17xx_adc.o
- .debug_info    0x0000517c      0x6d7 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
- .debug_info    0x00005853       0xcd ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
- .debug_info    0x00005920      0x4ba ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
- .debug_info    0x00005dda      0x785 ./src/BT_Stack/Drivers/lpc17xx_ssp.o
- .debug_info    0x0000655f      0x891 ./src/BT_Stack/Drivers/lpc17xx_timer.o
- .debug_info    0x00006df0     0x12e9 ./src/BT_Stack/Drivers/lpc17xx_uart.o
- .debug_info    0x000080d9      0x8bf ./src/BT_Stack/Drivers/sd.o
- .debug_info    0x00008998     0x12d1 ./src/BT_Stack/att.o
- .debug_info    0x00009c69      0x5ed ./src/BT_Stack/btstack_memory.o
- .debug_info    0x0000a256      0x3cf ./src/BT_Stack/hal_cpu.o
- .debug_info    0x0000a625      0x69b ./src/BT_Stack/hal_tick.o
- .debug_info    0x0000acc0      0xa2b ./src/BT_Stack/hal_uart_dma.o
- .debug_info    0x0000b6eb     0x170c ./src/BT_Stack/hci.o
- .debug_info    0x0000cdf7      0xa69 ./src/BT_Stack/hci_cmds.o
- .debug_info    0x0000d860      0x193 ./src/BT_Stack/hci_dump.o
- .debug_info    0x0000d9f3      0x5cd ./src/BT_Stack/hci_transport_h4_dma.o
- .debug_info    0x0000dfc0     0x16aa ./src/BT_Stack/l2cap.o
- .debug_info    0x0000f66a      0x257 ./src/BT_Stack/l2cap_signaling.o
- .debug_info    0x0000f8c1      0x250 ./src/BT_Stack/linked_list.o
- .debug_info    0x0000fb11      0x1ba ./src/BT_Stack/memory_pool.o
- .debug_info    0x0000fccb      0x647 ./src/BT_Stack/remote_device_db_memory.o
- .debug_info    0x00010312     0x1f3f ./src/BT_Stack/rfcomm.o
- .debug_info    0x00012251      0x424 ./src/BT_Stack/run_loop.o
- .debug_info    0x00012675      0x499 ./src/BT_Stack/run_loop_embedded.o
- .debug_info    0x00012b0e     0x1335 ./src/BT_Stack/sdp_util.o
- .debug_info    0x00013e43      0x3e2 ./src/BT_Stack/utils.o
- .debug_info    0x00014225      0x2dd ./src/cr_startup_lpc176x.o
- .debug_info    0x00014502      0x78a ./src/main.o
- .debug_info    0x00014c8c      0x38f C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_info    0x00003dc8      0x7a6 ./src/EBN_Core/random.o
+ .debug_info    0x0000456e      0x444 ./src/EBN_Core/reed_sol.o
+ .debug_info    0x000049b2      0x617 ./src/BT_Stack/Drivers/lpc17xx_adc.o
+ .debug_info    0x00004fc9      0x6d7 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
+ .debug_info    0x000056a0       0xcd ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
+ .debug_info    0x0000576d      0x4ba ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
+ .debug_info    0x00005c27      0x785 ./src/BT_Stack/Drivers/lpc17xx_ssp.o
+ .debug_info    0x000063ac      0x891 ./src/BT_Stack/Drivers/lpc17xx_timer.o
+ .debug_info    0x00006c3d     0x12e9 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+ .debug_info    0x00007f26      0x8bf ./src/BT_Stack/Drivers/sd.o
+ .debug_info    0x000087e5     0x12d1 ./src/BT_Stack/att.o
+ .debug_info    0x00009ab6      0x5ed ./src/BT_Stack/btstack_memory.o
+ .debug_info    0x0000a0a3      0x3d6 ./src/BT_Stack/hal_cpu.o
+ .debug_info    0x0000a479      0x69b ./src/BT_Stack/hal_tick.o
+ .debug_info    0x0000ab14      0xa2b ./src/BT_Stack/hal_uart_dma.o
+ .debug_info    0x0000b53f     0x170c ./src/BT_Stack/hci.o
+ .debug_info    0x0000cc4b      0xa7c ./src/BT_Stack/hci_cmds.o
+ .debug_info    0x0000d6c7      0x193 ./src/BT_Stack/hci_dump.o
+ .debug_info    0x0000d85a      0x60e ./src/BT_Stack/hci_transport_h4_dma.o
+ .debug_info    0x0000de68     0x16aa ./src/BT_Stack/l2cap.o
+ .debug_info    0x0000f512      0x257 ./src/BT_Stack/l2cap_signaling.o
+ .debug_info    0x0000f769      0x250 ./src/BT_Stack/linked_list.o
+ .debug_info    0x0000f9b9      0x1ba ./src/BT_Stack/memory_pool.o
+ .debug_info    0x0000fb73      0x647 ./src/BT_Stack/remote_device_db_memory.o
+ .debug_info    0x000101ba     0x1f3f ./src/BT_Stack/rfcomm.o
+ .debug_info    0x000120f9      0x424 ./src/BT_Stack/run_loop.o
+ .debug_info    0x0001251d      0x499 ./src/BT_Stack/run_loop_embedded.o
+ .debug_info    0x000129b6     0x1335 ./src/BT_Stack/sdp_util.o
+ .debug_info    0x00013ceb      0x3e2 ./src/BT_Stack/utils.o
+ .debug_info    0x000140cd      0x2dd ./src/cr_startup_lpc176x.o
+ .debug_info    0x000143aa      0x7ab ./src/main.o
+ .debug_info    0x00014b55      0x38f C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
-.debug_abbrev   0x00000000     0x356b
+.debug_abbrev   0x00000000     0x346c
  .debug_abbrev  0x00000000      0x179 ./src/EBN_Core/EBN.o
  .debug_abbrev  0x00000179       0xf4 ./src/EBN_Core/bget.o
  .debug_abbrev  0x0000026d      0x187 ./src/EBN_Core/ecc.o
  .debug_abbrev  0x000003f4      0x102 ./src/EBN_Core/galois.o
  .debug_abbrev  0x000004f6      0x121 ./src/EBN_Core/jerasure.o
  .debug_abbrev  0x00000617       0xb4 ./src/EBN_Core/mem.o
- .debug_abbrev  0x000006cb      0x1ac ./src/EBN_Core/random.o
- .debug_abbrev  0x00000877       0xf8 ./src/EBN_Core/reed_sol.o
- .debug_abbrev  0x0000096f       0xd3 ./src/BT_Stack/Drivers/SimpleCache.o
- .debug_abbrev  0x00000a42      0x13f ./src/BT_Stack/Drivers/lpc17xx_adc.o
- .debug_abbrev  0x00000b81      0x197 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
- .debug_abbrev  0x00000d18       0x6a ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
- .debug_abbrev  0x00000d82      0x11f ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
- .debug_abbrev  0x00000ea1      0x19d ./src/BT_Stack/Drivers/lpc17xx_ssp.o
- .debug_abbrev  0x0000103e      0x1b6 ./src/BT_Stack/Drivers/lpc17xx_timer.o
- .debug_abbrev  0x000011f4      0x1d0 ./src/BT_Stack/Drivers/lpc17xx_uart.o
- .debug_abbrev  0x000013c4      0x1cb ./src/BT_Stack/Drivers/sd.o
- .debug_abbrev  0x0000158f      0x1c4 ./src/BT_Stack/att.o
- .debug_abbrev  0x00001753      0x177 ./src/BT_Stack/btstack_memory.o
- .debug_abbrev  0x000018ca      0x132 ./src/BT_Stack/hal_cpu.o
- .debug_abbrev  0x000019fc      0x1b2 ./src/BT_Stack/hal_tick.o
- .debug_abbrev  0x00001bae      0x18c ./src/BT_Stack/hal_uart_dma.o
- .debug_abbrev  0x00001d3a      0x2de ./src/BT_Stack/hci.o
- .debug_abbrev  0x00002018      0x11c ./src/BT_Stack/hci_cmds.o
- .debug_abbrev  0x00002134       0xb0 ./src/BT_Stack/hci_dump.o
- .debug_abbrev  0x000021e4      0x1c5 ./src/BT_Stack/hci_transport_h4_dma.o
- .debug_abbrev  0x000023a9      0x279 ./src/BT_Stack/l2cap.o
- .debug_abbrev  0x00002622      0x124 ./src/BT_Stack/l2cap_signaling.o
- .debug_abbrev  0x00002746       0xdd ./src/BT_Stack/linked_list.o
- .debug_abbrev  0x00002823       0xdb ./src/BT_Stack/memory_pool.o
- .debug_abbrev  0x000028fe      0x148 ./src/BT_Stack/remote_device_db_memory.o
- .debug_abbrev  0x00002a46      0x1f1 ./src/BT_Stack/rfcomm.o
- .debug_abbrev  0x00002c37      0x147 ./src/BT_Stack/run_loop.o
- .debug_abbrev  0x00002d7e      0x171 ./src/BT_Stack/run_loop_embedded.o
- .debug_abbrev  0x00002eef      0x1eb ./src/BT_Stack/sdp_util.o
- .debug_abbrev  0x000030da       0xd0 ./src/BT_Stack/utils.o
- .debug_abbrev  0x000031aa      0x12b ./src/cr_startup_lpc176x.o
- .debug_abbrev  0x000032d5      0x1b3 ./src/main.o
- .debug_abbrev  0x00003488       0xe3 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_abbrev  0x000006cb      0x17e ./src/EBN_Core/random.o
+ .debug_abbrev  0x00000849       0xf8 ./src/EBN_Core/reed_sol.o
+ .debug_abbrev  0x00000941      0x13f ./src/BT_Stack/Drivers/lpc17xx_adc.o
+ .debug_abbrev  0x00000a80      0x197 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
+ .debug_abbrev  0x00000c17       0x6a ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
+ .debug_abbrev  0x00000c81      0x11f ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
+ .debug_abbrev  0x00000da0      0x19d ./src/BT_Stack/Drivers/lpc17xx_ssp.o
+ .debug_abbrev  0x00000f3d      0x1b6 ./src/BT_Stack/Drivers/lpc17xx_timer.o
+ .debug_abbrev  0x000010f3      0x1d0 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+ .debug_abbrev  0x000012c3      0x1cb ./src/BT_Stack/Drivers/sd.o
+ .debug_abbrev  0x0000148e      0x1c4 ./src/BT_Stack/att.o
+ .debug_abbrev  0x00001652      0x177 ./src/BT_Stack/btstack_memory.o
+ .debug_abbrev  0x000017c9      0x134 ./src/BT_Stack/hal_cpu.o
+ .debug_abbrev  0x000018fd      0x1b2 ./src/BT_Stack/hal_tick.o
+ .debug_abbrev  0x00001aaf      0x18c ./src/BT_Stack/hal_uart_dma.o
+ .debug_abbrev  0x00001c3b      0x2de ./src/BT_Stack/hci.o
+ .debug_abbrev  0x00001f19      0x11c ./src/BT_Stack/hci_cmds.o
+ .debug_abbrev  0x00002035       0xb0 ./src/BT_Stack/hci_dump.o
+ .debug_abbrev  0x000020e5      0x1d4 ./src/BT_Stack/hci_transport_h4_dma.o
+ .debug_abbrev  0x000022b9      0x279 ./src/BT_Stack/l2cap.o
+ .debug_abbrev  0x00002532      0x124 ./src/BT_Stack/l2cap_signaling.o
+ .debug_abbrev  0x00002656       0xdd ./src/BT_Stack/linked_list.o
+ .debug_abbrev  0x00002733       0xdb ./src/BT_Stack/memory_pool.o
+ .debug_abbrev  0x0000280e      0x148 ./src/BT_Stack/remote_device_db_memory.o
+ .debug_abbrev  0x00002956      0x1f1 ./src/BT_Stack/rfcomm.o
+ .debug_abbrev  0x00002b47      0x147 ./src/BT_Stack/run_loop.o
+ .debug_abbrev  0x00002c8e      0x171 ./src/BT_Stack/run_loop_embedded.o
+ .debug_abbrev  0x00002dff      0x1eb ./src/BT_Stack/sdp_util.o
+ .debug_abbrev  0x00002fea       0xd0 ./src/BT_Stack/utils.o
+ .debug_abbrev  0x000030ba      0x12b ./src/cr_startup_lpc176x.o
+ .debug_abbrev  0x000031e5      0x1a4 ./src/main.o
+ .debug_abbrev  0x00003389       0xe3 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
-.debug_loc      0x00000000     0x7f1d
+.debug_loc      0x00000000     0x7edb
  .debug_loc     0x00000000      0x278 ./src/EBN_Core/EBN.o
  .debug_loc     0x00000278      0x150 ./src/EBN_Core/bget.o
  .debug_loc     0x000003c8      0x78a ./src/EBN_Core/ecc.o
  .debug_loc     0x00000b52      0x5ba ./src/EBN_Core/galois.o
  .debug_loc     0x0000110c      0x667 ./src/EBN_Core/jerasure.o
  .debug_loc     0x00001773       0xa8 ./src/EBN_Core/mem.o
- .debug_loc     0x0000181b      0x10c ./src/EBN_Core/random.o
- .debug_loc     0x00001927      0x18a ./src/EBN_Core/reed_sol.o
- .debug_loc     0x00001ab1       0x70 ./src/BT_Stack/Drivers/SimpleCache.o
- .debug_loc     0x00001b21      0x2d8 ./src/BT_Stack/Drivers/lpc17xx_adc.o
- .debug_loc     0x00001df9      0x190 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
- .debug_loc     0x00001f89       0x38 ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
- .debug_loc     0x00001fc1      0x150 ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
- .debug_loc     0x00002111      0x3f0 ./src/BT_Stack/Drivers/lpc17xx_ssp.o
- .debug_loc     0x00002501      0x380 ./src/BT_Stack/Drivers/lpc17xx_timer.o
- .debug_loc     0x00002881      0x65a ./src/BT_Stack/Drivers/lpc17xx_uart.o
- .debug_loc     0x00002edb      0x119 ./src/BT_Stack/Drivers/sd.o
- .debug_loc     0x00002ff4      0x9ae ./src/BT_Stack/att.o
- .debug_loc     0x000039a2      0x3b0 ./src/BT_Stack/btstack_memory.o
- .debug_loc     0x00003d52       0xf4 ./src/BT_Stack/hal_cpu.o
- .debug_loc     0x00003e46      0x120 ./src/BT_Stack/hal_tick.o
- .debug_loc     0x00003f66      0x22c ./src/BT_Stack/hal_uart_dma.o
- .debug_loc     0x00004192      0xa72 ./src/BT_Stack/hci.o
- .debug_loc     0x00004c04       0x7c ./src/BT_Stack/hci_cmds.o
- .debug_loc     0x00004c80       0xd4 ./src/BT_Stack/hci_dump.o
- .debug_loc     0x00004d54      0x290 ./src/BT_Stack/hci_transport_h4_dma.o
- .debug_loc     0x00004fe4      0x9fc ./src/BT_Stack/l2cap.o
- .debug_loc     0x000059e0       0x90 ./src/BT_Stack/l2cap_signaling.o
- .debug_loc     0x00005a70      0x188 ./src/BT_Stack/linked_list.o
- .debug_loc     0x00005bf8       0xa8 ./src/BT_Stack/memory_pool.o
- .debug_loc     0x00005ca0      0x218 ./src/BT_Stack/remote_device_db_memory.o
- .debug_loc     0x00005eb8      0xf02 ./src/BT_Stack/rfcomm.o
- .debug_loc     0x00006dba      0x20c ./src/BT_Stack/run_loop.o
- .debug_loc     0x00006fc6      0x264 ./src/BT_Stack/run_loop_embedded.o
- .debug_loc     0x0000722a      0x851 ./src/BT_Stack/sdp_util.o
- .debug_loc     0x00007a7b      0x2a0 ./src/BT_Stack/utils.o
- .debug_loc     0x00007d1b      0x102 ./src/cr_startup_lpc176x.o
- .debug_loc     0x00007e1d       0xe0 ./src/main.o
- .debug_loc     0x00007efd       0x20 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_loc     0x0000181b       0xd4 ./src/EBN_Core/random.o
+ .debug_loc     0x000018ef      0x18a ./src/EBN_Core/reed_sol.o
+ .debug_loc     0x00001a79      0x2d8 ./src/BT_Stack/Drivers/lpc17xx_adc.o
+ .debug_loc     0x00001d51      0x190 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
+ .debug_loc     0x00001ee1       0x38 ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
+ .debug_loc     0x00001f19      0x150 ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
+ .debug_loc     0x00002069      0x3f0 ./src/BT_Stack/Drivers/lpc17xx_ssp.o
+ .debug_loc     0x00002459      0x380 ./src/BT_Stack/Drivers/lpc17xx_timer.o
+ .debug_loc     0x000027d9      0x65a ./src/BT_Stack/Drivers/lpc17xx_uart.o
+ .debug_loc     0x00002e33      0x119 ./src/BT_Stack/Drivers/sd.o
+ .debug_loc     0x00002f4c      0x9ae ./src/BT_Stack/att.o
+ .debug_loc     0x000038fa      0x3b0 ./src/BT_Stack/btstack_memory.o
+ .debug_loc     0x00003caa      0x120 ./src/BT_Stack/hal_cpu.o
+ .debug_loc     0x00003dca      0x120 ./src/BT_Stack/hal_tick.o
+ .debug_loc     0x00003eea      0x22c ./src/BT_Stack/hal_uart_dma.o
+ .debug_loc     0x00004116      0xa72 ./src/BT_Stack/hci.o
+ .debug_loc     0x00004b88       0x7c ./src/BT_Stack/hci_cmds.o
+ .debug_loc     0x00004c04       0xd4 ./src/BT_Stack/hci_dump.o
+ .debug_loc     0x00004cd8      0x2c8 ./src/BT_Stack/hci_transport_h4_dma.o
+ .debug_loc     0x00004fa0      0x9fc ./src/BT_Stack/l2cap.o
+ .debug_loc     0x0000599c       0x90 ./src/BT_Stack/l2cap_signaling.o
+ .debug_loc     0x00005a2c      0x188 ./src/BT_Stack/linked_list.o
+ .debug_loc     0x00005bb4       0xa8 ./src/BT_Stack/memory_pool.o
+ .debug_loc     0x00005c5c      0x218 ./src/BT_Stack/remote_device_db_memory.o
+ .debug_loc     0x00005e74      0xf02 ./src/BT_Stack/rfcomm.o
+ .debug_loc     0x00006d76      0x20c ./src/BT_Stack/run_loop.o
+ .debug_loc     0x00006f82      0x264 ./src/BT_Stack/run_loop_embedded.o
+ .debug_loc     0x000071e6      0x851 ./src/BT_Stack/sdp_util.o
+ .debug_loc     0x00007a37      0x2a0 ./src/BT_Stack/utils.o
+ .debug_loc     0x00007cd7      0x102 ./src/cr_startup_lpc176x.o
+ .debug_loc     0x00007dd9       0xe2 ./src/main.o
+ .debug_loc     0x00007ebb       0x20 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
-.debug_aranges  0x00000000     0x1680
+.debug_aranges  0x00000000     0x1660
  .debug_aranges
                 0x00000000       0x80 ./src/EBN_Core/EBN.o
  .debug_aranges
@@ -2726,155 +2713,151 @@ OUTPUT(EBN_Anchor_Node.axf elf32-littlearm)
  .debug_aranges
                 0x000003d8       0x30 ./src/EBN_Core/mem.o
  .debug_aranges
-                0x00000408       0x40 ./src/EBN_Core/random.o
+                0x00000408       0x38 ./src/EBN_Core/random.o
  .debug_aranges
-                0x00000448       0x50 ./src/EBN_Core/reed_sol.o
+                0x00000440       0x50 ./src/EBN_Core/reed_sol.o
  .debug_aranges
-                0x00000498       0x28 ./src/BT_Stack/Drivers/SimpleCache.o
+                0x00000490       0x80 ./src/BT_Stack/Drivers/lpc17xx_adc.o
  .debug_aranges
-                0x000004c0       0x80 ./src/BT_Stack/Drivers/lpc17xx_adc.o
+                0x00000510       0x58 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
  .debug_aranges
-                0x00000540       0x58 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
+                0x00000568       0x20 ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
  .debug_aranges
-                0x00000598       0x20 ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
+                0x00000588       0x48 ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
  .debug_aranges
-                0x000005b8       0x48 ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
+                0x000005d0       0xa8 ./src/BT_Stack/Drivers/lpc17xx_ssp.o
  .debug_aranges
-                0x00000600       0xa8 ./src/BT_Stack/Drivers/lpc17xx_ssp.o
+                0x00000678       0x98 ./src/BT_Stack/Drivers/lpc17xx_timer.o
  .debug_aranges
-                0x000006a8       0x98 ./src/BT_Stack/Drivers/lpc17xx_timer.o
+                0x00000710      0x100 ./src/BT_Stack/Drivers/lpc17xx_uart.o
  .debug_aranges
-                0x00000740      0x100 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+                0x00000810       0x40 ./src/BT_Stack/Drivers/sd.o
  .debug_aranges
-                0x00000840       0x40 ./src/BT_Stack/Drivers/sd.o
+                0x00000850      0x178 ./src/BT_Stack/att.o
  .debug_aranges
-                0x00000880      0x178 ./src/BT_Stack/att.o
+                0x000009c8       0xb0 ./src/BT_Stack/btstack_memory.o
  .debug_aranges
-                0x000009f8       0xb0 ./src/BT_Stack/btstack_memory.o
+                0x00000a78       0x48 ./src/BT_Stack/hal_cpu.o
  .debug_aranges
-                0x00000aa8       0x40 ./src/BT_Stack/hal_cpu.o
+                0x00000ac0       0x48 ./src/BT_Stack/hal_tick.o
  .debug_aranges
-                0x00000ae8       0x48 ./src/BT_Stack/hal_tick.o
+                0x00000b08       0x70 ./src/BT_Stack/hal_uart_dma.o
  .debug_aranges
-                0x00000b30       0x70 ./src/BT_Stack/hal_uart_dma.o
+                0x00000b78      0x1a0 ./src/BT_Stack/hci.o
  .debug_aranges
-                0x00000ba0      0x1a0 ./src/BT_Stack/hci.o
+                0x00000d18       0x28 ./src/BT_Stack/hci_cmds.o
  .debug_aranges
-                0x00000d40       0x28 ./src/BT_Stack/hci_cmds.o
+                0x00000d40       0x38 ./src/BT_Stack/hci_dump.o
  .debug_aranges
-                0x00000d68       0x38 ./src/BT_Stack/hci_dump.o
+                0x00000d78       0x88 ./src/BT_Stack/hci_transport_h4_dma.o
  .debug_aranges
-                0x00000da0       0x80 ./src/BT_Stack/hci_transport_h4_dma.o
+                0x00000e00      0x188 ./src/BT_Stack/l2cap.o
  .debug_aranges
-                0x00000e20      0x188 ./src/BT_Stack/l2cap.o
+                0x00000f88       0x30 ./src/BT_Stack/l2cap_signaling.o
  .debug_aranges
-                0x00000fa8       0x30 ./src/BT_Stack/l2cap_signaling.o
+                0x00000fb8       0x50 ./src/BT_Stack/linked_list.o
  .debug_aranges
-                0x00000fd8       0x50 ./src/BT_Stack/linked_list.o
+                0x00001008       0x30 ./src/BT_Stack/memory_pool.o
  .debug_aranges
-                0x00001028       0x30 ./src/BT_Stack/memory_pool.o
+                0x00001038       0x68 ./src/BT_Stack/remote_device_db_memory.o
  .debug_aranges
-                0x00001058       0x68 ./src/BT_Stack/remote_device_db_memory.o
+                0x000010a0      0x240 ./src/BT_Stack/rfcomm.o
  .debug_aranges
-                0x000010c0      0x240 ./src/BT_Stack/rfcomm.o
+                0x000012e0       0x68 ./src/BT_Stack/run_loop.o
  .debug_aranges
-                0x00001300       0x68 ./src/BT_Stack/run_loop.o
+                0x00001348       0x78 ./src/BT_Stack/run_loop_embedded.o
  .debug_aranges
-                0x00001368       0x78 ./src/BT_Stack/run_loop_embedded.o
+                0x000013c0      0x148 ./src/BT_Stack/sdp_util.o
  .debug_aranges
-                0x000013e0      0x148 ./src/BT_Stack/sdp_util.o
+                0x00001508       0x78 ./src/BT_Stack/utils.o
  .debug_aranges
-                0x00001528       0x78 ./src/BT_Stack/utils.o
+                0x00001580       0x80 ./src/cr_startup_lpc176x.o
  .debug_aranges
-                0x000015a0       0x80 ./src/cr_startup_lpc176x.o
+                0x00001600       0x38 ./src/main.o
  .debug_aranges
-                0x00001620       0x38 ./src/main.o
- .debug_aranges
-                0x00001658       0x28 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x00001638       0x28 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
-.debug_ranges   0x00000000     0x1530
+.debug_ranges   0x00000000     0x1520
  .debug_ranges  0x00000000       0x70 ./src/EBN_Core/EBN.o
  .debug_ranges  0x00000070       0x38 ./src/EBN_Core/bget.o
  .debug_ranges  0x000000a8      0x118 ./src/EBN_Core/ecc.o
  .debug_ranges  0x000001c0       0xd8 ./src/EBN_Core/galois.o
  .debug_ranges  0x00000298       0xf0 ./src/EBN_Core/jerasure.o
  .debug_ranges  0x00000388       0x20 ./src/EBN_Core/mem.o
- .debug_ranges  0x000003a8       0x30 ./src/EBN_Core/random.o
- .debug_ranges  0x000003d8       0x40 ./src/EBN_Core/reed_sol.o
- .debug_ranges  0x00000418       0x18 ./src/BT_Stack/Drivers/SimpleCache.o
- .debug_ranges  0x00000430       0x70 ./src/BT_Stack/Drivers/lpc17xx_adc.o
- .debug_ranges  0x000004a0       0x48 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
- .debug_ranges  0x000004e8       0x10 ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
- .debug_ranges  0x000004f8       0x38 ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
- .debug_ranges  0x00000530       0x98 ./src/BT_Stack/Drivers/lpc17xx_ssp.o
- .debug_ranges  0x000005c8       0x88 ./src/BT_Stack/Drivers/lpc17xx_timer.o
- .debug_ranges  0x00000650       0xf0 ./src/BT_Stack/Drivers/lpc17xx_uart.o
- .debug_ranges  0x00000740       0x30 ./src/BT_Stack/Drivers/sd.o
- .debug_ranges  0x00000770      0x1b0 ./src/BT_Stack/att.o
- .debug_ranges  0x00000920       0xa0 ./src/BT_Stack/btstack_memory.o
- .debug_ranges  0x000009c0       0x30 ./src/BT_Stack/hal_cpu.o
- .debug_ranges  0x000009f0       0x38 ./src/BT_Stack/hal_tick.o
- .debug_ranges  0x00000a28       0x60 ./src/BT_Stack/hal_uart_dma.o
- .debug_ranges  0x00000a88      0x1a8 ./src/BT_Stack/hci.o
- .debug_ranges  0x00000c30       0x18 ./src/BT_Stack/hci_cmds.o
- .debug_ranges  0x00000c48       0x28 ./src/BT_Stack/hci_dump.o
- .debug_ranges  0x00000c70       0x70 ./src/BT_Stack/hci_transport_h4_dma.o
- .debug_ranges  0x00000ce0      0x1d8 ./src/BT_Stack/l2cap.o
- .debug_ranges  0x00000eb8       0x20 ./src/BT_Stack/l2cap_signaling.o
- .debug_ranges  0x00000ed8       0x40 ./src/BT_Stack/linked_list.o
- .debug_ranges  0x00000f18       0x20 ./src/BT_Stack/memory_pool.o
- .debug_ranges  0x00000f38       0x58 ./src/BT_Stack/remote_device_db_memory.o
- .debug_ranges  0x00000f90      0x230 ./src/BT_Stack/rfcomm.o
- .debug_ranges  0x000011c0       0x58 ./src/BT_Stack/run_loop.o
- .debug_ranges  0x00001218       0x98 ./src/BT_Stack/run_loop_embedded.o
- .debug_ranges  0x000012b0      0x168 ./src/BT_Stack/sdp_util.o
- .debug_ranges  0x00001418       0x68 ./src/BT_Stack/utils.o
- .debug_ranges  0x00001480       0x70 ./src/cr_startup_lpc176x.o
- .debug_ranges  0x000014f0       0x28 ./src/main.o
- .debug_ranges  0x00001518       0x18 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_ranges  0x000003a8       0x28 ./src/EBN_Core/random.o
+ .debug_ranges  0x000003d0       0x40 ./src/EBN_Core/reed_sol.o
+ .debug_ranges  0x00000410       0x70 ./src/BT_Stack/Drivers/lpc17xx_adc.o
+ .debug_ranges  0x00000480       0x48 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
+ .debug_ranges  0x000004c8       0x10 ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
+ .debug_ranges  0x000004d8       0x38 ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
+ .debug_ranges  0x00000510       0x98 ./src/BT_Stack/Drivers/lpc17xx_ssp.o
+ .debug_ranges  0x000005a8       0x88 ./src/BT_Stack/Drivers/lpc17xx_timer.o
+ .debug_ranges  0x00000630       0xf0 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+ .debug_ranges  0x00000720       0x30 ./src/BT_Stack/Drivers/sd.o
+ .debug_ranges  0x00000750      0x1b0 ./src/BT_Stack/att.o
+ .debug_ranges  0x00000900       0xa0 ./src/BT_Stack/btstack_memory.o
+ .debug_ranges  0x000009a0       0x38 ./src/BT_Stack/hal_cpu.o
+ .debug_ranges  0x000009d8       0x38 ./src/BT_Stack/hal_tick.o
+ .debug_ranges  0x00000a10       0x60 ./src/BT_Stack/hal_uart_dma.o
+ .debug_ranges  0x00000a70      0x1a8 ./src/BT_Stack/hci.o
+ .debug_ranges  0x00000c18       0x18 ./src/BT_Stack/hci_cmds.o
+ .debug_ranges  0x00000c30       0x28 ./src/BT_Stack/hci_dump.o
+ .debug_ranges  0x00000c58       0x78 ./src/BT_Stack/hci_transport_h4_dma.o
+ .debug_ranges  0x00000cd0      0x1d8 ./src/BT_Stack/l2cap.o
+ .debug_ranges  0x00000ea8       0x20 ./src/BT_Stack/l2cap_signaling.o
+ .debug_ranges  0x00000ec8       0x40 ./src/BT_Stack/linked_list.o
+ .debug_ranges  0x00000f08       0x20 ./src/BT_Stack/memory_pool.o
+ .debug_ranges  0x00000f28       0x58 ./src/BT_Stack/remote_device_db_memory.o
+ .debug_ranges  0x00000f80      0x230 ./src/BT_Stack/rfcomm.o
+ .debug_ranges  0x000011b0       0x58 ./src/BT_Stack/run_loop.o
+ .debug_ranges  0x00001208       0x98 ./src/BT_Stack/run_loop_embedded.o
+ .debug_ranges  0x000012a0      0x168 ./src/BT_Stack/sdp_util.o
+ .debug_ranges  0x00001408       0x68 ./src/BT_Stack/utils.o
+ .debug_ranges  0x00001470       0x70 ./src/cr_startup_lpc176x.o
+ .debug_ranges  0x000014e0       0x28 ./src/main.o
+ .debug_ranges  0x00001508       0x18 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
-.debug_line     0x00000000     0xe6b5
+.debug_line     0x00000000     0xe31d
  .debug_line    0x00000000      0x4c1 ./src/EBN_Core/EBN.o
  .debug_line    0x000004c1      0x484 ./src/EBN_Core/bget.o
  .debug_line    0x00000945      0x82c ./src/EBN_Core/ecc.o
  .debug_line    0x00001171      0x6a4 ./src/EBN_Core/galois.o
  .debug_line    0x00001815      0xc36 ./src/EBN_Core/jerasure.o
  .debug_line    0x0000244b       0xc0 ./src/EBN_Core/mem.o
- .debug_line    0x0000250b      0x562 ./src/EBN_Core/random.o
- .debug_line    0x00002a6d      0x32b ./src/EBN_Core/reed_sol.o
- .debug_line    0x00002d98      0x39e ./src/BT_Stack/Drivers/SimpleCache.o
- .debug_line    0x00003136      0x615 ./src/BT_Stack/Drivers/lpc17xx_adc.o
- .debug_line    0x0000374b      0x4e7 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
- .debug_line    0x00003c32      0x390 ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
- .debug_line    0x00003fc2      0x47f ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
- .debug_line    0x00004441      0x7a8 ./src/BT_Stack/Drivers/lpc17xx_ssp.o
- .debug_line    0x00004be9      0x7a3 ./src/BT_Stack/Drivers/lpc17xx_timer.o
- .debug_line    0x0000538c      0xb34 ./src/BT_Stack/Drivers/lpc17xx_uart.o
- .debug_line    0x00005ec0      0x577 ./src/BT_Stack/Drivers/sd.o
- .debug_line    0x00006437      0x8d9 ./src/BT_Stack/att.o
- .debug_line    0x00006d10      0x59e ./src/BT_Stack/btstack_memory.o
- .debug_line    0x000072ae      0x471 ./src/BT_Stack/hal_cpu.o
- .debug_line    0x0000771f      0x4a6 ./src/BT_Stack/hal_tick.o
- .debug_line    0x00007bc5      0x500 ./src/BT_Stack/hal_uart_dma.o
- .debug_line    0x000080c5      0xb1a ./src/BT_Stack/hci.o
- .debug_line    0x00008bdf      0x49e ./src/BT_Stack/hci_cmds.o
- .debug_line    0x0000907d      0x441 ./src/BT_Stack/hci_dump.o
- .debug_line    0x000094be      0x584 ./src/BT_Stack/hci_transport_h4_dma.o
- .debug_line    0x00009a42      0xab5 ./src/BT_Stack/l2cap.o
- .debug_line    0x0000a4f7      0x404 ./src/BT_Stack/l2cap_signaling.o
- .debug_line    0x0000a8fb      0x38b ./src/BT_Stack/linked_list.o
- .debug_line    0x0000ac86      0x3a3 ./src/BT_Stack/memory_pool.o
- .debug_line    0x0000b029      0x4f5 ./src/BT_Stack/remote_device_db_memory.o
- .debug_line    0x0000b51e      0xd9c ./src/BT_Stack/rfcomm.o
- .debug_line    0x0000c2ba      0x466 ./src/BT_Stack/run_loop.o
- .debug_line    0x0000c720      0x4f2 ./src/BT_Stack/run_loop_embedded.o
- .debug_line    0x0000cc12      0x7ca ./src/BT_Stack/sdp_util.o
- .debug_line    0x0000d3dc      0x46e ./src/BT_Stack/utils.o
- .debug_line    0x0000d84a      0x3d5 ./src/cr_startup_lpc176x.o
- .debug_line    0x0000dc1f      0x691 ./src/main.o
- .debug_line    0x0000e2b0      0x405 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_line    0x0000250b      0x545 ./src/EBN_Core/random.o
+ .debug_line    0x00002a50      0x32b ./src/EBN_Core/reed_sol.o
+ .debug_line    0x00002d7b      0x615 ./src/BT_Stack/Drivers/lpc17xx_adc.o
+ .debug_line    0x00003390      0x4e7 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
+ .debug_line    0x00003877      0x390 ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
+ .debug_line    0x00003c07      0x47f ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
+ .debug_line    0x00004086      0x7a8 ./src/BT_Stack/Drivers/lpc17xx_ssp.o
+ .debug_line    0x0000482e      0x7a3 ./src/BT_Stack/Drivers/lpc17xx_timer.o
+ .debug_line    0x00004fd1      0xb34 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+ .debug_line    0x00005b05      0x577 ./src/BT_Stack/Drivers/sd.o
+ .debug_line    0x0000607c      0x8d9 ./src/BT_Stack/att.o
+ .debug_line    0x00006955      0x59e ./src/BT_Stack/btstack_memory.o
+ .debug_line    0x00006ef3      0x46a ./src/BT_Stack/hal_cpu.o
+ .debug_line    0x0000735d      0x495 ./src/BT_Stack/hal_tick.o
+ .debug_line    0x000077f2      0x500 ./src/BT_Stack/hal_uart_dma.o
+ .debug_line    0x00007cf2      0xb1a ./src/BT_Stack/hci.o
+ .debug_line    0x0000880c      0x49e ./src/BT_Stack/hci_cmds.o
+ .debug_line    0x00008caa      0x441 ./src/BT_Stack/hci_dump.o
+ .debug_line    0x000090eb      0x5ac ./src/BT_Stack/hci_transport_h4_dma.o
+ .debug_line    0x00009697      0xab5 ./src/BT_Stack/l2cap.o
+ .debug_line    0x0000a14c      0x404 ./src/BT_Stack/l2cap_signaling.o
+ .debug_line    0x0000a550      0x38b ./src/BT_Stack/linked_list.o
+ .debug_line    0x0000a8db      0x3a3 ./src/BT_Stack/memory_pool.o
+ .debug_line    0x0000ac7e      0x4f5 ./src/BT_Stack/remote_device_db_memory.o
+ .debug_line    0x0000b173      0xd9c ./src/BT_Stack/rfcomm.o
+ .debug_line    0x0000bf0f      0x466 ./src/BT_Stack/run_loop.o
+ .debug_line    0x0000c375      0x4f2 ./src/BT_Stack/run_loop_embedded.o
+ .debug_line    0x0000c867      0x7ca ./src/BT_Stack/sdp_util.o
+ .debug_line    0x0000d031      0x46e ./src/BT_Stack/utils.o
+ .debug_line    0x0000d49f      0x3d5 ./src/cr_startup_lpc176x.o
+ .debug_line    0x0000d874      0x6a4 ./src/main.o
+ .debug_line    0x0000df18      0x405 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
-.debug_macinfo  0x00000000    0xf17b3
+.debug_macinfo  0x00000000    0xed9ee
  .debug_macinfo
                 0x00000000     0x3f6e ./src/EBN_Core/EBN.o
  .debug_macinfo
@@ -2888,73 +2871,71 @@ OUTPUT(EBN_Anchor_Node.axf elf32-littlearm)
  .debug_macinfo
                 0x0000fa55     0x2318 ./src/EBN_Core/mem.o
  .debug_macinfo
-                0x00011d6d     0x91dd ./src/EBN_Core/random.o
+                0x00011d6d     0x91f1 ./src/EBN_Core/random.o
  .debug_macinfo
-                0x0001af4a     0x23de ./src/EBN_Core/reed_sol.o
+                0x0001af5e     0x23de ./src/EBN_Core/reed_sol.o
  .debug_macinfo
-                0x0001d328     0x3f2f ./src/BT_Stack/Drivers/SimpleCache.o
+                0x0001d33c     0xa098 ./src/BT_Stack/Drivers/lpc17xx_adc.o
  .debug_macinfo
-                0x00021257     0xa098 ./src/BT_Stack/Drivers/lpc17xx_adc.o
+                0x000273d4     0x9763 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
  .debug_macinfo
-                0x0002b2ef     0x9763 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
+                0x00030b37     0x401b ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
  .debug_macinfo
-                0x00034a52     0x401b ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
+                0x00034b52     0x8914 ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
  .debug_macinfo
-                0x00038a6d     0x8914 ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
+                0x0003d466     0xaa1b ./src/BT_Stack/Drivers/lpc17xx_ssp.o
  .debug_macinfo
-                0x00041381     0xaa1b ./src/BT_Stack/Drivers/lpc17xx_ssp.o
+                0x00047e81     0xa629 ./src/BT_Stack/Drivers/lpc17xx_timer.o
  .debug_macinfo
-                0x0004bd9c     0xa629 ./src/BT_Stack/Drivers/lpc17xx_timer.o
+                0x000524aa     0xb6cf ./src/BT_Stack/Drivers/lpc17xx_uart.o
  .debug_macinfo
-                0x000563c5     0xb6cf ./src/BT_Stack/Drivers/lpc17xx_uart.o
+                0x0005db79     0x9856 ./src/BT_Stack/Drivers/sd.o
  .debug_macinfo
-                0x00061a94     0x9856 ./src/BT_Stack/Drivers/sd.o
+                0x000673cf     0x466d ./src/BT_Stack/att.o
  .debug_macinfo
-                0x0006b2ea     0x466d ./src/BT_Stack/att.o
+                0x0006ba3c     0x641e ./src/BT_Stack/btstack_memory.o
  .debug_macinfo
-                0x0006f957     0x6408 ./src/BT_Stack/btstack_memory.o
+                0x00071e5a     0x9767 ./src/BT_Stack/hal_cpu.o
  .debug_macinfo
-                0x00075d5f     0x9767 ./src/BT_Stack/hal_cpu.o
+                0x0007b5c1     0x8ce1 ./src/BT_Stack/hal_tick.o
  .debug_macinfo
-                0x0007f4c6     0x8ce1 ./src/BT_Stack/hal_tick.o
+                0x000842a2     0x9cc6 ./src/BT_Stack/hal_uart_dma.o
  .debug_macinfo
-                0x000881a7     0x9cc6 ./src/BT_Stack/hal_uart_dma.o
+                0x0008df68     0x669a ./src/BT_Stack/hci.o
  .debug_macinfo
-                0x00091e6d     0x667b ./src/BT_Stack/hci.o
+                0x00094602     0x6630 ./src/BT_Stack/hci_cmds.o
  .debug_macinfo
-                0x000984e8     0x661a ./src/BT_Stack/hci_cmds.o
+                0x0009ac32     0x620d ./src/BT_Stack/hci_dump.o
  .debug_macinfo
-                0x0009eb02     0x61f7 ./src/BT_Stack/hci_dump.o
+                0x000a0e3f     0x64f6 ./src/BT_Stack/hci_transport_h4_dma.o
  .debug_macinfo
-                0x000a4cf9     0x64e0 ./src/BT_Stack/hci_transport_h4_dma.o
+                0x000a7335     0x67c3 ./src/BT_Stack/l2cap.o
  .debug_macinfo
-                0x000ab1d9     0x67ad ./src/BT_Stack/l2cap.o
+                0x000adaf8     0x54dc ./src/BT_Stack/l2cap_signaling.o
  .debug_macinfo
-                0x000b1986     0x5487 ./src/BT_Stack/l2cap_signaling.o
+                0x000b2fd4     0x297c ./src/BT_Stack/linked_list.o
  .debug_macinfo
-                0x000b6e0d     0x297c ./src/BT_Stack/linked_list.o
+                0x000b5950     0x2984 ./src/BT_Stack/memory_pool.o
  .debug_macinfo
-                0x000b9789     0x2984 ./src/BT_Stack/memory_pool.o
+                0x000b82d4     0x4798 ./src/BT_Stack/remote_device_db_memory.o
  .debug_macinfo
-                0x000bc10d     0x478f ./src/BT_Stack/remote_device_db_memory.o
+                0x000bca6c     0x69ba ./src/BT_Stack/rfcomm.o
  .debug_macinfo
-                0x000c089c     0x69a4 ./src/BT_Stack/rfcomm.o
+                0x000c3426     0x44c0 ./src/BT_Stack/run_loop.o
  .debug_macinfo
-                0x000c7240     0x44a5 ./src/BT_Stack/run_loop.o
+                0x000c78e6     0x4352 ./src/BT_Stack/run_loop_embedded.o
  .debug_macinfo
-                0x000cb6e5     0x4340 ./src/BT_Stack/run_loop_embedded.o
+                0x000cbc38     0x499d ./src/BT_Stack/sdp_util.o
  .debug_macinfo
-                0x000cfa25     0x499d ./src/BT_Stack/sdp_util.o
+                0x000d05d5     0x4840 ./src/BT_Stack/utils.o
  .debug_macinfo
-                0x000d43c2     0x482e ./src/BT_Stack/utils.o
+                0x000d4e15     0x3d45 ./src/cr_startup_lpc176x.o
  .debug_macinfo
-                0x000d8bf0     0x3d45 ./src/cr_startup_lpc176x.o
+                0x000d8b5a     0xc963 ./src/main.o
  .debug_macinfo
-                0x000dc935     0xc94d ./src/main.o
- .debug_macinfo
-                0x000e9282     0x8531 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x000e54bd     0x8531 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
 
-.debug_str      0x00000000     0x8117
+.debug_str      0x00000000     0x811c
  .debug_str     0x00000000      0x35e ./src/EBN_Core/EBN.o
                                 0x3b0 (size before relaxing)
  .debug_str     0x0000035e      0x114 ./src/EBN_Core/bget.o
@@ -2967,71 +2948,69 @@ OUTPUT(EBN_Anchor_Node.axf elf32-littlearm)
                                 0x617 (size before relaxing)
  .debug_str     0x00001005       0x35 ./src/EBN_Core/mem.o
                                  0xcb (size before relaxing)
- .debug_str     0x0000103a      0x5f4 ./src/EBN_Core/random.o
-                                0x736 (size before relaxing)
- .debug_str     0x0000162e      0x15d ./src/EBN_Core/reed_sol.o
+ .debug_str     0x0000103a      0x456 ./src/EBN_Core/random.o
+                                0x591 (size before relaxing)
+ .debug_str     0x00001490      0x15d ./src/EBN_Core/reed_sol.o
                                 0x23e (size before relaxing)
- .debug_str     0x0000178b       0x43 ./src/BT_Stack/Drivers/SimpleCache.o
-                                0x15d (size before relaxing)
- .debug_str     0x000017ce      0x19b ./src/BT_Stack/Drivers/lpc17xx_adc.o
+ .debug_str     0x000015ed      0x225 ./src/BT_Stack/Drivers/lpc17xx_adc.o
                                 0x4e0 (size before relaxing)
- .debug_str     0x00001969      0x252 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
+ .debug_str     0x00001812      0x13a ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
                                 0x3cd (size before relaxing)
- .debug_str     0x00001bbb       0x43 ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
+ .debug_str     0x0000194c       0x43 ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
                                 0x154 (size before relaxing)
- .debug_str     0x00001bfe      0x147 ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
+ .debug_str     0x0000198f      0x147 ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
                                 0x3a6 (size before relaxing)
- .debug_str     0x00001d45      0x29f ./src/BT_Stack/Drivers/lpc17xx_ssp.o
+ .debug_str     0x00001ad6      0x29f ./src/BT_Stack/Drivers/lpc17xx_ssp.o
                                 0x434 (size before relaxing)
- .debug_str     0x00001fe4      0x451 ./src/BT_Stack/Drivers/lpc17xx_timer.o
+ .debug_str     0x00001d75      0x451 ./src/BT_Stack/Drivers/lpc17xx_timer.o
                                 0x5d4 (size before relaxing)
- .debug_str     0x00002435      0x99c ./src/BT_Stack/Drivers/lpc17xx_uart.o
+ .debug_str     0x000021c6      0x99c ./src/BT_Stack/Drivers/lpc17xx_uart.o
                                 0xba3 (size before relaxing)
- .debug_str     0x00002dd1      0x1db ./src/BT_Stack/Drivers/sd.o
+ .debug_str     0x00002b62      0x1db ./src/BT_Stack/Drivers/sd.o
                                 0x47f (size before relaxing)
- .debug_str     0x00002fac      0x619 ./src/BT_Stack/att.o
+ .debug_str     0x00002d3d      0x619 ./src/BT_Stack/att.o
                                 0x7c8 (size before relaxing)
- .debug_str     0x000035c5      0x637 ./src/BT_Stack/btstack_memory.o
+ .debug_str     0x00003356      0x637 ./src/BT_Stack/btstack_memory.o
                                 0x7be (size before relaxing)
- .debug_str     0x00003bfc       0x92 ./src/BT_Stack/hal_cpu.o
-                                0x42d (size before relaxing)
- .debug_str     0x00003c8e       0x88 ./src/BT_Stack/hal_tick.o
-                                0x608 (size before relaxing)
- .debug_str     0x00003d16      0x19b ./src/BT_Stack/hal_uart_dma.o
+ .debug_str     0x0000398d      0x2d8 ./src/BT_Stack/hal_cpu.o
+                                0x43b (size before relaxing)
+ .debug_str     0x00003c65       0x88 ./src/BT_Stack/hal_tick.o
+                                0x60b (size before relaxing)
+ .debug_str     0x00003ced      0x19b ./src/BT_Stack/hal_uart_dma.o
                                 0x655 (size before relaxing)
- .debug_str     0x00003eb1      0x95e ./src/BT_Stack/hci.o
+ .debug_str     0x00003e88      0x95e ./src/BT_Stack/hci.o
                                 0xef0 (size before relaxing)
- .debug_str     0x0000480f      0xa53 ./src/BT_Stack/hci_cmds.o
-                                0xd12 (size before relaxing)
- .debug_str     0x00005262       0xa5 ./src/BT_Stack/hci_dump.o
+ .debug_str     0x000047e6      0xa5e ./src/BT_Stack/hci_cmds.o
+                                0xd1d (size before relaxing)
+ .debug_str     0x00005244       0xa5 ./src/BT_Stack/hci_dump.o
                                 0x1ce (size before relaxing)
- .debug_str     0x00005307      0x23c ./src/BT_Stack/hci_transport_h4_dma.o
-                                0x487 (size before relaxing)
- .debug_str     0x00005543      0xb32 ./src/BT_Stack/l2cap.o
+ .debug_str     0x000052e9      0x23c ./src/BT_Stack/hci_transport_h4_dma.o
+                                0x491 (size before relaxing)
+ .debug_str     0x00005525      0xb32 ./src/BT_Stack/l2cap.o
                                0x107f (size before relaxing)
- .debug_str     0x00006075       0x94 ./src/BT_Stack/l2cap_signaling.o
+ .debug_str     0x00006057       0x94 ./src/BT_Stack/l2cap_signaling.o
                                 0x2eb (size before relaxing)
- .debug_str     0x00006109       0xb5 ./src/BT_Stack/linked_list.o
+ .debug_str     0x000060eb       0xb5 ./src/BT_Stack/linked_list.o
                                 0x1bf (size before relaxing)
- .debug_str     0x000061be       0x7d ./src/BT_Stack/memory_pool.o
+ .debug_str     0x000061a0       0x7d ./src/BT_Stack/memory_pool.o
                                 0x169 (size before relaxing)
- .debug_str     0x0000623b       0xec ./src/BT_Stack/remote_device_db_memory.o
+ .debug_str     0x0000621d       0xec ./src/BT_Stack/remote_device_db_memory.o
                                 0x33d (size before relaxing)
- .debug_str     0x00006327     0x10c2 ./src/BT_Stack/rfcomm.o
+ .debug_str     0x00006309     0x10c2 ./src/BT_Stack/rfcomm.o
                                0x140d (size before relaxing)
- .debug_str     0x000073e9      0x160 ./src/BT_Stack/run_loop.o
+ .debug_str     0x000073cb      0x160 ./src/BT_Stack/run_loop.o
                                 0x338 (size before relaxing)
- .debug_str     0x00007549      0x169 ./src/BT_Stack/run_loop_embedded.o
+ .debug_str     0x0000752b      0x169 ./src/BT_Stack/run_loop_embedded.o
                                 0x36d (size before relaxing)
- .debug_str     0x000076b2      0x749 ./src/BT_Stack/sdp_util.o
+ .debug_str     0x00007694      0x749 ./src/BT_Stack/sdp_util.o
                                 0x958 (size before relaxing)
- .debug_str     0x00007dfb       0xbe ./src/BT_Stack/utils.o
+ .debug_str     0x00007ddd       0xbe ./src/BT_Stack/utils.o
                                 0x220 (size before relaxing)
- .debug_str     0x00007eb9      0x172 ./src/cr_startup_lpc176x.o
+ .debug_str     0x00007e9b      0x172 ./src/cr_startup_lpc176x.o
                                 0x273 (size before relaxing)
- .debug_str     0x0000802b       0x7c ./src/main.o
-                                0x530 (size before relaxing)
- .debug_str     0x000080a7       0x70 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_str     0x0000800d       0x9f ./src/main.o
+                                0x525 (size before relaxing)
+ .debug_str     0x000080ac       0x70 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
                                 0x2aa (size before relaxing)
 
 .comment        0x00000000       0xe0
@@ -3044,7 +3023,6 @@ OUTPUT(EBN_Anchor_Node.axf elf32-littlearm)
  .comment       0x00000000       0x71 ./src/EBN_Core/mem.o
  .comment       0x00000000       0x71 ./src/EBN_Core/random.o
  .comment       0x00000000       0x71 ./src/EBN_Core/reed_sol.o
- .comment       0x00000000       0x71 ./src/BT_Stack/Drivers/SimpleCache.o
  .comment       0x00000000       0x71 ./src/BT_Stack/Drivers/lpc17xx_adc.o
  .comment       0x00000000       0x71 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
  .comment       0x00000000       0x71 ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
@@ -3125,187 +3103,184 @@ OUTPUT(EBN_Anchor_Node.axf elf32-littlearm)
  .ARM.attributes
                 0x00000165       0x33 ./src/EBN_Core/reed_sol.o
  .ARM.attributes
-                0x00000198       0x33 ./src/BT_Stack/Drivers/SimpleCache.o
+                0x00000198       0x33 ./src/BT_Stack/Drivers/lpc17xx_adc.o
  .ARM.attributes
-                0x000001cb       0x33 ./src/BT_Stack/Drivers/lpc17xx_adc.o
+                0x000001cb       0x33 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
  .ARM.attributes
-                0x000001fe       0x33 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
+                0x000001fe       0x33 ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
  .ARM.attributes
-                0x00000231       0x33 ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
+                0x00000231       0x33 ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
  .ARM.attributes
-                0x00000264       0x33 ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
+                0x00000264       0x33 ./src/BT_Stack/Drivers/lpc17xx_ssp.o
  .ARM.attributes
-                0x00000297       0x33 ./src/BT_Stack/Drivers/lpc17xx_ssp.o
+                0x00000297       0x33 ./src/BT_Stack/Drivers/lpc17xx_timer.o
  .ARM.attributes
-                0x000002ca       0x33 ./src/BT_Stack/Drivers/lpc17xx_timer.o
+                0x000002ca       0x33 ./src/BT_Stack/Drivers/lpc17xx_uart.o
  .ARM.attributes
-                0x000002fd       0x33 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+                0x000002fd       0x33 ./src/BT_Stack/Drivers/sd.o
  .ARM.attributes
-                0x00000330       0x33 ./src/BT_Stack/Drivers/sd.o
+                0x00000330       0x33 ./src/BT_Stack/att.o
  .ARM.attributes
-                0x00000363       0x33 ./src/BT_Stack/att.o
+                0x00000363       0x33 ./src/BT_Stack/btstack_memory.o
  .ARM.attributes
-                0x00000396       0x33 ./src/BT_Stack/btstack_memory.o
+                0x00000396       0x33 ./src/BT_Stack/hal_cpu.o
  .ARM.attributes
-                0x000003c9       0x33 ./src/BT_Stack/hal_cpu.o
+                0x000003c9       0x33 ./src/BT_Stack/hal_tick.o
  .ARM.attributes
-                0x000003fc       0x33 ./src/BT_Stack/hal_tick.o
+                0x000003fc       0x33 ./src/BT_Stack/hal_uart_dma.o
  .ARM.attributes
-                0x0000042f       0x33 ./src/BT_Stack/hal_uart_dma.o
+                0x0000042f       0x33 ./src/BT_Stack/hci.o
  .ARM.attributes
-                0x00000462       0x33 ./src/BT_Stack/hci.o
+                0x00000462       0x33 ./src/BT_Stack/hci_cmds.o
  .ARM.attributes
-                0x00000495       0x33 ./src/BT_Stack/hci_cmds.o
+                0x00000495       0x33 ./src/BT_Stack/hci_dump.o
  .ARM.attributes
-                0x000004c8       0x33 ./src/BT_Stack/hci_dump.o
+                0x000004c8       0x33 ./src/BT_Stack/hci_transport_h4_dma.o
  .ARM.attributes
-                0x000004fb       0x33 ./src/BT_Stack/hci_transport_h4_dma.o
+                0x000004fb       0x33 ./src/BT_Stack/l2cap.o
  .ARM.attributes
-                0x0000052e       0x33 ./src/BT_Stack/l2cap.o
+                0x0000052e       0x33 ./src/BT_Stack/l2cap_signaling.o
  .ARM.attributes
-                0x00000561       0x33 ./src/BT_Stack/l2cap_signaling.o
+                0x00000561       0x33 ./src/BT_Stack/linked_list.o
  .ARM.attributes
-                0x00000594       0x33 ./src/BT_Stack/linked_list.o
+                0x00000594       0x33 ./src/BT_Stack/memory_pool.o
  .ARM.attributes
-                0x000005c7       0x33 ./src/BT_Stack/memory_pool.o
+                0x000005c7       0x33 ./src/BT_Stack/remote_device_db_memory.o
  .ARM.attributes
-                0x000005fa       0x33 ./src/BT_Stack/remote_device_db_memory.o
+                0x000005fa       0x33 ./src/BT_Stack/rfcomm.o
  .ARM.attributes
-                0x0000062d       0x33 ./src/BT_Stack/rfcomm.o
+                0x0000062d       0x33 ./src/BT_Stack/run_loop.o
  .ARM.attributes
-                0x00000660       0x33 ./src/BT_Stack/run_loop.o
+                0x00000660       0x33 ./src/BT_Stack/run_loop_embedded.o
  .ARM.attributes
-                0x00000693       0x33 ./src/BT_Stack/run_loop_embedded.o
+                0x00000693       0x33 ./src/BT_Stack/sdp_util.o
  .ARM.attributes
-                0x000006c6       0x33 ./src/BT_Stack/sdp_util.o
+                0x000006c6       0x33 ./src/BT_Stack/utils.o
  .ARM.attributes
-                0x000006f9       0x33 ./src/BT_Stack/utils.o
+                0x000006f9       0x33 ./src/cr_startup_lpc176x.o
  .ARM.attributes
-                0x0000072c       0x33 ./src/cr_startup_lpc176x.o
+                0x0000072c       0x33 ./src/main.o
  .ARM.attributes
-                0x0000075f       0x33 ./src/main.o
+                0x0000075f       0x33 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
  .ARM.attributes
-                0x00000792       0x33 C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+                0x00000792       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr__main.o)
  .ARM.attributes
-                0x000007c5       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr__main.o)
+                0x000007c5       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
  .ARM.attributes
-                0x000007f8       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fpprintf.o)
+                0x000007f8       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(initio.o)
  .ARM.attributes
-                0x0000082b       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(initio.o)
+                0x0000082b       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(printf.o)
  .ARM.attributes
-                0x0000085e       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(printf.o)
+                0x0000085e       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(setvbuf.o)
  .ARM.attributes
-                0x00000891       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(setvbuf.o)
+                0x00000891       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(stdio.o)
  .ARM.attributes
-                0x000008c4       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(stdio.o)
+                0x000008c4       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(strlen.o)
  .ARM.attributes
-                0x000008f7       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(strlen.o)
+                0x000008f7       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(strncmp.o)
  .ARM.attributes
-                0x0000092a       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(strncmp.o)
+                0x0000092a       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(strncpy.o)
  .ARM.attributes
-                0x0000095d       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(strncpy.o)
+                0x0000095d       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__fillbuf.o)
  .ARM.attributes
-                0x00000990       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__fillbuf.o)
+                0x00000990       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_deferredlazyseek.o)
  .ARM.attributes
-                0x000009c3       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_deferredlazyseek.o)
+                0x000009c3       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_fdopen.o)
  .ARM.attributes
-                0x000009f6       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_fdopen.o)
+                0x000009f6       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_fflush.o)
  .ARM.attributes
-                0x00000a29       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_fflush.o)
+                0x00000a29       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_frexpl.o)
  .ARM.attributes
-                0x00000a5c       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_frexpl.o)
+                0x00000a5c       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_ldexpl.o)
  .ARM.attributes
-                0x00000a8f       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_ldexpl.o)
+                0x00000a8f       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_writebuf.o)
  .ARM.attributes
-                0x00000ac2       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_writebuf.o)
+                0x00000ac2       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(alloc.o)
  .ARM.attributes
-                0x00000af5       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(alloc.o)
+                0x00000af5       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(errno.o)
  .ARM.attributes
-                0x00000b28       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(errno.o)
+                0x00000b28       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fclose.o)
  .ARM.attributes
-                0x00000b5b       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fclose.o)
+                0x00000b5b       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fflush.o)
  .ARM.attributes
-                0x00000b8e       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fflush.o)
+                0x00000b8e       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fseek.o)
  .ARM.attributes
-                0x00000bc1       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(fseek.o)
+                0x00000bc1       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(ftell.o)
  .ARM.attributes
-                0x00000bf4       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(ftell.o)
+                0x00000bf4       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(remove.o)
  .ARM.attributes
-                0x00000c27       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(remove.o)
+                0x00000c27       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__init_alloc.o)
  .ARM.attributes
-                0x00000c5a       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__init_alloc.o)
+                0x00000c5a       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_do_fflush.o)
  .ARM.attributes
-                0x00000c8d       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_do_fflush.o)
+                0x00000c8d       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_hugeval.o)
  .ARM.attributes
-                0x00000cc0       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(_hugeval.o)
+                0x00000cc0       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(division.o)
  .ARM.attributes
-                0x00000cf3       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(division.o)
+                0x00000ce1       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
  .ARM.attributes
-                0x00000d14       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a(double.o)
+                0x00000d14       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_appexit.o)
  .ARM.attributes
-                0x00000d47       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_appexit.o)
+                0x00000d35       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_close.o)
  .ARM.attributes
-                0x00000d68       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_close.o)
+                0x00000d56       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_flen.o)
  .ARM.attributes
-                0x00000d89       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_flen.o)
+                0x00000d77       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_istty.o)
  .ARM.attributes
-                0x00000daa       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_istty.o)
+                0x00000d98       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_read.o)
  .ARM.attributes
-                0x00000dcb       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_read.o)
+                0x00000db9       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_readc.o)
  .ARM.attributes
-                0x00000dec       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_readc.o)
+                0x00000dda       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_remove.o)
  .ARM.attributes
-                0x00000e0d       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_remove.o)
+                0x00000dfb       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_rename.o)
  .ARM.attributes
-                0x00000e2e       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_rename.o)
+                0x00000e1c       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_seek.o)
  .ARM.attributes
-                0x00000e4f       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_seek.o)
+                0x00000e3d       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_tmpnam.o)
  .ARM.attributes
-                0x00000e70       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_tmpnam.o)
+                0x00000e5e       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_write.o)
  .ARM.attributes
-                0x00000e91       0x21 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(__sys_write.o)
+                0x00000e7f       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr_sbrk.o)
  .ARM.attributes
-                0x00000eb2       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr_sbrk.o)
- .ARM.attributes
-                0x00000ee5       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr_check_heap.o)
+                0x00000eb2       0x33 c:/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_semihost.a(_cr_check_heap.o)
 
-.debug_frame    0x00000000     0x49dc
+.debug_frame    0x00000000     0x4998
  .debug_frame   0x00000000      0x180 ./src/EBN_Core/EBN.o
  .debug_frame   0x00000180       0xc4 ./src/EBN_Core/bget.o
  .debug_frame   0x00000244      0x44c ./src/EBN_Core/ecc.o
  .debug_frame   0x00000690      0x334 ./src/EBN_Core/galois.o
  .debug_frame   0x000009c4      0x3b0 ./src/EBN_Core/jerasure.o
  .debug_frame   0x00000d74       0x64 ./src/EBN_Core/mem.o
- .debug_frame   0x00000dd8       0xa8 ./src/EBN_Core/random.o
- .debug_frame   0x00000e80       0xf4 ./src/EBN_Core/reed_sol.o
- .debug_frame   0x00000f74       0x50 ./src/BT_Stack/Drivers/SimpleCache.o
- .debug_frame   0x00000fc4      0x1ac ./src/BT_Stack/Drivers/lpc17xx_adc.o
- .debug_frame   0x00001170       0xe4 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
- .debug_frame   0x00001254       0x2c ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
- .debug_frame   0x00001280       0xbc ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
- .debug_frame   0x0000133c      0x24c ./src/BT_Stack/Drivers/lpc17xx_ssp.o
- .debug_frame   0x00001588      0x208 ./src/BT_Stack/Drivers/lpc17xx_timer.o
- .debug_frame   0x00001790      0x3a0 ./src/BT_Stack/Drivers/lpc17xx_uart.o
- .debug_frame   0x00001b30       0xac ./src/BT_Stack/Drivers/sd.o
- .debug_frame   0x00001bdc      0x57c ./src/BT_Stack/att.o
- .debug_frame   0x00002158      0x210 ./src/BT_Stack/btstack_memory.o
- .debug_frame   0x00002368       0x9c ./src/BT_Stack/hal_cpu.o
- .debug_frame   0x00002404       0xb0 ./src/BT_Stack/hal_tick.o
- .debug_frame   0x000024b4      0x14c ./src/BT_Stack/hal_uart_dma.o
- .debug_frame   0x00002600      0x5f8 ./src/BT_Stack/hci.o
- .debug_frame   0x00002bf8       0x58 ./src/BT_Stack/hci_cmds.o
- .debug_frame   0x00002c50       0x84 ./src/BT_Stack/hci_dump.o
- .debug_frame   0x00002cd4      0x184 ./src/BT_Stack/hci_transport_h4_dma.o
- .debug_frame   0x00002e58      0x5a8 ./src/BT_Stack/l2cap.o
- .debug_frame   0x00003400       0x60 ./src/BT_Stack/l2cap_signaling.o
- .debug_frame   0x00003460       0xd4 ./src/BT_Stack/linked_list.o
- .debug_frame   0x00003534       0x68 ./src/BT_Stack/memory_pool.o
- .debug_frame   0x0000359c      0x140 ./src/BT_Stack/remote_device_db_memory.o
- .debug_frame   0x000036dc      0x874 ./src/BT_Stack/rfcomm.o
- .debug_frame   0x00003f50      0x138 ./src/BT_Stack/run_loop.o
- .debug_frame   0x00004088      0x168 ./src/BT_Stack/run_loop_embedded.o
- .debug_frame   0x000041f0      0x4b8 ./src/BT_Stack/sdp_util.o
- .debug_frame   0x000046a8      0x174 ./src/BT_Stack/utils.o
- .debug_frame   0x0000481c       0xf4 ./src/cr_startup_lpc176x.o
- .debug_frame   0x00004910       0x90 ./src/main.o
- .debug_frame   0x000049a0       0x3c C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)
+ .debug_frame   0x00000dd8       0x84 ./src/EBN_Core/random.o
+ .debug_frame   0x00000e5c       0xf4 ./src/EBN_Core/reed_sol.o
+ .debug_frame   0x00000f50      0x1ac ./src/BT_Stack/Drivers/lpc17xx_adc.o
+ .debug_frame   0x000010fc       0xe4 ./src/BT_Stack/Drivers/lpc17xx_clkpwr.o
+ .debug_frame   0x000011e0       0x2c ./src/BT_Stack/Drivers/lpc17xx_libcfg_default.o
+ .debug_frame   0x0000120c       0xbc ./src/BT_Stack/Drivers/lpc17xx_pinsel.o
+ .debug_frame   0x000012c8      0x24c ./src/BT_Stack/Drivers/lpc17xx_ssp.o
+ .debug_frame   0x00001514      0x208 ./src/BT_Stack/Drivers/lpc17xx_timer.o
+ .debug_frame   0x0000171c      0x3a0 ./src/BT_Stack/Drivers/lpc17xx_uart.o
+ .debug_frame   0x00001abc       0xac ./src/BT_Stack/Drivers/sd.o
+ .debug_frame   0x00001b68      0x57c ./src/BT_Stack/att.o
+ .debug_frame   0x000020e4      0x210 ./src/BT_Stack/btstack_memory.o
+ .debug_frame   0x000022f4       0xac ./src/BT_Stack/hal_cpu.o
+ .debug_frame   0x000023a0       0xb0 ./src/BT_Stack/hal_tick.o
+ .debug_frame   0x00002450      0x14c ./src/BT_Stack/hal_uart_dma.o
+ .debug_frame   0x0000259c      0x5f8 ./src/BT_Stack/hci.o
+ .debug_frame   0x00002b94       0x58 ./src/BT_Stack/hci_cmds.o
+ .debug_frame   0x00002bec       0x84 ./src/BT_Stack/hci_dump.o
+ .debug_frame   0x00002c70      0x1a4 ./src/BT_Stack/hci_transport_h4_dma.o
+ .debug_frame   0x00002e14      0x5a8 ./src/BT_Stack/l2cap.o
+ .debug_frame   0x000033bc       0x60 ./src/BT_Stack/l2cap_signaling.o
+ .debug_frame   0x0000341c       0xd4 ./src/BT_Stack/linked_list.o
+ .debug_frame   0x000034f0       0x68 ./src/BT_Stack/memory_pool.o
+ .debug_frame   0x00003558      0x140 ./src/BT_Stack/remote_device_db_memory.o
+ .debug_frame   0x00003698      0x874 ./src/BT_Stack/rfcomm.o
+ .debug_frame   0x00003f0c      0x138 ./src/BT_Stack/run_loop.o
+ .debug_frame   0x00004044      0x168 ./src/BT_Stack/run_loop_embedded.o
+ .debug_frame   0x000041ac      0x4b8 ./src/BT_Stack/sdp_util.o
+ .debug_frame   0x00004664      0x174 ./src/BT_Stack/utils.o
+ .debug_frame   0x000047d8       0xf4 ./src/cr_startup_lpc176x.o
+ .debug_frame   0x000048cc       0x90 ./src/main.o
+ .debug_frame   0x0000495c       0x3c C:\Users\chuby\Dropbox\WorkSpace\CMSISv2p00_LPC17xx\Debug\libCMSISv2p00_LPC17xx.a(system_LPC17xx.o)

@@ -600,7 +600,7 @@ const gap_cmd_t gap_set_param = {
     //params: ParamValue 
 };
 const gap_cmd_t gap_UpdateAdvertisingData = {
-	(GAP_UpdateAdvertisingData),"111"
+	(GAP_UpdateAdvertisingData),"11A"
 	//params: AdType [0x00] scan response [0x01] adv data
 	//params: Adv Data length
 	//params: Adv Data
@@ -631,6 +631,11 @@ const gap_cmd_t gap_make_discoverable = {
 const gap_cmd_t gap_end_discoverable = {
     (GAP_EndDiscoverable), ""
     //params: None
+};
+
+const gap_cmd_t util_reset = {
+    (UTIL_Reset), "1"
+    //params: Resest type Hard Reset (0x00), Soft Reset (0x01)
 };
 
 #endif

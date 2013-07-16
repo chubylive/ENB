@@ -15,7 +15,8 @@ uint8_t UART1IRQ_ON = 0;
 void hal_cpu_enable_irqs(){
 	NVIC_EnableIRQ(UART1_IRQn);
 	NVIC_EnableIRQ(TIMER0_IRQn);
-	NVIC_EnableIRQ(DMA_IRQn);
+	//NVIC_EnableIRQ(DMA_IRQn);
+  //  NVIC_EnableIRQ(ADC_IRQn);
 
 }
 
@@ -27,22 +28,26 @@ void hal_cpu_disable_irqs(){
 }
 
 void hal_cpu_set_uart_needed_during_sleep(uint8_t enabled){
-	if(enabled){
+	/*if(enabled){
 		UART1IRQ_ON = 1;
 		NVIC_EnableIRQ(UART1_IRQn);
 	}else{
 		UART1IRQ_ON = 0;
 		//NVIC_DisableIRQ(UART1_IRQn);
-	}
+	}*/
 }
 /*the interrupt from uart is expected to bring MCU out of sleep mode*/
 void hal_cpu_enable_irqs_and_sleep(){
-	if (UART1IRQ_ON){
+	/*if (UART1IRQ_ON){
 		NVIC_EnableIRQ(UART1_IRQn);
 
 		CLKPWR_Sleep();
 	}else{
 		NVIC_EnableIRQ(UART1_IRQn);
 		CLKPWR_Sleep();
-	}
+	}*/
+}
+
+void clock_init(){
+
 }

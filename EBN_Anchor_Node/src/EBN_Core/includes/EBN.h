@@ -7,9 +7,9 @@
 struct EBN_Epoch_ID{
     union {
         struct {
-            unsigned int checksum : 4 ;
+        	unsigned int y_coord  : 1 ;
             unsigned int random   : 19;
-            unsigned int y_coord  : 1 ;
+            unsigned int checksum : 4 ;
         };
         uint8_t bytes[3];
     };
