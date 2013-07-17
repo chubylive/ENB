@@ -45,13 +45,13 @@ __CRP const unsigned int CRP_WORD = CRP_NO_CRP;
 
 uint8_t mempool[MEMSIZE]; //memory pool
 
-static uint8_t SCAN_COUNT = 0;
+static uint8_t START_SCAN = 0;
 static uint8_t SCANNING_NOW = 0;
 static uint8_t STATE = 0;
 static uint8_t CHANGING_ADDR = 0;
 
 static void scan_handler(struct timer *ts) {
-	if (hci_can_send_packet_now(HCI_COMMAND_DATA_PACKET) && (SCAN_COUNT >= 1)
+	if (hci_can_send_packet_now(HCI_COMMAND_DATA_PACKET) && (START_SCAN == 1)
 			&& (SCANNING_NOW == 0)) {
 		gap_send_cmd(&gap_device_discovery_request, 0x03, 0x00, 0x00);
 
@@ -69,7 +69,7 @@ static void epoch_change_handler(struct timer *ts) {
 		printf("curr BD ADDR: %s\n", bd_addr_to_str(EBN_Get_Mac_Address()));
 	}
 
-	gap_send_cmd(&gap_UpdateAdvertisingData, 0x01, 31, EBN_Get_Advert());
+	gap_send_cmd(&gap_UpdateAdvertisingData, 0x01, ADV_SIZE, EBN_Get_Advert());
 	run_loop_set_timer(ts, EPOCH_INTV);
 	run_loop_add_timer(ts);
 }
@@ -80,7 +80,7 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 	bd_addr_t blank_addr;
 	static uint8_t BROADCASTING = 0;
 	static uint8_t PARAM_STATE = 0;
-	uint8_t advt[31] = { 0xFF, 0xFF, 0xFF, 0xFF };
+	uint8_t advt[ADV_SIZE] = { 0xFF, 0xFF, 0xFF, 0xFF };
 
 	switch (packet_type) {
 
@@ -92,7 +92,7 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 			if (packet[2] == HCI_STATE_WORKING) {
 				printf("Working!\n");
 				hci_send_device_int();
-				//gap_send_cmd(&gap_device_init, (GAP_PROFILE_CENTRAL|GAP_PROFILE_BROADCASTER), 5,IRK_CSRK,IRK_CSRK,0x00000001 );
+				//gap_send_cmd(&gap_device_init, (GAP_PROFILE_CENTRAL|GAP_PROFILE_BROADCASTER), 5,IRK_CSRK,IRK_CSRK,0x00000001);
 			}
 			break;
 
@@ -116,9 +116,9 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 				break;
 			}
 
-			/*if(READ_BT_16(packet, 5) == GAP_SetParam ){
+			if(READ_BT_16(packet, 5) == GAP_SetParam){
 
-			 }*/
+			 }
 
 			if ((READ_BT_16(packet, 5) == GAP_SetParam && PARAM_STATE == 3)) {
 				gap_send_cmd(&gap_config_device_addr, 0x01,
@@ -128,8 +128,8 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 
 			if (READ_BT_16(packet, 5) == GAP_ConfigDeviceAddr) {
 				if (EBN_Get_Advert()) {
-					//hci_send_cmd(&hci_le_set_advertising_data,31, EBN_Get_Advert());
-					gap_send_cmd(&gap_UpdateAdvertisingData, 0x01, 31,
+					//hci_send_cmd(&hci_le_set_advertising_data,ADV_SIZE, EBN_Get_Advert());
+					gap_send_cmd(&gap_UpdateAdvertisingData, 0x01, ADV_SIZE,
 							EBN_Get_Advert());
 				} else {
 					gap_send_cmd(&gap_UpdateAdvertisingData, 0x01, 4, advt);
@@ -141,8 +141,8 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 			if ((READ_BT_16(packet, 2) == GAP_AdvertDataUpdate)
 					&& (packet[5] == 0x01)) { //0x01 Advertisement data
 				if (EBN_Get_Advert()) {
-					//hci_send_cmd(&hci_le_set_advertising_data,31, EBN_Get_Advert());
-					gap_send_cmd(&gap_UpdateAdvertisingData, 0x00, 31,
+					//hci_send_cmd(&hci_le_set_advertising_data,ADV_SIZE, EBN_Get_Advert());
+					gap_send_cmd(&gap_UpdateAdvertisingData, 0x00, ADV_SIZE,
 							EBN_Get_Advert());
 				} else {
 					gap_send_cmd(&gap_UpdateAdvertisingData, 0x00, 4, advt);
@@ -159,6 +159,7 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 				}
 
 				STATE = 1;
+				START_SCAN = 1;
 				break;
 
 			}
@@ -179,24 +180,26 @@ static void packet_handler(uint8_t packet_type, uint8_t *packet, uint16_t size) 
 
 			 /* scanning initiation*/
 
-			/*
+			if (READ_BT_16(packet, 2) == GAP_DeviceDiscoveryDone) {
 
-			 if (READ_BT_16(packet, 2) == GAP_DeviceDiscoveryDone) {
-			 uint8_t num_of_DD = packet[5];
-			 printf("Number of devices found: %d\n", num_of_DD);
-			 SCAN_COUNT += num_of_DD;
-			 SCANNING_NOW = 0;
-			 break;
-			 }
+				uint8_t num_of_DD = packet[5];
+				printf("Number of devices found: %d\n", num_of_DD);
+				START_SCAN += num_of_DD;
+				SCANNING_NOW = 0;
+				break;
+			}
 
-			 if (READ_BT_16(packet,2) == GAP_DeviceInformation) {
-			 bd_addr_t dev_addr;
+			if (READ_BT_16(packet,2) == GAP_DeviceInformation) {
+				bd_addr_t dev_addr;
+				uint8_t dev_adv[ADV_SIZE];
 
-			 bt_flip_addr(dev_addr, &packet[7]);
+				bt_flip_addr(dev_addr, &packet[7]);
+				read_adv(dev_adv, (packet+14));
 
-			 printf("found Device BD ADDR: %s\n", bd_addr_to_str(dev_addr));
+				printf("found Device BD ADDR: %s\n", bd_addr_to_str(dev_addr));
 
-			 }*/
+
+			}
 
 		case HCI_EVENT_COMMAND_COMPLETE:
 			if (COMMAND_COMPLETE_EVENT(packet, hci_read_bd_addr)) {

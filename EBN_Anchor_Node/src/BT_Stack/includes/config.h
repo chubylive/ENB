@@ -8,10 +8,10 @@
 #define HAVE_BLE
 #define DUMP
 
-
 #define SCAN_INTV 5000
 #define EPOCH_INTV 15000
 
+#define ADV_SIZE 31
 // #define ENABLE_LOG_INFO 
 //#define ENABLE_LOG_ERROR
 
